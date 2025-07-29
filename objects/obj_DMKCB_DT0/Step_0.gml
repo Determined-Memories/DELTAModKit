@@ -2,10 +2,7 @@
 if point_distance(target.x, target.y, target.xprev, target.yprev) > 20
 {
 	wraptimes = (wraptimes + 1) % 26
-	show_debug_message("*** Wrapped Updated (" + string(wraptimes) + ")")
 }
-
-show_debug_message(point_distance(target.x, target.y, target.xprev, target.yprev))
 
 	wrapnpc.x = mainnpc.x
 	wrapnpc.y = mainnpc.y	
