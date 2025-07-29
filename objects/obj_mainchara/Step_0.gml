@@ -883,13 +883,30 @@ if (onebuffer < 0)
             
             if (thisinteract > 0)
             {
+				var rectsize = [x + (3 * d), (y + sprite_height) - (5 * d), (x + sprite_width) - (5 * d), y + (5 * d)]
                 if (thisinteract == 1)
-                    interactedobject = collision_rectangle(x + (3 * d), (y + sprite_height) - (5 * d), (x + sprite_width) - (5 * d), y + (5 * d), obj_interactable, false, true);
+                    interactedobject = collision_rectangle(rectsize[0], rectsize[1], rectsize[2], rectsize[3], obj_interactable, false, true);
                 
                 if (thisinteract == 2)
-                    interactedobject = collision_rectangle(x + (3 * d), (y + sprite_height) - (5 * d), (x + sprite_width) - (5 * d), y + (5 * d), obj_interactablesolid, false, true);
-                
-                if (interactedobject != -4)
+                    interactedobject = collision_rectangle(rectsize[0], rectsize[1], rectsize[2], rectsize[3],  obj_interactablesolid, false, true);
+				if interactedobject.active == false
+				{
+					interactedobject = noone
+					with obj_interactable
+					{
+						if active
+							if collision_rectangle(rectsize[0], rectsize[1], rectsize[2], rectsize[3], id, false, false) != noone
+								other.interactedobject = id
+					}
+					with obj_interactablesolid
+					{
+						if active
+							if collision_rectangle(rectsize[0], rectsize[1], rectsize[2], rectsize[3], id, false, false) != noone
+								other.interactedobject = id
+					}
+				}
+				
+                if (interactedobject != noone)
                 {
                     with (interactedobject)
                         facing = 0;

@@ -2,6 +2,8 @@ extflag = "none";
 
 event_inherited();
 
+active = true;
+
 init = 0;
 talked = 0;
 tempvar = 0;

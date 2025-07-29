@@ -7,6 +7,9 @@ cam_moveoutofboundsv = false;
 autorun = 0;
 bg = 0;
 
+_palette = 0
+_palsprite = spr_krisdark_pal
+
 scr_depth();
 stepping = 0;
 stepped = 0;

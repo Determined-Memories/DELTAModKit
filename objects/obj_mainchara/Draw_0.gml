@@ -1,3 +1,5 @@
+if global.darkzone
+	pal_swap_set(spr_krisdark_pal, _palette, false);
 if (swordmode == 0)
     draw_self();
 
@@ -119,3 +121,4 @@ if (scr_debug())
         draw_text_outline(x + sprite_width, y, "floorheight=" + string(floorheight), 0);
     }
 }
+pal_swap_reset()

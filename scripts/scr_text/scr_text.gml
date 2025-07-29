@@ -29,20 +29,24 @@ function scr_text_extra(msc){
 			global.choicemsg[2] = " ";
 			global.choicemsg[3] = " ";
 			
-			msgset(0, "* Hey Boss, are you ready to return?/");
+			if !variable_global_exists("bossmsg")
+				global.bossmsg = true;
+			
+			msgset(0, global.bossmsg ? "* Hey Boss, are you ready to return?/" : "%/");
 			msgnext("\\C2");
 			show_debug_message(global.msc)
 			break;	
 		}
 		
 		case 20001: {
-			show_debug_message("* (You chose the option \"" + string_replace(global.choicemsg[global.choice], "#", " ") + "\")/%");
+			if !variable_global_exists("returnpoint")
+				global.returnpoint = room_dw_test;
 			global.msg[0] = "%%"
 				if global.choice == 0
 				{
 					with obj_mainchara
 					{
-						instance_create_depth(x - 5, y - 5, depth, obj_doorAny, {doorRoom:room_dw_test, doorEntrance:5, image_xscale: 5, image_yscale: 5})
+						instance_create_depth(x - 5, y - 5, depth, obj_doorAny, {doorRoom:global.returnpoint, doorEntrance:5, image_xscale: 5, image_yscale: 5})
 					}
 				}
 				if global.choice == 1

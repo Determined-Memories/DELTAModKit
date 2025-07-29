@@ -111,10 +111,7 @@ function snd_init(songname) {
         dir = working_directory + "../mus/";
     
     initsongvar = dir + songname;
-    if file_exists(initsongvar)
-        _mystream = audio_create_stream(initsongvar);
-    else
-        _mystream = snd_nosound;
+    _mystream = audio_create_stream(initsongvar);
     _astream = instance_create(0, 0, obj_astream);
     _astream.mystream = _mystream;
     _astream.songname = songname;

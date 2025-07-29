@@ -1,19 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"obj_astream",
+  "%Name":"obj_musicer_darktest",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_astream",
+  "name":"obj_musicer_darktest",
   "overriddenProperties":[],
   "parent":{
-    "name":"Engine",
-    "path":"folders/DELTARUNE/Objects/Engine.yy",
+    "name":"Musicer",
+    "path":"folders/Custom/Objects/Musicer.yy",
   },
-  "parentObjectId":null,
-  "persistent":true,
+  "parentObjectId":{
+    "name":"obj_musicer",
+    "path":"objects/obj_musicer/obj_musicer.yy",
+  },
+  "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -32,5 +34,5 @@
   "solid":false,
   "spriteId":null,
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

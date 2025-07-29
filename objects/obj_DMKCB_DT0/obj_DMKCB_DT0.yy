@@ -1,22 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_interactablesolid",
+  "%Name":"obj_DMKCB_DT0",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_interactablesolid",
+  "name":"obj_DMKCB_DT0",
   "overriddenProperties":[],
   "parent":{
-    "name":"World",
-    "path":"folders/DELTARUNE/Objects/World.yy",
+    "name":"DARKTEST",
+    "path":"folders/Custom/Objects/ROOMCONTROLLERS/DARKTEST.yy",
   },
-  "parentObjectId":{
-    "name":"obj_solidblock",
-    "path":"objects/obj_solidblock/obj_solidblock.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,16 +26,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v2","%Name":"active","filters":[],"listItems":[],"multiselect":false,"name":"active","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_interactable",
-    "path":"sprites/spr_interactable/spr_interactable.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
