@@ -5,10 +5,27 @@ if con == 0 && obj_mainchara.x < x {
 	scr_cutscene_make();
 	scr_maincharacters_actors();
 	
-	star = 0;
+	star = 10;
 	star_actor = getsStarwalker ?
-		instance_create(mod_obj_marker_z.x, mod_obj_marker_z.y, obj_actor) :
-		instance_create(obj_caterpillarchara.x, obj_caterpillarchara.y, obj_actor);
+	instance_create(mod_obj_marker_z.x, mod_obj_marker_z.y, obj_actor) :
+	instance_create(obj_caterpillarchara.x, obj_caterpillarchara.y, obj_actor);
+	
+	
+	if su == -1
+	{
+		su = actor_count + 1;
+		actor_count++
+        su_actor = instance_create(camerax() - 640, cameray() + 30, obj_actor);
+        scr_actor_setup(su, su_actor, "susie");
+		su_actor.sprite_index = spr_susier_dark
+	}
+	if ra == -1
+	{
+		ra = actor_count + 1;
+        ra_actor = instance_create(camerax() - 640, cameray() + 480 - 30, obj_actor);
+        scr_actor_setup(ra, ra_actor, "ralsei");
+		ra_actor.sprite_index = spr_ralsei_walk_right
+	}
 		
 	scr_character_set_caterpillar_sprites(DRCharacter.Starwalker)
 	star_actor.sprite_index = rsprite;
@@ -46,8 +63,10 @@ if con == 0 && obj_mainchara.x < x {
 		scr_getchar(DRCharacter.Ralsei);
 		
 		var suscat = scr_makecaterpillar(obj_mainchara.x + 40, cameray() - 100, DRCharacter.Susie, 1);
+		global.cinstance[0] = suscat
 		suscat.visible = false;
 		var ralcat = scr_makecaterpillar(obj_mainchara.x + 80, cameray() - 100, DRCharacter.Ralsei, 2);
+		global.cinstance[1] = ralcat
 		ralcat.visible = false;
 	}
 	

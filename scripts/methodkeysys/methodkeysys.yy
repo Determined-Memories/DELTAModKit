@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_set_facing_sprites",
+  "%Name":"methodkeysys",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_set_facing_sprites",
+  "name":"methodkeysys",
   "parent":{
     "name":"Scripts",
-    "path":"folders/DELTARUNE/Scripts.yy",
+    "path":"folders/Custom/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

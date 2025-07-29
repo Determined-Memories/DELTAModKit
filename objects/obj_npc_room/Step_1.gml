@@ -1,5 +1,40 @@
-if (init == 0) {
-	init = 1;
+if (init == false) {
+	if CUSTOM
+	{
+		if CUSTOM_IMAGESPEED != -1
+		{
+			TALKSPRITE = false;
+			normalanim = false;
+			image_speed = CUSTOM_IMAGESPEED;
+		}
+		sprite_index = CUSTOM_SPRITE;
+
+		if !is_array(CUSTOM_TEXT)
+		{
+			if is_string(CUSTOM_TEXT)
+			{
+	            var _method = noone
+	            if asset_get_index("scr_getmethodbykey") > 0  // Just incase if the methodkey system is missing.
+				    _method = scr_getmethodbykey(CUSTOM_TEXT, noone);
+				if _method != noone
+				{
+					USECUSTOMFUNC = true;
+					CUSTOM_FUNC = _method;
+				}
+				else
+				{
+					CUSTOM_TEXT = [string(CUSTOM_TEXT)];
+				}
+				show_debug_message(_method)
+			}
+			else
+			{
+				CUSTOM_TEXT = ["* The gash weaves down as if you cry./%"];
+			}
+		}
+		debug_message("*** Custom NPC Created, Use Func: (" + string(USECUSTOMFUNC) + ") Message: (" + string(CUSTOM_TEXT) + ")")
+	}
+	init = true;
 }
 
 var objInd = obj_writer;

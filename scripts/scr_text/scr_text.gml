@@ -22,6 +22,35 @@ function scr_text_extra(msc){
 			break;
 		}
 		
+		case 20000: {
+			scr_speaker("no_name");
+			global.choicemsg[0] = "#Return";
+			global.choicemsg[1] = "#Later";
+			global.choicemsg[2] = " ";
+			global.choicemsg[3] = " ";
+			
+			msgset(0, "* Hey Boss, are you ready to return?/");
+			msgnext("\\C2");
+			show_debug_message(global.msc)
+			break;	
+		}
+		
+		case 20001: {
+			show_debug_message("* (You chose the option \"" + string_replace(global.choicemsg[global.choice], "#", " ") + "\")/%");
+			global.msg[0] = "%%"
+				if global.choice == 0
+				{
+					with obj_mainchara
+					{
+						instance_create_depth(x - 5, y - 5, depth, obj_doorAny, {doorRoom:room_dw_test, doorEntrance:5, image_xscale: 5, image_yscale: 5})
+					}
+				}
+				if global.choice == 1
+				{
+				}
+			break;
+		}
+		
 		default: {
 			handled = false;
 			break;

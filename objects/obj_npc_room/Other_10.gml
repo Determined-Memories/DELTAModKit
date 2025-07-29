@@ -24,7 +24,7 @@ if !CUSTOM
 }
 else
 {
-	if USECUSTOMFUNC
+	if USECUSTOMFUNC && is_method(CUSTOM_FUNC)
 		CUSTOM_FUNC()
 	else
 	{
@@ -41,6 +41,7 @@ else
 		}
 	}
 }
+
 
 if (skip == 0)
 {

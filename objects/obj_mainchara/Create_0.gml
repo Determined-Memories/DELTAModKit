@@ -1,6 +1,9 @@
 global.currentroom = scr_get_id_by_room_index(room);
 scr_character_set_names();
 
+cam_moveoutofboundsh = false;
+cam_moveoutofboundsv = false;
+
 autorun = 0;
 bg = 0;
 
