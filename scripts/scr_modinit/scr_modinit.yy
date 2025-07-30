@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_modinit",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_modinit",
+  "parent":{
+    "name":"Configs",
+    "path":"folders/Custom/Scripts/Configs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

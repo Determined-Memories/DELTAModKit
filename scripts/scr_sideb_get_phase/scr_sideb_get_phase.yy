@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_sideb_get_phase",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_sideb_get_phase",
+  "parent":{
+    "name":"WeirdRoute",
+    "path":"folders/DELTARUNE/Scripts/WeirdRoute.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

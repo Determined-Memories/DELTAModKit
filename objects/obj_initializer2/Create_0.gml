@@ -1,3 +1,7 @@
+scr_modinit()
+
+audio_group_load(1) // Loud Sounds
+
 global.is_console = /*scr_is_switch_os() || */os_type == os_ps4 || os_type == os_ps5;
 
 if (!global.is_console)

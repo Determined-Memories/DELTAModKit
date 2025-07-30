@@ -12,16 +12,16 @@ if (global.is_console)
     if (!textures_loaded)
         textures_loaded = loadtex.loaded;
     
-    //if (textures_loaded)
-        //show_debug_message_concat("TEXTURES LOADED");
-    //else
-        //exit;
+    if (textures_loaded)
+        show_debug_message("TEXTURES LOADED");
+    else
+        exit;
 }
 
 var CH = string(global.chapter);
 
-/*if (audio_group_is_loaded(1))
-{*/
+if (audio_group_is_loaded(1))
+{
     roomchoice = room_legend;//PLACE_CONTACT;
     menu_go = 0;
     
@@ -37,7 +37,7 @@ var CH = string(global.chapter);
     if (menu_go == 0 || menu_go == 1)
     {
         if (global.is_console)
-            global.screen_border_alpha = 0;
+            global.screen_border_alpha = false;
         
         roomchoice = room_intro;
     }
@@ -45,10 +45,10 @@ var CH = string(global.chapter);
     if (menu_go == 2)
     {
         if (global.is_console)
-            global.screen_border_alpha = 1;
+            global.screen_border_alpha = true;
         
         scr_windowcaption("DELTARUNE");
-        global.tempflag[10] = 1;
+        global.tempflag[10] = true;
         roomchoice = room_legend;
         global.plot = 0;
     }
@@ -56,17 +56,17 @@ var CH = string(global.chapter);
     if (menu_go == 3)
     {
         if (global.is_console)
-            global.screen_border_alpha = 0;
+            global.screen_border_alpha = false;
         
-		global.darkzone = 0;
+		global.darkzone = false;
         roomchoice = scr_debug_get_start_room();
     }
     
     room_goto(roomchoice);
-//}
+}
 
-/*if (scr_debug())
+if (scr_debug())
 {
     if (!instance_exists(obj_debugProfiler))
         instance_create_depth(0, 0, 0, obj_debugProfiler);
-}*/
+}

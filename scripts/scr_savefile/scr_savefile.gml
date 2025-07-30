@@ -2,7 +2,7 @@ function scr_complete_save_file()
 {
     _remfilechoice = global.filechoice;
     global.filechoice += 3;
-    scr_set_ini_value(global.chapter, global.filechoice, "SideB", 0 /*scr_sideb_active()*/);
+    scr_set_ini_value(global.chapter, global.filechoice, "SideB", scr_sideb_get_phase()); // Things have really taken a Weird Route.
     scr_save();
     global.filechoice = _remfilechoice;
 }
@@ -291,6 +291,7 @@ function scr_set_vhs_ini_value(has_watched)
 
 function scr_save()
 {
+	global.currentroom = room
     scr_saveprocess(global.filechoice);
     filechoicebk2 = global.filechoice;
     global.filechoice = 9;
@@ -335,12 +336,34 @@ function scr_save()
     ossafe_savedata_save();
 }
 
-function scr_saveprocess(arg0)
+variable_global_set("%%ExtraSaveGlobals%%", {})
+
+function scr_addglobalstosavesystem(CATEGORYNAME, NAMEARRAY)
+{
+    return variable_struct_set(variable_global_get("%%ExtraSaveGlobals%%"), CATEGORYNAME, NAMEARRAY)
+}
+
+function scr_getcustomglobalcategoriesforsavesystem()
+{
+    return variable_struct_get_names(variable_global_get("%%ExtraSaveGlobals%%"))
+}
+
+function scr_getglobalsfromcategory(CATEGORYNAME)
+{
+    var globals = variable_global_get("%%ExtraSaveGlobals%%")
+    if variable_struct_exists(globals, CATEGORYNAME)
+        return variable_struct_get(globals, CATEGORYNAME)
+    return []
+    
+}
+
+function scr_saveprocess(slot)
 {
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;
-    file = "filech" + string(global.chapter) + "_" + string(arg0);
+    file = "filech" + string(global.chapter) + "_" + string(slot);
     myfileid = ossafe_file_text_open_write(file);
+	debug_message("*** Saving to Directory (" + filename_path(file) + file + ")")
     ossafe_file_text_write_string(myfileid, global.truename);
     ossafe_file_text_writeln(myfileid);
     
@@ -562,6 +585,33 @@ function scr_saveprocess(arg0)
     ossafe_file_text_write_real(myfileid, global.currentroom);
     ossafe_file_text_writeln(myfileid);
     ossafe_file_text_write_real(myfileid, global.time);
+    var categories = scr_getcustomglobalcategoriesforsavesystem();
+    
+    for (i = 0; i < array_length(categories); i++)
+    {
+        ossafe_file_text_writeln(myfileid);
+        ossafe_file_text_write_string(myfileid, "CUSTOMCATE_" + string(categories[i]));
+        var categoryglobals = scr_getglobalsfromcategory(categories[i]);
+        
+        for (var i2 = 0; i2 < array_length(categoryglobals); i2++)
+        {
+            ossafe_file_text_writeln(myfileid);
+            var value = variable_global_get(categoryglobals[i2]);
+            
+            if (is_real(value))
+            {
+                ossafe_file_text_write_real(myfileid, value);
+            }
+            else if (is_struct(value))
+            {
+                ossafe_file_text_write_string(myfileid, json_stringify(value));
+            }
+            else
+            {
+                ossafe_file_text_write_string(myfileid, string(value));
+            }
+        }
+    }
     ossafe_file_text_close(myfileid);
 }
 
@@ -889,6 +939,42 @@ function scr_load()
     ossafe_file_text_readln(myfileid);
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
+	// place right before ossafe_file_text_close(myfileid); in the scr_load function
+	var lastCategory = "NULL";
+    var lineofcategory = 0;
+    
+    while (!file_text_eof(myfileid))
+    {
+        var value = ossafe_file_text_read_string(myfileid);
+        var globals = scr_getglobalsfromcategory(lastCategory);
+        
+		var val = string_replace_all(value, " ", "")
+		
+        if (string_digits(val) == val)
+        {
+            value = real(val);
+        }
+        else if (string_starts_with(value, "{") && string_ends_with(value, "}"))
+        {
+            value = json_parse(value);
+        }
+        
+        
+        if (lineofcategory < array_length(globals))
+        {
+            variable_global_set(globals[lineofcategory], value);
+        }
+        
+        lineofcategory++;
+        
+        if (string_starts_with(string(value), "CUSTOMCATE_"))
+        {
+            lastCategory = string_replace(value, "CUSTOMCATE_", "");
+            lineofcategory = 0;
+        }
+        
+        ossafe_file_text_readln(myfileid);
+    }
     ossafe_file_text_close(myfileid);
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;
@@ -897,17 +983,17 @@ function scr_load()
     audio_set_master_gain(0, global.flag[17]);
     var room_id = global.currentroom;
     
-    if (room_id < 10000)
-    {
-        room_id = scr_get_id_by_room_index(global.currentroom);
+    //if (room_id < 10000)
+    //{
+    //    room_id = scr_get_id_by_room_index(global.currentroom);
         
-        if (room_id == -1)
-            room_id += (global.currentroom + (global.chapter * 10000));
+    //    if (room_id == -1)
+    //        room_id += (global.currentroom + (global.chapter * 10000));
         
-        global.currentroom = room_id;
-    }
+    //    global.currentroom = room_id;
+    //}
     
-    __loadedroom = scr_get_room_by_id(global.currentroom);
+    __loadedroom = (global.currentroom);
     
     //if (scr_dogcheck())
     //    __loadedroom = 83;

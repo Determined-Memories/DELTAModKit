@@ -47,7 +47,7 @@ if (global.chapter > 2)
     }
 }
 
-global.currentroom = scr_get_id_by_room_index(room);
+global.currentroom = (room);
 global.interact = 1;
 
 if (ossafe_file_exists("dr.ini"))
@@ -58,7 +58,7 @@ if (ossafe_file_exists("dr.ini"))
     level = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Level", 1);
     love = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Love", 1);
     time = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Time", 0);
-    roome = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Room", scr_get_id_by_room_index(room));
+    roome = ini_read_real(scr_ini_chapter(global.chapter, global.filechoice), "Room", (room));
     ossafe_ini_close();
     ossafe_savedata_save();
 }

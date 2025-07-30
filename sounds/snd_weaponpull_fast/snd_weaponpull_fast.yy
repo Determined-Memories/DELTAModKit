@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"snd_weaponpull_fast",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audio_sfx",
+    "path":"audiogroups/audio_sfx",
   },
   "bitDepth":1,
   "channelFormat":0,
