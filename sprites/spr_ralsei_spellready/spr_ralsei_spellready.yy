@@ -29,7 +29,7 @@
   "origin":9,
   "parent":{
     "name":"Battle",
-    "path":"folders/DELTARUNE/Sprites/Characters/Ralsei/Battle.yy",
+    "path":"folders/DELTARUNE/Sprites/Characters/Ralsei/Hatless/Battle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -184,3 +184,9 @@ if (keyboard_check(vk_shift) && keyboard_check(vk_control) && keyboard_check_pre
     //scr_84_load_ini();
     room_restart();
 }
+
+if (keyboard_check(vk_shift) && keyboard_check(vk_alt) && keyboard_check_pressed(ord("M")))
+{
+    with obj_time
+		showmodkitmessage = !showmodkitmessage
+}

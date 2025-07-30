@@ -26,6 +26,10 @@ rsprite = spr_susier_dark;
 lsprite = spr_susiel_dark;
 slidesprite = spr_susied_dark;
 climbsprite = spr_susieu_dark;
+usprite_blush = spr_ralsei_walk_up;
+dsprite_blush = spr_ralsei_walk_down_blush;
+rsprite_blush = spr_ralsei_walk_right_blush;
+lsprite_blush = spr_ralsei_walk_left_blush;
 
 parent = obj_mainchara;
 pd = parent.dsprite;

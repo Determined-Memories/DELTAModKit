@@ -2,7 +2,7 @@ if (quit_timer >= 1)
     draw_sprite_ext(spr_quitmessage, quit_timer / 7, 4, 4, 2, 2, 0, c_white, quit_timer / 15);
 	
 if keyboard_check(vk_control) & keyboard_check(vk_alt) & keyboard_check_pressed(ord("M"))
-showmodkitmessage = !showmodkitmessage
+	showmodkitmessage = !showmodkitmessage
 
 if scr_debug() && showmodkitmessage {
 	

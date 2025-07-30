@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Dark",
-    "path":"folders/DELTARUNE/Sprites/Characters/Ralsei/Dark.yy",
+    "name":"Animation",
+    "path":"folders/DELTARUNE/Sprites/Characters/Ralsei/Hatless/Dark/Animation.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
