@@ -120,7 +120,7 @@
   "name":"fnt_mainbig",
   "parent":{
     "name":"Main",
-    "path":"folders/DELTARUNE/Fonts/Main.yy",
+    "path":"folders/DELTARUNE/Fonts/EN/Main.yy",
   },
   "pointRounding":0,
   "ranges":[
