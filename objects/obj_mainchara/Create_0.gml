@@ -8,7 +8,7 @@ autorun = 0;
 bg = 0;
 
 _palette = 0
-_palsprite = spr_krisdark_pal
+_palsprite = pal_krisdark
 
 scr_depth();
 stepping = 0;

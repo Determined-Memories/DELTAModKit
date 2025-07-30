@@ -1,5 +1,4 @@
-if global.darkzone
-	pal_swap_set(spr_krisdark_pal, _palette, false);
+pal_swap_set(_palsprite, _palette, false);
 if (swordmode == 0)
     draw_self();
 

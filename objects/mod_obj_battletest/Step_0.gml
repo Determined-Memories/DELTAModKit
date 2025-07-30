@@ -1,6 +1,6 @@
 if (con != 0) return;
 
-if (obj_mainchara.x > bbox_left && obj_mainchara.y < bbox_bottom && obj_mainchara.y > bbox_top && obj_mainchara.x < bbox_right) {
+if (obj_mainchara.bbox_right > bbox_left && obj_mainchara.bbox_top < bbox_bottom && obj_mainchara.bbox_bottom > bbox_top && obj_mainchara.bbox_left < bbox_right) {
 	con = 1;
 	
 	scr_battle(DREncounter.TestEnemies, 0);

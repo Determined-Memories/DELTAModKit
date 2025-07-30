@@ -1,5 +1,7 @@
 window_set_cursor(cr_none);
 
+showmodkitmessage = true;
+
 quit_timer = 0;
 keyboard_active = 1;
 gamepad_active = 1;

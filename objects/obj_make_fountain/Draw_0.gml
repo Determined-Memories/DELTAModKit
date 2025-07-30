@@ -1,5 +1,6 @@
 if (active == 1)
 {
+	pal_swap_set(pal_krfountain, 1, false)
     if (drawkris == 1)
         draw_self();
     
@@ -124,4 +125,5 @@ if (active == 1)
         draw_set_color(c_black);
         draw_rectangle(-10, ceilheight - 80, 999, -90, false);
     }
+	pal_swap_reset()
 }

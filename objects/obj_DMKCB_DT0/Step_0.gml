@@ -4,8 +4,14 @@ if point_distance(target.x, target.y, target.xprev, target.yprev) > 20
 	wraptimes = (wraptimes + 1) % 26
 }
 
-	wrapnpc.x = mainnpc.x
-	wrapnpc.y = mainnpc.y	
+with obj_bg_palette_swap
+{
+	var wrapped = other.wraptimes
+	palette_index = lerp(palette_index, floor((wrapped / 25) * 10) / 10, 0.25)
+}
+
+wrapnpc.x = mainnpc.x
+wrapnpc.y = mainnpc.y	
 	
 if wraptimes == 25
 {
