@@ -673,29 +673,28 @@ function scr_enemy_hurt()
 
 function scr_defeatrun()
 {
-    var __frozen;
-    
+	var __frozen;
     if (object_is_ancestor(object_index, obj_monsterparent))
     {
-        __frozen = 0;
+        __frozen = false;
         
         if (global.flag[51 + myself] == 6)
-            __frozen = 1;
+            __frozen = true;
         
-        if (__frozen == 1)
+        if (__frozen == true)
         {
             _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
             _rtext.image_index = 12;
             
-            if (recruitable == 1)
+            if (recruitable == true)
                 global.flag[global.monstertype[myself] + 600] = -1;
             
-            global.flag[63] = 1;
+            global.flag[63] = true;
         }
         
-        if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
+        if (recruitable == 1 && global.flag[61] == false && __frozen == false)
         {
-            global.flag[63] = 1;
+            global.flag[63] = true;
             
             if (global.flag[global.monstertype[myself] + 600] != -1)
             {
@@ -710,10 +709,19 @@ function scr_defeatrun()
         fatal = 0;
     }
     
-    //if (fatal == 1)
-    //    defeatanim = instance_create(x, y, obj_deathanim);
-    //else
-        defeatanim = instance_create(x, y, obj_defeatanim);
+	if !__frozen
+	{
+	    if (fatal == 1)
+	        defeatanim = instance_create(x, y, obj_deathanim);
+	    else
+	        defeatanim = instance_create(x, y, obj_defeatanim);
+	}
+	else if (__frozen)
+    {
+        defeatanim = instance_create(x, y, obj_frozennpc);
+        defeatanim.depth = depth;
+        defeatanim.inbattle = true;
+    }
     
     defeatanim.sprite_index = sprite_index;
     defeatanim.sprite_index = hurtsprite;
@@ -727,6 +735,7 @@ function scr_randomtarget_old()
 {
     abletotarget = 1;
 	
+	mytarget = 0;
 	for (var i = 0; i < array_length(global.charcantarget); i++)
 		if global.charcantarget[i] == false abletotarget = false;
     
@@ -742,5 +751,7 @@ function scr_randomtarget_old()
         mytarget = 3;
     }
     
-    global.targeted[mytarget] = 1;
+    global.targeted[mytarget] = true;
+	show_debug_message(mytarget)
+	return mytarget
 }

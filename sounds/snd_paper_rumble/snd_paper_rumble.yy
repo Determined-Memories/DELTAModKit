@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_paper_rumble",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":1,
+  "duration":1.124127,
+  "exportDir":"",
+  "name":"snd_paper_rumble",
+  "parent":{
+    "name":"External",
+    "path":"folders/DELTARUNE/Sounds/External.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_paper_rumble.ogg",
+  "volume":1.0,
+}

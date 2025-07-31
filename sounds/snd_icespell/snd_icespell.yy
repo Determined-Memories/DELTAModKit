@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_icespell",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":1,
+  "duration":1.2698413,
+  "exportDir":"",
+  "name":"snd_icespell",
+  "parent":{
+    "name":"External",
+    "path":"folders/DELTARUNE/Sounds/External.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_icespell.ogg",
+  "volume":1.0,
+}

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_great_shine",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":1,
+  "duration":2.2580726,
+  "exportDir":"",
+  "name":"snd_great_shine",
+  "parent":{
+    "name":"External",
+    "path":"folders/DELTARUNE/Sounds/External.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_great_shine.ogg",
+  "volume":1.0,
+}

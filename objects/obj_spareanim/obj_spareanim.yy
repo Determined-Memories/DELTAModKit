@@ -9,8 +9,8 @@
   "name":"obj_spareanim",
   "overriddenProperties":[],
   "parent":{
-    "name":"Effects",
-    "path":"folders/DELTARUNE/Objects/Battle/Effects.yy",
+    "name":"Spare [Because that's a spell internally]",
+    "path":"folders/DELTARUNE/Objects/Battle/Effects/Spells/Spare [Because that's a spell internally].yy",
   },
   "parentObjectId":null,
   "persistent":false,

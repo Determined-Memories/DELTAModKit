@@ -444,35 +444,35 @@ function scr_spell_use_action(casterid, spellid) {
             break;
 		}
         
-        /*case DRSpell.SleepMist:
-            var _mistcount = 0;
+        //case DRSpell.SleepMist:
+        //    var _mistcount = 0;
             
-            for (_spelli = 0; _spelli < 3; _spelli++)
-            {
-                if (global.monster[_spelli] == 1)
-                {
-                    with (global.monsterinstance[_spelli])
-                    {
-                        _icemist = instance_create(global.monsterx[myself], global.monstery[myself], obj_spell_mist);
-                        _icemist.target = id;
-                        _icemist.myself = myself;
-                        _icemist.initdelay = _mistcount * 10;
-                        _mistcount++;
-                    }
-                }
-            }
+        //    for (_spelli = 0; _spelli < 3; _spelli++)
+        //    {
+        //        if (global.monster[_spelli] == 1)
+        //        {
+        //            with (global.monsterinstance[_spelli])
+        //            {
+        //                _icemist = instance_create(global.monsterx[myself], global.monstery[myself], obj_spell_mist);
+        //                _icemist.target = id;
+        //                _icemist.myself = myself;
+        //                _icemist.initdelay = _mistcount * 10;
+        //                _mistcount++;
+        //            }
+        //        }
+        //    }
             
-            global.spelldelay = 20 + (_mistcount * 10);
-            break;*/
+        //    global.spelldelay = 20 + (_mistcount * 10);
+        //    break;
         
-        /*case DRSpell.IceShock:
-            cancelattack = 0;
+        case DRSpell.IceShock:
+            cancelattack = false;
             global.spelldelay = 30;
             
-            if (global.monster[star] == 0)
+            if (global.monster[star] == false) // * Need to retarget the spell to some other Enemy./
                 scr_retarget_spell();
             
-            if (cancelattack == 0)
+            if (cancelattack == false)
             {
                 global.flag[925]++;
                 var minbattlemag = clamp(global.battlemag[casterid] - 10, 1, 999);
@@ -488,13 +488,13 @@ function scr_spell_use_action(casterid, spellid) {
             break;
         
         case DRSpell.SnowGrave:
-            cancelattack = 0;
+            cancelattack = false;
             global.spelldelay = 30;
             
-            if (scr_monsterpop() == 0)
-                cancelattack = 1;
+            if (scr_monsterpop() == 0) // * There's No Enemies Left, No need to waste magic on nothing./
+                cancelattack = true;
             
-            if (cancelattack == 0)
+            if (cancelattack == false)
             {
                 global.spelldelay = 30;
                 damage = ceil((global.battlemag[casterid] * 40) + 600);
@@ -504,7 +504,7 @@ function scr_spell_use_action(casterid, spellid) {
                 global.spelldelay = 140;
             }
             
-            break;*/
+            break;
         
         case DRSpell.UltraHeal: {
 			global.flag[1045]++;

@@ -404,7 +404,13 @@ if global.darkzone == true
 return "krislight"
 })
 
-scr_createfacingspritessubname("noelle", function() {return global.darkzone ? "noelledark" : "noellelight"})
+scr_createfacingsprites("noellelight", spr_noelle_walk_down_lw, spr_noelle_walk_left_lw, spr_noelle_walk_up_lw, spr_noelle_walk_right_lw)
+scr_createfacingsprites("noellelightneutral", spr_noelle_walk_down_lw_neutral, spr_noelle_walk_left_lw_neutral, spr_noelle_walk_up_lw, spr_noelle_walk_right_lw_neutral)
+scr_createfacingsprites("noellelightsmile", spr_noelle_walk_down_lw_smile, spr_noelle_walk_left_lw_smile, spr_noelle_walk_up_lw, spr_noelle_walk_right_lw_smile)
+scr_createfacingsprites("noelledark", spr_noelle_walk_down_dw, spr_noelle_walk_left_dw, spr_noelle_walk_up_dw, spr_noelle_walk_right_dw)
+scr_createfacingsprites("noelledarkhappy", spr_noelle_walk_down_dw_happy, spr_noelle_walk_left_dw_happy, spr_noelle_walk_up_dw, spr_noelle_walk_right_dw_happy)
+
+scr_createfacingspritessubname("noelle", function() {return global.darkzone ? ((global.chapter <= 2 || scr_sideb_active()) ? "noelledark" : "noelledarkhappy") : (scr_sideb_active() ? "noellelightneutral" : "noellelight")})
 scr_createfacingspritessubname("berdly", function() {return global.darkzone ? "berdlydark" : "berdlylight"})
 scr_createfacingspritessubname("ralsei", function() {return global.chapter <= 1 ? "ralseihat" : "ralseinohat"})
 

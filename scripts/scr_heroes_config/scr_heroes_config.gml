@@ -196,6 +196,54 @@ function scr_hero_set_sprites(heroObject) {
 			break;
 		}
 		
+		case obj_heronoelle: {
+		    attackframes = 4;
+		    itemframes = 9;
+		    defendframes = 0;
+		    actframes = 7;
+		    actreturnframes = 10;
+		    attackspeed = 0.5;
+		    spellframes = 6;
+		    normalsprite = spr_noelle_walk_right_dw;
+		    idlesprite = spr_noelleb_idle;
+    
+    
+		    defendsprite = spr_noelleb_defend;
+		    hurtsprite = spr_noelleb_hurt;
+		    attackreadysprite = spr_noelleb_attackready;
+		    attacksprite = spr_noelleb_attack;
+		    itemsprite = spr_noelleb_item;
+		    itemreadysprite = spr_noelleb_itemready;
+		    spellreadysprite = spr_noelleb_spellready;
+    
+    
+		    spellsprite = spr_noelleb_spell;
+		    defeatsprite = spr_noelleb_defeat;
+		    victorysprite = spr_noelleb_victory;
+		    actreadysprite = spr_noelleb_actready;
+		    actsprite = spr_noelleb_act;
+		    victoryframes = sprite_get_number(victorysprite);
+		    //_sideb = false; // Reactivated, Even though toby literally set it to false >:3
+			_sideb = scr_sideb_active();
+    
+		    if (_sideb == true)
+		    {
+		        attackreadysprite = spr_noelleb_idle;
+		        attacksprite = spr_noelleb_spell;
+		        attackframes = 6;
+		        victorysprite = spr_noelleb_pray;
+		        victoryframes = 10;
+		        defendframes = 5;
+		        defendsprite = spr_noelleb_defend_sideb;
+		        hurtsprite = spr_noelleb_hurt_sideb;
+		        idlesprite = spr_noelleb_idle_sideb;
+		    }
+    
+		    mywidth = 52;
+		    myheight = 86;
+			break
+				}
+		
 		case obj_herostarwalker: {
 			attackframes = 1;
 		    itemframes = 1;
@@ -248,7 +296,10 @@ function scr_character_set_caterpillar_sprites(charIdx) {
 			break;
 		}
 		
-		case DRCharacter.Noelle: { name = "noelle"; break; } // noelle has no sprites because i didnt wanna do allat importing
+		case DRCharacter.Noelle:
+			name = "noelle"; 
+			scr_set_facing_sprites("noelle");
+			break
 		
 		case DRCharacter.Starwalker: {
 			name = "starwalker";

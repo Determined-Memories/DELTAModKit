@@ -1,0 +1,23 @@
+myinteract = false;
+image_speed = 0;
+
+image_alpha = 0;
+image_speed = 0;
+image_xscale = 2;
+image_yscale = 2;
+timer = 0;
+con = 0;
+mysolid = false;
+init = false;
+h = 0;
+w = 0;
+returntoxy = false;
+movetimer = 0;
+kiratimer = 0;
+skipsound = false;
+skipsolid = false;
+depth = 0;
+specialinit = false;
+specialcolor = merge_color(c_navy, c_white, 0.8);
+fresh = false;
+inbattle = false;

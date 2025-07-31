@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_krisb_idle",
-    "path":"sprites/spr_krisb_idle/spr_krisb_idle.yy",
+    "name":"spr_noelleb_idle",
+    "path":"sprites/spr_noelleb_idle/spr_noelleb_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

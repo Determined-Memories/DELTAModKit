@@ -9,8 +9,8 @@
   "name":"obj_healanim",
   "overriddenProperties":[],
   "parent":{
-    "name":"Effects",
-    "path":"folders/DELTARUNE/Objects/Battle/Effects.yy",
+    "name":"Heal",
+    "path":"folders/DELTARUNE/Objects/Battle/Effects/Spells/Heal.yy",
   },
   "parentObjectId":null,
   "persistent":false,

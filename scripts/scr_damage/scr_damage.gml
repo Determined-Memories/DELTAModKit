@@ -36,30 +36,39 @@ function scr_damage()
         scr_randomtarget_old();
         target = mytarget;
         var getList = array_length(global.char);
+        if target < getList
+		{
+			
+	        if ((global.hp[global.char[target]] / global.maxhp[global.char[target]]) < (scr_party_hpaverage() / 2))
+	        {
+	            scr_randomtarget_old();
+	            target = mytarget;
+	        }
             
-        if ((global.hp[global.char[target]] / global.maxhp[global.char[target]]) < (scr_party_hpaverage() / 2))
-        {
-            scr_randomtarget_old();
-            target = mytarget;
-        }
+	        if ((global.hp[global.char[target]] / global.maxhp[global.char[target]]) < (scr_party_hpaverage() / 2))
+	        {
+	            scr_randomtarget_old();
+	            target = mytarget;
+	        }
             
-        if ((global.hp[global.char[target]] / global.maxhp[global.char[target]]) < (scr_party_hpaverage() / 2))
-        {
-            scr_randomtarget_old();
-            target = mytarget;
-        }
+	        if (target == 0 && (global.hp[global.char[target]] / global.maxhp[global.char[target]]) < 0.35)
+	        {
+	            scr_randomtarget_old();
+	            target = mytarget;
+	        }
             
-        if (target == 0 && (global.hp[global.char[target]] / global.maxhp[global.char[target]]) < 0.35)
-        {
-            scr_randomtarget_old();
-            target = mytarget;
-        }
-            
-        with (global.charinstance[target])
-        {
-            image_blend = c_white;
-            darkify = 0;
-        }
+	        with (global.charinstance[target])
+	        {
+	            image_blend = c_white;
+	            darkify = 0;
+	        }
+		}
+		else
+		{
+			target = floor(random(array_length(global.char) - 1));
+			while global.hp[global.char[target]] < 1
+				target = floor(random(array_length(global.char) - 1));
+		}
     }
         
     chartarget = 3;

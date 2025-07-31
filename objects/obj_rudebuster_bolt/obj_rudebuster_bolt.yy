@@ -9,8 +9,8 @@
   "name":"obj_rudebuster_bolt",
   "overriddenProperties":[],
   "parent":{
-    "name":"Effects",
-    "path":"folders/DELTARUNE/Objects/Battle/Effects.yy",
+    "name":"Rudebuster",
+    "path":"folders/DELTARUNE/Objects/Battle/Effects/Spells/Rudebuster.yy",
   },
   "parentObjectId":null,
   "persistent":false,

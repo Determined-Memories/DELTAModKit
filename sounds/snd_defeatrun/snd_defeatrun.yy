@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"snd_defeatrun",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"audio_sfx",
+    "path":"audiogroups/audio_sfx",
   },
   "bitDepth":1,
   "channelFormat":0,
@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_defeatrun",
   "parent":{
-    "name":"Battle",
-    "path":"folders/DELTARUNE/Sounds/Dark/Battle.yy",
+    "name":"Defeat",
+    "path":"folders/DELTARUNE/Sounds/Dark/Battle/Defeat.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

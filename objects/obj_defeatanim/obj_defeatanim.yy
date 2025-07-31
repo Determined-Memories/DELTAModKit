@@ -10,8 +10,8 @@
   "name":"obj_defeatanim",
   "overriddenProperties":[],
   "parent":{
-    "name":"Effects",
-    "path":"folders/DELTARUNE/Objects/Battle/Effects.yy",
+    "name":"EnemyDefeat",
+    "path":"folders/DELTARUNE/Objects/Battle/Effects/EnemyDefeat.yy",
   },
   "parentObjectId":null,
   "persistent":false,

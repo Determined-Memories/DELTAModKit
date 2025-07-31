@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_petrify",
+  "audioGroupId":{
+    "name":"audio_sfx",
+    "path":"audiogroups/audio_sfx",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.8386848,
+  "exportDir":"",
+  "name":"snd_petrify",
+  "parent":{
+    "name":"Defeat",
+    "path":"folders/DELTARUNE/Sounds/Dark/Battle/Defeat.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_petrify.wav",
+  "volume":1.0,
+}
