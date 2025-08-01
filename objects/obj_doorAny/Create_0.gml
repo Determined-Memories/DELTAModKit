@@ -1,7 +1,7 @@
 event_inherited()
 
-touched = 0;
-init = 0;
+touched = false;
+init = false;
 image_speed = 0;
 
 doorSpecial = "none";
