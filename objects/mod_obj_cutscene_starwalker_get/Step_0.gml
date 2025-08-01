@@ -1,4 +1,4 @@
-if con == 0 {
+if con == 0 && obj_mainchara.x < x {
 	getsStarwalker = !scr_havechar(DRCharacter.Starwalker);
 	con = 2;
 	
@@ -104,6 +104,6 @@ if con == 0 {
 	c_terminatekillactors();
 }
 
-if con == 2 && obj_mainchara.x > x {
+if con == 2 && obj_mainchara.x > x + 20 {
 	con = 0;
 }

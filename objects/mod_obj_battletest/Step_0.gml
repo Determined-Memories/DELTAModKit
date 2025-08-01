@@ -1,6 +1,6 @@
 if (con != 0) return;
 
-if (obj_mainchara.bbox_right > bbox_left && obj_mainchara.bbox_top < bbox_bottom && obj_mainchara.bbox_bottom > bbox_top && obj_mainchara.bbox_left < bbox_right) {
+if room == room_dw_test_old ? obj_mainchara.x > x : collision_point(x, y, obj_mainchara, true, true) {
 	con = 1;
 	
 	scr_battle(DREncounter.TestEnemies, 0);
