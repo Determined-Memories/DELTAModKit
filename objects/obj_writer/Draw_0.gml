@@ -817,7 +817,7 @@ if (view_current == 0)
         }
     }
     
-    if (halt != 0 && button1 == 1 && siner > 0)
+    if (halt != 0 && button1 == true && siner > 0)
     {
         if (halt == 1)
         {
@@ -832,7 +832,7 @@ if (view_current == 0)
             with (obj_smallface)
                 instance_destroy();
             
-            if (facer == 1)
+            if (facer == true)
             {
                 with (obj_face)
                     instance_destroy();

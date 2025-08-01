@@ -13,12 +13,21 @@ if (con == 1)
 {
     with (obj_mainchara)
     {
-        cutscene = 1;
+        cutscene = true;
         idealx = 300;
         
         if (scr_havechar(2))
+		{
             idealx = 285;
+		}
         
+		if instance_exists(obj_darkdoor)
+		{
+			idealx = obj_darkdoor.x + 12
+			if scr_havechar(2)
+				idealx = obj_darkdoor.x - 3
+		}
+		show_debug_message(idealx)
         scr_move_to_point_over_time(idealx, 100, 6);
     }
     
@@ -36,8 +45,10 @@ if (con == 1)
         with (obj_caterpillarchara)
             instance_destroy();
     }
-    
-    scr_pan_lerp(151, 0, 6);
+    if instance_exists(obj_darkdoor)
+		scr_pan_lerp(obj_darkdoor.x - 137, obj_darkdoor.y - 62, 6)
+	else
+		scr_pan_lerp(151, 0, 6);
     con = 2;
     alarm[4] = 7;
 }
@@ -45,7 +56,7 @@ if (con == 1)
 if (con == 3)
 {
     with (obj_mainchara)
-        visible = 0;
+        visible = false;
     
     instance_create(x, y, obj_dw_transition);
     
@@ -63,7 +74,7 @@ if (con == 3)
         {
             kris_x = obj_mainchara.x;
             kris_y = obj_mainchara.y;
-            kris_only = 1;
+            kris_only = true;
         }
     }
     

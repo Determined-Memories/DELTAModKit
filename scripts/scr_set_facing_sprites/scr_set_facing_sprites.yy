@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_set_facing_sprites",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/DELTARUNE/Scripts.yy",
+    "name":"Cutscenes",
+    "path":"folders/DELTARUNE/Scripts/Cutscenes.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

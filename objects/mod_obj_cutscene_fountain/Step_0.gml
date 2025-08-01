@@ -1,4 +1,4 @@
-if con == 0 && obj_mainchara.x < x {
+if con == 0 && place_meeting(x, y, obj_mainchara) {
 	con = 2;
 	
 	scr_cutscene_make();
@@ -9,9 +9,11 @@ if con == 0 && obj_mainchara.x < x {
 	
 	c_sel(kr);
 		c_walktoobject(mod_obj_marker_a, 0, 0, 35);
-		
-	c_sel(su);
+	if su != -1
+	{
+		c_sel(su);
 		c_walktoobject(mod_obj_marker_b, 0, 0, 35);
+	}
 		
 	c_wait(35);
 	
@@ -32,7 +34,7 @@ if con == 0 && obj_mainchara.x < x {
 	c_sel(kr);
 	c_visible(false);
 	c_var_instance(fountain, "active", true);
-	c_var_instance(fountain, "ceilheight", 300);
+	c_var_instance(fountain, "ceilheight", cameray());
 	
 	c_wait_if(fountain, "ceiltimer", ">=", 700);
 	c_var_instance(id, "go_to_dark_world", true);
@@ -49,5 +51,6 @@ if go_to_dark_world && con != 3 {
 	
 	scr_become_dark();
 	instance_create(0, 0, obj_persistentfadein);
-	room_goto(room_dw_test);
+	global.tempflag[6] = true;
+	room_goto(room_dw_test_fountain);
 }

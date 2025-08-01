@@ -13,7 +13,10 @@
     "name":"Dialogue",
     "path":"folders/DELTARUNE/Objects/Dialogue.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_face_parent",
+    "path":"objects/obj_face_parent/obj_face_parent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

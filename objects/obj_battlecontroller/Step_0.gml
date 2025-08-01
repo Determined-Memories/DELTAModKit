@@ -10,7 +10,7 @@ if (victory == 1 && victoried == 0)
     with (battlewriter)
         instance_destroy();
     
-    with (obj_face)
+    with (obj_face_parent)
         instance_destroy();
     
     with (obj_smallface)
@@ -214,7 +214,7 @@ if (global.myfight == 0)
         with (battlewriter)
             depth = 3;
         
-        with (obj_face)
+        with (obj_face_parent)
             depth = 3;
         
         with (obj_smallface)
@@ -229,7 +229,7 @@ if (global.myfight == 0)
         with (battlewriter)
             depth = 10;
         
-        with (obj_face)
+        with (obj_face_parent)
             depth = 10;
         
         with (obj_smallface)
@@ -346,7 +346,7 @@ if (global.myfight == 0)
         with (battlewriter)
             depth = 10;
         
-        with (obj_face)
+        with (obj_face_parent)
             depth = 10;
         
         with (obj_smallface)
@@ -475,7 +475,7 @@ if (global.myfight == 0)
         with (battlewriter)
             depth = 10;
         
-        with (obj_face)
+        with (obj_face_parent)
             depth = 10;
         
         with (obj_smallface)
@@ -757,7 +757,7 @@ if (global.myfight == 0)
         with (battlewriter)
             depth = 10;
         
-        with (obj_face)
+        with (obj_face_parent)
             depth = 10;
         
         with (obj_smallface)

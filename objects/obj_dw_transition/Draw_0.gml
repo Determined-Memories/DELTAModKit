@@ -597,6 +597,8 @@ if (con == 34)
         
         scr_become_dark();
         dz = global.darkzone + 1;
+		if entrance > -1
+			global.entrance = entrance;
         room_goto(nextroom);
     }
     

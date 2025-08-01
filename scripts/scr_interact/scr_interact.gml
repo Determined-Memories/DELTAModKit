@@ -1,5 +1,5 @@
 function scr_interact()
 {
-    myinteract = 1;
+    myinteract = true;
     event_user(0);
 }

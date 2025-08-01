@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"LOSTINDARKNESS",
-    "path":"folders/Custom/Objects/ROOMCONTROLLERS/LOSTINDARKNESS.yy",
+    "path":"folders/Custom/Objects/ROOMCONTROLLERS/Dark/TESTDARKWORLD/LOSTINDARKNESS.yy",
   },
   "parentObjectId":null,
   "persistent":false,

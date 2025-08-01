@@ -1,0 +1,14 @@
+myinteract = false;
+con = 0;
+timer = 0;
+strict = true;
+image_speed = 0;
+issolid = false;
+mysolid = 0;
+init = false;
+face0allowed = true;
+face1allowed = true;
+face2allowed = true;
+face3allowed = true;
+marker = 0;
+markerstick = false;

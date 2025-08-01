@@ -159,3 +159,274 @@ function c_walkto_object(obj, offx, offy, arg3, arg4 = true)
 {
     c_cmd_x("walkto", obj, offx, offy, arg3, arg4, false);
 }
+
+function c_move_add(arg0, arg1)
+{
+    c_cmd_x("varadd", 0, "x", 0, arg0, 0, 0);
+    c_cmd_x("varadd", 0, "y", 0, arg1, 0, 0);
+}
+
+function c_move_add_instance(arg0, arg1, arg2)
+{
+    c_cmd_x("varadd", arg0, "x", 0, arg1, 0, 0);
+    c_cmd_x("varadd", arg0, "y", 0, arg2, 0, 0);
+}
+
+function c_move_add_lerp()
+{
+    if (argument_count < 4)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], 0);
+    }
+    else if (argument_count == 4)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], argument[3]);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], string(argument[3]) + string(argument[4]));
+    }
+}
+
+function c_move_add_lerp_instance()
+{
+    if (argument_count < 5)
+    {
+        c_cmd_x("varadd", argument[0], "x", 0, argument[1], argument[3], 0);
+        c_cmd_x("varadd", argument[0], "y", 0, argument[2], argument[3], 0);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varadd", argument[0], "x", 0, argument[1], argument[3], argument[4]);
+        c_cmd_x("varadd", argument[0], "y", 0, argument[2], argument[3], argument[4]);
+    }
+    else if (argument_count == 6)
+    {
+        c_cmd_x("varadd", argument[0], "x", 0, argument[1], argument[3], string(argument[4]) + string(argument[5]));
+        c_cmd_x("varadd", argument[0], "y", 0, argument[2], argument[3], string(argument[4]) + string(argument[5]));
+    }
+}
+
+function c_move_to()
+{
+    if (argument_count < 4)
+    {
+        c_cmd_x("varto", 0, argument[0], 0, argument[1], argument[2], 0);
+    }
+    else
+    {
+        c_cmd_x("varto", 0, argument[0], 0, argument[1], argument[2], argument[3]);
+    }
+}
+
+function c_move_to_instance()
+{
+    if (argument_count < 5)
+    {
+        c_cmd_x("varto", argument[0], "x", 0, argument[1], argument[3], 0);
+        c_cmd_x("varto", argument[0], "y", 0, argument[2], argument[3], 0);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varto", argument[0], "x", 0, argument[1], argument[3], argument[4]);
+        c_cmd_x("varto", argument[0], "y", 0, argument[2], argument[3], argument[4]);
+    }
+    else if (argument_count == 6)
+    {
+        c_cmd_x("varto", argument[0], "x", 0, argument[1], argument[3], string(argument[4]) + string(argument[5]));
+        c_cmd_x("varto", argument[0], "y", 0, argument[2], argument[3], string(argument[4]) + string(argument[5]));
+    }
+}
+
+function c_var_add(arg0, arg1)
+{
+    c_cmd_x("varadd", 0, arg0, 0, arg1, 0, 0);
+}
+
+function c_var_add_instance(arg0, arg1, arg2)
+{
+    c_cmd_x("varadd", arg0, arg1, 0, arg2, 0, 0);
+}
+
+function c_var_lerp_add()
+{
+    if (argument_count < 4)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], 0);
+    }
+    else if (argument_count == 4)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], argument[3]);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varadd", 0, argument[0], 0, argument[1], argument[2], string(argument[3]) + string(argument[4]));
+    }
+}
+
+function c_var_lerp_add_instance()
+{
+    if (argument_count < 5)
+    {
+        c_cmd_x("varadd", argument[0], argument[1], 0, argument[2], argument[3], 0);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varadd", argument[0], argument[1], 0, argument[2], argument[3], argument[4]);
+    }
+    else if (argument_count == 6)
+    {
+        c_cmd_x("varadd", argument[0], argument[1], 0, argument[2], argument[3], string(argument[4]) + string(argument[5]));
+    }
+}
+
+function c_var_lerp_to()
+{
+    if (argument_count < 4)
+    {
+        c_cmd_x("varto", 0, argument[0], 0, argument[1], argument[2], 0);
+    }
+    else
+    {
+        c_cmd_x("varto", 0, argument[0], 0, argument[1], argument[2], argument[3]);
+    }
+}
+
+function c_var_lerp_to_instance()
+{
+    if (argument_count < 5)
+    {
+        c_cmd_x("varto", argument[0], argument[1], 0, argument[2], argument[3], 0);
+    }
+    else if (argument_count == 5)
+    {
+        c_cmd_x("varto", argument[0], argument[1], 0, argument[2], argument[3], argument[4]);
+    }
+    else if (argument_count == 6)
+    {
+        c_cmd_x("varto", argument[0], argument[1], 0, argument[2], argument[3], string(argument[4]) + string(argument[5]));
+    }
+}
+
+function c_msgruncheck(arg0)
+{
+    c_cmd("msgruncheck", arg0, 0, 0, 0);
+}
+
+function c_debugprint(arg0)
+{
+	c_cmd("debug_print", arg0, 0, 0, 0);
+}
+
+function c_msgstay(arg0)
+{
+    c_cmd("msgstay", arg0, 0, 0, 0);
+}
+
+function c_shakeobj_x()
+{
+    if (argument_count == 1)
+    {
+        c_cmd("shakeobj", argument[0], 0, 0, 0);
+    }
+    
+    if (argument_count == 2)
+    {
+        c_cmd("shakeobj", argument[0], argument[1], 0, 0);
+    }
+    
+    if (argument_count == 3)
+    {
+        c_cmd("shakeobj", argument[0], argument[1], argument[2], 0);
+    }
+}
+
+
+function c_wait_box_end(arg0 = 0)
+{
+    c_cmd("waitboxend", arg0, 0, 0, 0);
+}
+
+function c_walkdirect_speed(arg0, arg1, arg2)
+{
+    c_cmd("walkdirect", arg0, arg1, -arg2, 0);
+}
+
+function c_var_lerp_instance()
+{
+    if (argument_count < 6)
+    {
+        c_cmd_x("var", argument[0], argument[1], argument[2], argument[3], argument[4], 0);
+    }
+    else if (argument_count == 6)
+    {
+        c_cmd_x("var", argument[0], argument[1], argument[2], argument[3], argument[4], argument[5]);
+    }
+    else if (argument_count == 7)
+    {
+        c_cmd_x("var", argument[0], argument[1], argument[2], argument[3], argument[4], string(argument[5]) + string(argument[6]));
+    }
+}
+
+function c_lerp_var_instance()
+{
+    if (argument_count >= 6)
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4, argument5);
+    }
+    else if (argument_count >= 7)
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4, argument5, argument6);
+    }
+    else
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4);
+    }
+}
+
+function c_lerpvar_instance()
+{
+    if (argument_count >= 6)
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4, argument5);
+    }
+    else if (argument_count >= 7)
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4, argument5, argument6);
+    }
+    else
+    {
+        c_var_lerp_instance(argument0, argument1, argument2, argument3, argument4);
+    }
+}
+
+function c_mus2(arg0, arg1, arg2)
+{
+    c_cmd("mus", arg0, arg1, arg2, 0);
+}
+
+function c_mus(arg0)
+{
+    c_cmd("mus", arg0, 0, 0, 0);
+}
+
+function c_addxy(arg0, arg1)
+{
+    c_cmd("addxy", arg0, arg1, 0, 0);
+}
+
+function c_arg_objectxy(arg0, arg1, arg2)
+{
+    c_cmd("arg_objectxy", arg0, arg1, arg2, 0);
+}
+
+function c_halt()
+{
+    c_cmd("halt", 0, 0, 0, 0);
+}
+
+function c_imageindex(arg0)
+{
+    c_cmd("imageindex", arg0, 0, 0, 0);
+}
+

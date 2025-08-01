@@ -1,3 +1,6 @@
 
 with obj_caterpillarchara
-	instance_destroy()
+{
+	if id != other.noelle
+		instance_destroy()
+}

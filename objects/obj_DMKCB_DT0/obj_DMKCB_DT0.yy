@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"DARKTEST",
-    "path":"folders/Custom/Objects/ROOMCONTROLLERS/DARKTEST.yy",
+    "path":"folders/Custom/Objects/ROOMCONTROLLERS/Dark/TESTDARKWORLD/DARKTEST.yy",
   },
   "parentObjectId":null,
   "persistent":false,

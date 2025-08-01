@@ -7,8 +7,6 @@ cam_moveoutofboundsv = false;
 autorun = 0;
 bg = 0;
 
-_palette = 0
-_palsprite = pal_krisdark
 
 scr_depth();
 stepping = 0;
@@ -32,6 +30,7 @@ climbbuffer = 0;
 floorheight = 0;
 darkmode = global.darkzone;
 
+_palette = 0
 cutscene = 0;
 press_l = 0;
 press_r = 0;
@@ -43,7 +42,7 @@ wallcheck = 0;
 wspeed = 3;
 bwspeed = 3;
 
-if (darkmode == 1)
+if (darkmode == true)
 {
     bwspeed = 4;
     wspeed = 4;
@@ -68,6 +67,7 @@ dsprite = spr_krisd;
 rsprite = spr_krisr;
 usprite = spr_krisu;
 lsprite = spr_krisl;
+_palsprite = pal_krislight
 climbsprite = 3707;
 
 if darkmode {
@@ -75,6 +75,8 @@ if darkmode {
 	rsprite = spr_krisr_dark;
 	usprite = spr_krisu_dark;
 	lsprite = spr_krisl_dark;	
+	
+	_palsprite = pal_krisdark
 	
 	stepping = 1;
     image_xscale = 2;
@@ -231,19 +233,17 @@ if (global.interact == 3)
             default:
                 noentrancefound = 1;
         }
-        
         if (noentrancefound == 1)
         {
-            if (i_ex(obj_markerAny))
+            if (instance_exists(obj_markerAny))
             {
-                with (obj_markerAny)
-                {
-                    if (image_index == global.entrance)
-                    {
-                        other.x = x;
-                        other.y = y;
-                    }
-                }
+				scr_asobject(obj_markerAny, function(args, other) { // With () No longer works with things that have visible set to false.
+	                if (image_index == global.entrance)
+	                {
+	                    other.x = x;
+	                    other.y = y;
+	                }
+				})
             }
             else
             {
@@ -254,6 +254,8 @@ if (global.interact == 3)
         }
     }
 }
+
+show_debug_message(global.entrance)
 
 initwd = sprite_width;
 initht = sprite_height;

@@ -247,7 +247,7 @@ if (global.interact == 0 && freeze == 0)
             
             image_alpha = 0;
             fun = 1;
-            //snd_play(snd_laz_c);
+            snd_play(snd_laz_c);
             image_index = 0;
             image_speed = 0.5;
             swordtimer = 0;

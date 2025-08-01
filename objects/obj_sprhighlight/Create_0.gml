@@ -1,0 +1,17 @@
+target = noone;
+match_depth = true;
+depth_offset = -1;
+auto_cleanup = true;
+xoffset = 0;
+yoffset = 2;
+image_blend = c_gray;
+sprite_surf = noone;
+width = 0;
+height = 0;
+outline_only = false;
+init = false;
+darkness = false;
+darkness_tint = 4210752;
+strength = 1;
+fixed_size = true;
+min_size = 1;
