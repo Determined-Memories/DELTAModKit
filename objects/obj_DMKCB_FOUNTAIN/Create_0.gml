@@ -7,8 +7,8 @@ snd_free_all()
 
 timer = 0;
 con = 0;
-myfloor = scr_marker_ext(240, 280, 1021, 161, 200, 0, undefined, undefined, 900000);
-myfloorbg = scr_marker_ext(0, 280, 1021, 640, 200, 0, undefined, 0, 900001);
+myfloor = scr_marker_ext(240, 280, spr_pxwhite, 161, 200, 0, undefined, undefined, 900000);
+myfloorbg = scr_marker_ext(0, 280, spr_pxwhite, 640, 200, 0, undefined, 0, 900001);
 myint = instance_create(240, 240, obj_trigger_interact);
 scr_size(10, 2.5, myint);
 myint.strict = true;

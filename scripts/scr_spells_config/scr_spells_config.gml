@@ -200,10 +200,15 @@ function scr_spell_get_battle_use_text(spellid) {
 		}
 		
 		case DRSpell.Spare: {
-			cancelattack = 0;
+			cancelattack = false;
             global.msg[0] = stringsetsub("* ~1 spared ~2!/%", global.charname[global.char[caster]], global.monstername[star]);
             scr_retarget_spell();
             
+            if (!global.monsterdata[star].understandsmercy)
+            {
+                global.msg[0] = stringsetsub("* ~1 spared ~2!&* But, it was not something that can understand \\cYMERCY\\c0./%", "scr_spelltext_slash_scr_spelltext_gml_91_0");
+            }
+			else
             if (global.mercymod[star] >= 100)
             {
                 global.msg[0] = stringsetsub("* ~1 spared ~2!/%", global.charname[global.char[caster]], global.monstername[star]);
@@ -249,7 +254,7 @@ function scr_spell_use_action(casterid, spellid) {
             break;
         
         case DRSpell.RudeSword: {
-			cancelattack = 0;
+			cancelattack = false;
             
             if (global.monster[star] == 0)
                 scr_retarget_spell();
@@ -359,7 +364,7 @@ function scr_spell_use_action(casterid, spellid) {
 		}
         
         case DRSpell.RudeBuster: {
-			cancelattack = 0;
+			cancelattack = false;
             global.spelldelay = 30;
             
             if (global.monster[star] == 0)
@@ -384,7 +389,7 @@ function scr_spell_use_action(casterid, spellid) {
 		}
         
         case DRSpell.RedBuster: {
-			cancelattack = 0;
+			cancelattack = false;
             global.spelldelay = 30;
             
             if (global.monster[star] == 0)
@@ -548,7 +553,7 @@ function scr_spell_use_action(casterid, spellid) {
 			if (global.monster[star] == 0)
                 scr_retarget_spell();
             
-            if (global.monster[star] == 1)
+            if (global.monster[star] == 1) && global.monsterdata[star].understandsmercy
             {
                 if (global.mercymod[star] >= 100)
                 {

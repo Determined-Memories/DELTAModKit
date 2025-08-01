@@ -345,7 +345,12 @@ if (finishattacktimer > 0)
             
             if (damage > 0)
             {
-                scr_tensionheal(round(points / 10));
+				var tensionhealpointsdivider = 10
+				
+				if global.indarkness
+					tensionhealpointsdivider += 16 // Will end up at 26, which is the value usually used for when Surrounded By Darkness.
+				
+                scr_tensionheal(round(points / tensionhealpointsdivider));
                 attack = instance_create(global.monsterx[global.chartarget[myself]] + random(6), global.monstery[global.chartarget[myself]] + random(6), obj_basicattack);
                     
                 if (object_index == obj_herosusie)

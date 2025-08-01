@@ -213,7 +213,7 @@ function scr_endturn()
 function scr_retarget(arg0)
 {
     thistarget = global.chartarget[arg0];
-    cancelattack = 0;
+    cancelattack = false;
     
     if (thistarget == 0)
     {
@@ -239,7 +239,7 @@ function scr_retarget(arg0)
             thistarget = 1;
         
         if (thistarget == 3)
-            cancelattack = 1;
+            cancelattack = true;
     }
     
     global.chartarget[arg0] = thistarget;
@@ -247,7 +247,7 @@ function scr_retarget(arg0)
 
 function scr_retarget_spell()
 {
-    cancelattack = 0;
+    cancelattack = false;
     
     if (star == 0)
     {
@@ -273,7 +273,7 @@ function scr_retarget_spell()
             star = 1;
         
         if (star == 3)
-            cancelattack = 1;
+            cancelattack = true;
     }
 }
 

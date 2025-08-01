@@ -4,17 +4,20 @@ if (!shadinit)
     
     with (instance_create(0, 0, obj_floorshadow))
     {
-        target = 1049;
+        target = obj_mainchara;
         yoff = -8;
         stretch = 3;
     }
     
-    with (instance_create(0, 0, obj_floorshadow))
-    {
-        target = 1235;
-        yoff = -4;
-        stretch = 3;
-    }
+	with obj_caterpillarchara
+	{
+	    with (instance_create(0, 0, obj_floorshadow))
+	    {
+	        target = other.id;
+	        yoff = -4;
+	        stretch = 3;
+	    }
+	}
     
     with (obj_mainchara)
     {
@@ -28,15 +31,18 @@ if (!shadinit)
     
     with (instance_create(0, 0, obj_sprhighlight))
     {
-        target = 1049;
+        target = obj_mainchara;
         yoffset = 4;
     }
     
-    with (instance_create(0, 0, obj_sprhighlight))
-    {
-        target = 1235;
-        yoffset = 4;
-    }
+	with obj_caterpillarchara
+	{
+	    with (instance_create(0, 0, obj_sprhighlight))
+	    {
+	        target = other.id;
+			yoffset = 4;
+	    }
+	}
 }
 
 myfloor.image_blend = merge_color(c_black, obj_darkfountain.colcol, 0.5);

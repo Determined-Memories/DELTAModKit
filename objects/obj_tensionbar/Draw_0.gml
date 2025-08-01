@@ -1,3 +1,8 @@
+if global.indarkness
+	bluebar = true;
+
+barcolors = bluebar ? barcolorsblue : barcolorsorange
+
 if (!surface_exists(healthbar_surf))
     healthbar_surf = surface_create(96, 250);
 
@@ -9,10 +14,12 @@ if (i_ex(obj_battlecontroller) && obj_battlecontroller.rouxlsgridenabled == true
 else
     yoffset = lerp(yoffset, 0, 0.25);
 
-yy = __view_get(e__VW.YView, 0);
+yy = cameray();
 y = yy + 40 + yoffset;
 
-draw_sprite(spr_tensionbar, 1, 0, 0);
+var barspritetype = barcolors[3]
+
+draw_sprite(spr_tensionbar, barspritetype + 1, 0, 0);
 
 if (abs(apparent - global.tension) < 20)
     apparent = global.tension;
@@ -68,9 +75,9 @@ if (current > 0)
 {
     if (apparent < current)
     {
-        draw_set_color(c_red);
+        draw_set_color(barcolors[0]);
         draw_rectangle(3, (0 + sprite_height) - 1, (0 + sprite_width) - 1, (0 + sprite_height) - ((current / global.maxtension) * sprite_height), false);
-        draw_set_color(c_orange);
+        draw_set_color(barcolors[1]);
         draw_rectangle(3, (0 + sprite_height) - 1, (0 + sprite_width) - 1, (0 + sprite_height) - ((apparent / global.maxtension) * sprite_height), false);
     }
     
@@ -78,20 +85,20 @@ if (current > 0)
     {
         draw_set_color(c_white);
         draw_rectangle(3, (0 + sprite_height) - 1, (0 + sprite_width) - 1, (0 + sprite_height) - ((apparent / global.maxtension) * sprite_height), false);
-        draw_set_color(c_orange);
+        draw_set_color(barcolors[1]);
         
         if (maxed == 1)
-            draw_set_color(merge_color(c_yellow, c_orange, 0.5));
+            draw_set_color(merge_color(barcolors[2], barcolors[1], 0.5));
         
         draw_rectangle(3, (0 + sprite_height) - 1, (0 + sprite_width) - 1, (0 + sprite_height) - ((current / global.maxtension) * sprite_height), false);
     }
     
     if (apparent == current)
     {
-        draw_set_color(c_orange);
+        draw_set_color(barcolors[1]);
         
         if (maxed == 1)
-            draw_set_color(merge_color(c_yellow, c_orange, 0.5));
+            draw_set_color(merge_color(barcolors[2], barcolors[1], 0.5));
         
         draw_rectangle(3, (0 + sprite_height) - 1, (0 + sprite_width) - 1, (0 + sprite_height) - ((current / global.maxtension) * sprite_height), false);
     }
@@ -160,7 +167,7 @@ if (tamt < 100)
 if (tamt >= 100)
 {
     maxed = 1;
-    draw_set_color(c_yellow);
+    draw_set_color(barcolors[2]);
     draw_text(x - 28, y + 70, string_hash_to_newline("M"));
     draw_text(x - 24, y + 90, string_hash_to_newline("A"));
     draw_text(x - 20, y + 110, string_hash_to_newline("X"));

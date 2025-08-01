@@ -1,3 +1,9 @@
+function scr_createmonsterdata() constructor
+{
+	understandsmercy = true;
+	createsdarkness = false;
+}
+
 function scr_monster_statreset(monsterid)
 {
     global.monster[monsterid] = 0;
@@ -15,6 +21,7 @@ function scr_monster_statreset(monsterid)
     global.hittarget[monsterid] = 0;
     global.mercymod[monsterid] = 0;
     global.mercymax[monsterid] = 0;
+	global.monsterdata[monsterid] = new scr_createmonsterdata()
     global.monstercomment[monsterid] = " ";
     global.monsterattackname[monsterid] = " ";
     global.monsterstatus[monsterid] = 0;

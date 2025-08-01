@@ -216,11 +216,13 @@ function scr_gamestart()
     
     for (i = 0; i < 3; i += 1)
     {
+		scr_monster_statreset(i)
         global.monstermakex[i] = 500;
         global.monstermakey[i] = 240;
         global.monsterinstancetype[i] = 2283728;
         global.monster[i] = 1;
-        global.monstername[i] = "TERUTERUBOUZU";
+		var names = ["NOGITSUNE", "TERUTERUBOUZU"];
+        global.monstername[i] = names[choose(0, 1)];
         global.monstertype[i] = 1;
         global.monsterat[i] = 3;
         global.monsterdf[i] = 2;
@@ -228,6 +230,7 @@ function scr_gamestart()
         global.monstermaxhp[i] = 20;
         global.sparepoint[i] = 0;
         global.monsterattackname[i] = " ";
+		global.indarkness = false;
     }
     
     global.bmenuno = 0;
@@ -389,7 +392,6 @@ function scr_gamestart()
         global.flag[660] = 1;
         global.flag[661] = 1;
     }
-    
     scr_gamestart_chapter_override();
     audio_set_master_gain(0, global.flag[17]);
     global.cinstance[0] = 4854845464869464;

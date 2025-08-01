@@ -26,8 +26,8 @@ function scr_bullet_pattern(bulletPatternId) {
 			bm.damage = damage;
 			bm.target = target;
 			
-			if bm.y < __view_get(e__VW.YView, 0) + 40
-				bm.y = __view_get(e__VW.YView, 0) + 40;
+			if bm.y < cameray() + 40
+				bm.y = cameray() + 40;
 			break;
 		}
 		

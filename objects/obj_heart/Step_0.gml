@@ -226,8 +226,8 @@ if (place_meeting(x + px, y + py, obj_battlesolid))
     }
 }
 
-if ((x + px) >= ((__view_get(e__VW.XView, 0) + 640) - sprite_width))
-    px = (__view_get(e__VW.XView, 0) + 640) - sprite_width - x;
+if ((x + px) >= ((camerax() + 640) - sprite_width))
+    px = (camerax() + 640) - sprite_width - x;
 
 if ((x + px) <= 0)
     px = -x;
@@ -235,8 +235,8 @@ if ((x + px) <= 0)
 if ((y + py) <= 0)
     py = -y;
 
-if ((y + py) >= (((__view_get(e__VW.YView, 0) + 320) - sprite_height) + boundaryup))
-    py = ((__view_get(e__VW.YView, 0) + 320) - sprite_height - y) + boundaryup;
+if ((y + py) >= (((cameray() + 320) - sprite_height) + boundaryup))
+    py = ((cameray() + 320) - sprite_height - y) + boundaryup;
 
 x += px;
 y += py;
@@ -260,8 +260,8 @@ else
     image_index = 0;
 }
 
-global.heartx = (x + 2) - __view_get(e__VW.XView, 0);
-global.hearty = (y + 2) - __view_get(e__VW.YView, 0);
+global.heartx = (x + 2) - camerax();
+global.hearty = (y + 2) - cameray();
 
 /*if (color == 1)
 {
