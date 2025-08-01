@@ -7,7 +7,7 @@ function global_flagname_init()
 	    array_push(global.flagname, undefined)
 	}
 
-	global.flagname[6] = "disable text skip [Broken]"
+	global.flagname[6] = "Can't Skip text"
 	global.flagname[8] = "Simplify VFX"
 	global.flagname[10] = "Has Wrist Protector"
 	global.flagname[11] = "AutoRun"
@@ -18,6 +18,7 @@ function global_flagname_init()
 	global.flagname[32] = "Party Item Comments"
 	global.flagname[35] = "Game Over Type"
 	global.flagname[21] = "Room Enter Freeze"
+	global.flagname[203] = "Didn't listen to the prophecy because that would require reading, and us UT/DR Fans can't read."
 	// GONER CREATION SYSTEM
 	global.flagname[900] = "GONER HEAD"
 	global.flagname[901] = "GONER BODY"
@@ -70,6 +71,17 @@ function global_flagname_init()
 	global.flagname[45] = "Frozen Solid."
 	global.flagname[925] = "Ice Shocks"
 	global.flagname[1045] = "Sus Heal Strength"
+	// Boards
+	global.flagname[1055] = "Sword Route Progress"
+	global.flagname[1099] = "Lancer Controllers"
+	// Cutscenes [Ch3]
+	global.flagname[1208] = "Susie & Kris walked up on Tenna suspiciously communicating through his, antennas"
+	global.flagname[1056] = "Kris Walked up on Tenna trying to keep together"
+	global.flagname[1199] = "Watched Susie & Tenna"
+	// Chapter 3 Specific
+	global.flagname[1076] = "S Rank - Cool Edition - 1"
+	global.flagname[1077] = "S Rank - Cool Edition - 2"
+	
 }
 
 function global_flagname_menu_init(arg0, arg1, arg2, arg3)

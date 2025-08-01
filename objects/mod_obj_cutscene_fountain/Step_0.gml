@@ -14,18 +14,31 @@ if con == 0 && place_meeting(x, y, obj_mainchara) {
 		c_sel(su);
 		c_walktoobject(mod_obj_marker_b, 0, 0, 35);
 	}
+	if no != -1
+	{
+		c_sel(no);
+		c_walktoobject(mod_obj_marker_c, 0, 0, 35);
+	}
 		
 	c_wait(35);
 	
 	c_sel(kr); c_facing("d");
-	c_sel(su); c_facing("l");
-	
+	if su != -1
+	{
+		c_sel(su); c_facing("l");
+	}
+	if no != -1
+	{
+		c_sel(no); c_facing("d");
+	}
 	c_wait(10);
 	
-	c_speaker("susie");
-	c_msgset(0, "* Kris, do your thing./%");
-	
-	c_talk_wait();
+	if su != -1
+	{
+		c_speaker("susie");
+		c_msgset(0, "* Kris, do your thing./%");
+		c_talk_wait();
+	}
 	
 	c_panobj(mod_obj_marker_a, 35);
 	c_wait(40);

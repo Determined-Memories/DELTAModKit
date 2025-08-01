@@ -1,7 +1,7 @@
 iniwrite = ossafe_ini_open("dr.ini");
 _NEWNAME = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Name", "------");
 _NEWTIME = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Time", 0);
-_NEWROOM = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Room", 0);
+_NEWROOM = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Room", 0);
 _NEWLEVEL = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Level", 0);
 _NEWDATE = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Date", 0);
 _NEWINITLANG = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "InitLang", 0);
@@ -9,7 +9,7 @@ _NEWURABOSS = ini_read_real(scr_ini_chapter(global.chapter, MENUCOORD[2]), "UraB
 _NEWVERSION = ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[2]), "Version", "0");
 ini_write_string(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Name", _NEWNAME);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Time", _NEWTIME);
-ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Room", _NEWROOM);
+ini_read_string(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Room", _NEWROOM);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Level", _NEWLEVEL);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "Date", _NEWDATE);
 ini_write_real(scr_ini_chapter(global.chapter, MENUCOORD[3]), "InitLang", _NEWINITLANG);

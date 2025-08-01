@@ -10,8 +10,14 @@ function scr_get_room_list()
 
 function scr_roomname(roomid)
 {
+	
+	if is_string(roomid)
+		roomid = asset_get_index(roomid);
+	else if !room_exists(roomid)
+		roomid = scr_get_room_by_id(roomid);
+	
     roomname = scr_debug() ? "! UNKNOWN ! scr_roomname" : "Dark World...?";
-    
+	
 	var failname = roomname;
 	
     switch (roomid) {
@@ -21,22 +27,70 @@ function scr_roomname(roomid)
 		case room_lw_test: roomname = "Light World - Testbed"; break;
 	}
 	
+	
+	
+	
+	
+	
+	
 	if roomname == failname
 	{
+		var roomnames = {}
+		var names = scr_get_ini_value_string_all_slots(global.chapter, "Room_Name")
+		var rooms = scr_get_ini_value_string_all_slots(global.chapter, "Room")
+		var i = 0
+		while i < array_length(rooms)
+		{
+			var _roomid = rooms[i][1]
+			if is_string(_roomid)
+				_roomid = asset_get_index(_roomid)
+			var _roomname = names[i][1]
+			
+			
+			if _roomname != "0"
+			{
+				if _roomid == roomid
+				{
+					if !variable_struct_exists(roomnames, _roomname)
+						variable_struct_set(roomnames, _roomname, 1)
+					else
+						variable_struct_set(roomnames, _roomname, variable_struct_get(roomnames, _roomname) + 1)
+				}
+					
+			}
+			i++
+		}
+		i = 0
+		names = variable_struct_get_names(roomnames)
+		var highestscoring = {name:failname, score:0}
+		while i < array_length(names)
+		{
+			var name = variable_struct_get(roomnames, names[i])
+			if highestscoring.score < name
+			{
+				highestscoring.score = name
+				highestscoring.name = names[i]
+			}
+			i++
+		}
+		roomname = highestscoring.name
+		
+		
 		var replacementname = failname;
 		with (obj_savepoint)
 		{
 			if CUSTOM
 			{
-				if CUSTOM_PLACENAME != "NULL"
+				if CUSTOM_PLACENAME != "SAVEPOINTNAMEPOINTERNULL"
 				{
 					replacementname = CUSTOM_PLACENAME;
+					global.savepointname = replacementname
 				}
 			}
-		}
-		roomname = replacementname;
+		}		
 	}
-    
+	
+	
     return roomname;
 }
 
@@ -57,6 +111,10 @@ function scr_get_completed_file_name(ch = 0)
 		case 3:
 			_file_name = "Outside Shelter";
 			break;
+			
+        case 4:
+            _file_name = "Kris's Room";
+            break;
         
         default:
             break;

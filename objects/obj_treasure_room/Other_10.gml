@@ -41,6 +41,18 @@ else
 		msgnext(CUSTOM_EXTRATEXT + "/");
     msgnext(itemgetstring);
     
+	if itemtype == "flag" // Custom.
+	{
+		scr_speaker("no_name")
+		msgset(0, "* (You opened the treasure chest.)/")
+		if extratext
+			msgnext(CUSTOM_EXTRATEXT + "/%");
+		else
+			msgnext("* (Inside was nothing.)&* (It feels like something has changed.)");
+		show_debug_message(CUSTOM_ITEM)
+		scr_flag_set(CUSTOM_EXTRAVALUE, itemidchest)
+	}
+	
     if (itemtype == "nothing")
     {
         scr_speaker("no_name");

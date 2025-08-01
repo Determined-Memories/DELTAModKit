@@ -142,9 +142,9 @@ if (ossafe_file_exists("dr.ini"))
     {
         if (FILE[i] == 1)
         {
-            var room_id = ini_read_real(scr_ini_chapter(global.chapter, i), "Room", scr_get_id_by_room_index(room));
-            var room_index = scr_get_room_by_id(room_id);
-            PLACE[i] = scr_roomname(room_index);
+            var room_id = ini_read_string(scr_ini_chapter(global.chapter, i), "Room", room_get_name(room));
+            PLACE[i] = scr_roomname(room_id);
+			ossafe_ini_open("dr.ini"); // Reopen just in case
             TIME[i] = ini_read_real(scr_ini_chapter(global.chapter, i), "Time", 0);
             NAME[i] = ini_read_string(scr_ini_chapter(global.chapter, i), "Name", "------");
             LEVEL[i] = 1;

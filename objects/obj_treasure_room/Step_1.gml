@@ -17,7 +17,7 @@ if (!init)
             noflag = true;
         }
         
-        if (itemidchest == 0)
+        if (itemidchest == 0) && itemtype != "flag"
         {
             needsitem = true;
             itemidchest = 1;

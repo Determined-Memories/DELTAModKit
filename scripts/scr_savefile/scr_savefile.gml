@@ -207,14 +207,15 @@ function scr_get_knight_total_attempts()
     return _times_attempted;
 }
 
-function scr_set_ini_value(arg0, arg1, arg2, arg3)
+function scr_set_ini_value(chapter, slot, key, value)
 {
     var iniwrite = ossafe_ini_open("dr.ini");
-    ini_write_real(scr_ini_chapter(arg0, arg1), arg2, arg3);
+    ini_write_real(scr_ini_chapter(chapter, slot), key, value);
     ossafe_ini_close();
 }
 
-function scr_get_ini_value_all_slots(arg0, arg1)
+
+function scr_get_ini_value_all_slots(chapter, key)
 {
     var _ini_file = ossafe_ini_open("dr.ini");
     var _list = [];
@@ -222,7 +223,7 @@ function scr_get_ini_value_all_slots(arg0, arg1)
     for (var i = 0; i < 6; i++)
     {
         var _slot = i;
-        var _value = ini_read_real(scr_ini_chapter(arg0, _slot), arg1, 0);
+        var _value = ini_read_real(scr_ini_chapter(chapter, _slot), key, 0);
         _list[i][0] = _slot;
         _list[i][1] = _value;
     }
@@ -231,10 +232,43 @@ function scr_get_ini_value_all_slots(arg0, arg1)
     return _list;
 }
 
-function scr_get_ini_value(arg0, arg1, arg2)
+function scr_get_ini_value(chapter, slot, key)
 {
     var _ini_file = ossafe_ini_open("dr.ini");
-    var _ini_value = ini_read_real(scr_ini_chapter(arg0, arg1), arg2, 0);
+    var _ini_value = ini_read_real(scr_ini_chapter(chapter, slot), key, 0);
+    ossafe_ini_close();
+    return _ini_value;
+}
+
+function scr_get_ini_value_string_all_slots(chapter, key)
+{
+    var _ini_file = ossafe_ini_open("dr.ini");
+    var _list = [];
+    
+    for (var i = 0; i < 6; i++)
+    {
+        var _slot = i;
+        var _value = ini_read_string(scr_ini_chapter(chapter, _slot), key, 0);
+        _list[i][0] = _slot;
+        _list[i][1] = _value;
+    }
+    
+    ossafe_ini_close();
+    return _list;
+}
+
+
+function scr_set_ini_value_string(chapter, slot, key, value)
+{
+    var iniwrite = ossafe_ini_open("dr.ini");
+    ini_write_string(scr_ini_chapter(chapter, slot), key, value);
+    ossafe_ini_close();
+}
+
+function scr_get_ini_value_string(chapter, slot, key)
+{
+    var _ini_file = ossafe_ini_open("dr.ini")
+    var _ini_value = ini_read_string(scr_ini_chapter(chapter, slot), key, "");
     ossafe_ini_close();
     return _ini_value;
 }
@@ -303,8 +337,10 @@ function scr_save()
     ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Love", global.llv);
     ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Time", global.time);
     ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Date", date_current_datetime());
-    ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "Room", scr_get_id_by_room_index(room));
+    ini_write_string(scr_ini_chapter(global.chapter, global.filechoice), "Room", room_get_name(room));
     ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "InitLang", global.flag[912]);
+	scr_set_ini_value_string(global.chapter, global.filechoice, "Room_Name", scr_roomname(room))
+	ossafe_ini_open("dr.ini") // Just incase if it got closed.
     var uraboss = 0;
     
     if (global.chapter == 1)
@@ -1029,12 +1065,12 @@ function scr_tempsave()
     global.filechoice = filechoicebk2;
 }
 
-function scr_ini_chapter(arg0, arg1)
+function scr_ini_chapter(chapter, slot)
 {
-    if (arg0 >= 2)
-        return "G_" + string(arg0) + "_" + string(arg1);
+    if (chapter >= 2)
+        return "G_" + string(chapter) + "_" + string(slot);
     else
-        return "G" + string(arg1);
+        return "G" + string(slot);
 }
 
 function scr_get_room_by_id(arg0)
