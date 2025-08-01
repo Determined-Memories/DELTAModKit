@@ -397,4 +397,5 @@ function scr_gamestart()
     global.cinstance[0] = 4854845464869464;
     global.cinstance[1] = 48548454648694644;
     global.cinstance[2] = 48548454648694649;
+	scr_modinit()
 }

@@ -1,34 +1,10 @@
 variable_global_set("%%ACTORDEFAULTFACINGSPRITES%%", {})
 variable_global_set("%%ACTORNAMECHANGER%%", {})
 
-global.useoldactorspritesystem = false // Change this value to true to switch to Deltarune's facingsprites sprite System!
-
 function scr_set_facing_sprites(arg0)
 {
     _actorname = arg0;
     name = arg0;
-    
-	if !global.useoldactorspritesystem
-	{
-		_actorname = scr_getfacingspritessubname(name)
-		var data = scr_getfacingsprites(_actorname)
-		if data != noone
-		{
-			dsprite = data.down
-			usprite = data.up
-			lsprite = data.left
-			rsprite = data.right
-		}
-	    specialsprite[0] = dsprite;
-	    specialsprite[1] = rsprite;
-	    specialsprite[2] = usprite;
-	    specialsprite[3] = lsprite;
-	    dtsprite = dsprite;
-	    rtsprite = rsprite;
-	    utsprite = usprite;
-	    ltsprite = lsprite;
-		exit
-	}
 	
     if (is_string(_actorname))
     {
@@ -296,6 +272,24 @@ function scr_set_facing_sprites(arg0)
             lsprite = spr_asgorel;
             rsprite = spr_asgorer;
         }*/
+		
+			_actorname = scr_getfacingspritessubname(name)
+			var data = scr_getfacingsprites(_actorname)
+			if data != noone
+			{
+				dsprite = data.down
+				usprite = data.up
+				lsprite = data.left
+				rsprite = data.right
+			}
+		    specialsprite[0] = dsprite;
+		    specialsprite[1] = rsprite;
+		    specialsprite[2] = usprite;
+		    specialsprite[3] = lsprite;
+		    dtsprite = dsprite;
+		    rtsprite = rsprite;
+		    utsprite = usprite;
+		    ltsprite = lsprite;
     }
     else
     {

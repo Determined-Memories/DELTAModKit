@@ -1017,8 +1017,7 @@ function scr_load()
     
     audio_group_set_gain(1, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
-    var room_id = global.currentroom;
-    
+	
     //if (room_id < 10000)
     //{
     //    room_id = scr_get_id_by_room_index(global.currentroom);
@@ -1029,7 +1028,7 @@ function scr_load()
     //    global.currentroom = room_id;
     //}
     
-    __loadedroom = (global.currentroom);
+    __loadedroom = room;
     
     //if (scr_dogcheck())
     //    __loadedroom = 83;

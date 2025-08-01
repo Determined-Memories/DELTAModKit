@@ -1,9 +1,9 @@
 global.debug = true
 function scr_debug() { return global.debug; }
 function scr_debug_get_start_room() {
-	//global.char[0] = 1
-	//global.char[1] = 4
-	//global.char[2] = 0
+	//global.char[0] = 4
+	//global.char[1] = 2
+	//global.char[2] = 1
 	//global.darkzone = true; 
 	//global.flag[915] = 0xFF
 	//return room_dw_lostindarkness

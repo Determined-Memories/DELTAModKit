@@ -230,11 +230,11 @@ if !button_clicked[0]
 	            if (whatflag > 0)
 	            {
 	                var flagvalue = global.flag[whatflag];
-	                flagvalue = get_string("Flag [" + string(whatflag) + "] is " + string(flagvalue) + ". Enter new value.", "");
+	                flagvalue = get_string("Flag [" + string(whatflag) + "]" + " | " + scr_flag_name_get(whatflag) + " is " + string(flagvalue) + ". Enter new value.", "");
                 
 	                if (flagvalue != "")
 	                {
-	                    global.flag[whatflag] = real(string_digits(flagvalue));
+						scr_flag_set(whatflag, real(string_digits(flagvalue)))
 	                }
 	            }
 	        }
@@ -267,7 +267,7 @@ if !button_clicked[0]
     
 	    if (button_clicked[3] == 1)
 	    {
-	        var varname = get_string("Enter variable name without \"global.\"", "");
+	        var varname = string_replace(get_string("Enter variable name with or without \"global.\"", ""), "global.", "")
         
 	        if (varname != "")
 	        {
@@ -278,10 +278,14 @@ if !button_clicked[0]
                 
 	                if (newval != "")
 	                {
-	                    if (real(string_digits(newval)) > 0)
+	                    if (string_digits(newval) == newval)
 	                    {
 	                        variable_global_set(varname, real(newval));
 	                    }
+						else
+						{
+	                        variable_global_set(varname, newval);
+						}
 	                }
 	            }
 	            else

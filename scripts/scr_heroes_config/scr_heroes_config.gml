@@ -276,29 +276,29 @@ function scr_hero_set_sprites(heroObject) {
 function scr_character_set_caterpillar_sprites(charIdx) {
 	switch (charIdx) {
 		default:
+		case DRCharacter.Kris: {
+			name = "kris"
+			
+			scr_set_facing_sprites(name);
+			break;
+		}
 		case DRCharacter.Susie: {
 			name = "susie";
 			
-			usprite = global.darkzone ? (global.chapter >= 2 ? spr_susie_walk_up_dw : spr_susieu_dark) : spr_susie_walk_up_lw;
-			dsprite = global.darkzone ? (global.chapter >= 2 ? spr_susie_walk_down_dw : spr_susied_dark) : spr_susie_walk_down_lw;
-			rsprite = global.darkzone ? (global.chapter >= 2 ? spr_susie_walk_right_dw : spr_susier_dark) : spr_susie_walk_right_lw;
-			lsprite = global.darkzone ? (global.chapter >= 2 ? spr_susie_walk_left_dw : spr_susiel_dark) : spr_susie_walk_left_lw;
+			scr_set_facing_sprites(name);
 			break;
 		}
 		
 		case DRCharacter.Ralsei: {
 			name = "ralsei";
                 
-            usprite = spr_ralsei_walk_up;
-            dsprite = spr_ralsei_walk_down;
-            rsprite = spr_ralsei_walk_right;
-            lsprite = spr_ralsei_walk_left;
+			scr_set_facing_sprites(name);
 			break;
 		}
 		
 		case DRCharacter.Noelle:
 			name = "noelle"; 
-			scr_set_facing_sprites("noelle");
+			scr_set_facing_sprites(name);
 			break
 		
 		case DRCharacter.Starwalker: {
@@ -318,12 +318,13 @@ function scr_character_get_max_hp(charIdx) {
 	var defaultChapterIncreaseFormula = (chapter > 1 ? 30 : 0) + (chapter - 1) * 40;
 	
 	switch (charIdx) {
-		case DRCharacter.Kris: return 90 + defaultChapterIncreaseFormula + 20;
-		case DRCharacter.Susie: return 110 + defaultChapterIncreaseFormula + 20;
-		case DRCharacter.Ralsei: return 70 + defaultChapterIncreaseFormula + 20;
+		case DRCharacter.Kris: return 90 + defaultChapterIncreaseFormula + 30;
+		case DRCharacter.Susie: return 110 + defaultChapterIncreaseFormula + 30;
+		case DRCharacter.Ralsei: return 70 + defaultChapterIncreaseFormula + 30;
+		case DRCharacter.Noelle: return 90 + defaultChapterIncreaseFormula + 30;
 		
 		default:
-		case DRCharacter.Noelle: return 999;
+		case DRCharacter.Starwalker: return 999;
 	}
 }
 
@@ -443,6 +444,11 @@ function scr_character_get_rank(charIdx) {
 		
 		case DRCharacter.Ralsei: {
 			char_desc = stringsetsub("LV~1 Dark Prince#Dark-World being.#Has friends.", global.chapter);
+			break;
+		}
+		
+		case DRCharacter.Noelle: {
+			char_desc = stringsetsub("LV~1 Dragon Blazer#Really Likes#Dragon Blazers.", global.chapter);
 			break;
 		}
 		

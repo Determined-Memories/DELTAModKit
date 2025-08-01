@@ -4,28 +4,28 @@ scr_character_set_names();
 cam_moveoutofboundsh = false;
 cam_moveoutofboundsv = false;
 
-autorun = 0;
-bg = 0;
+autorun = false;
+bg = false;
 
 
 scr_depth();
-stepping = 0;
-stepped = 0;
-drawbattlemode = 1;
-battlemode = 0;
+stepping = false;
+stepped = false;
+drawbattlemode = true;
+battlemode = false;
 battleheart = instance_create(x, y, obj_overworldheart);
 battleheart.image_alpha = 0;
 battleheart.image_speed = 0;
 battlealpha = 0;
-becamebattle = 0;
-sliding = 0;
-becamesword = 0;
-swordmode = 0;
+becamebattle = false;
+sliding = false;
+becamesword = false;
+swordmode = false;
 swordcon = 0;
 swordtimer = 0;
-stop_movement = 0;
+stop_movement = false;
 roomenterfreezeend = 0;
-climbing = 0;
+climbing = false;
 climbbuffer = 0;
 floorheight = 0;
 darkmode = global.darkzone;
@@ -68,7 +68,7 @@ rsprite = spr_krisr;
 usprite = spr_krisu;
 lsprite = spr_krisl;
 _palsprite = pal_krislight
-climbsprite = 3707;
+//climbsprite = 3707; // The Cliambclaws Sprites aren't here. { Though they were for some reason in Ch2, which the ModKit is Heavily Based off of.}
 
 if darkmode {
 	dsprite = spr_krisd_dark;
@@ -78,16 +78,18 @@ if darkmode {
 	
 	_palsprite = pal_krisdark
 	
-	stepping = 1;
+	stepping = true;
     image_xscale = 2;
     image_yscale = 2;
 }
+scr_character_set_caterpillar_sprites(global.char[0])
+
 
 init_clothes = false;
 
 swordfacing = 1;
 swordsprite = rsprite;
-fun = 0;
+fun = false;
 
 if (global.facing == 0)
     sprite_index = dsprite;

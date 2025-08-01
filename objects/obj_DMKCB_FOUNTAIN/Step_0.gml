@@ -114,6 +114,42 @@ if (con == 0)
     }
 }
 
+if con == 2.5
+{
+    cutscene_master = scr_cutscene_make();
+    scr_maincharacters_actors();
+	
+	var _overridetarget = function() {
+		if target.object_index == obj_mainchara
+		{
+			originaltarget = target
+			target = other.kr_actor
+		}
+		if target.object_index == obj_caterpillarchara || object_get_parent(target.object_index) == obj_caterpillarchara
+		{
+			originaltarget = target
+			with obj_actor
+			{
+				if name == other.target.name // Actors and Caterpillars both have [name]
+				{
+					other.target = id
+				}
+			}
+		}}
+	
+	with obj_floorshadow
+		method(id, _overridetarget)()
+		
+	with obj_sprhighlight
+		method(id, _overridetarget)()
+	
+    with (obj_actor)
+    {
+        image_blend = c_black;
+    }
+    
+}
+
 if (con == 2)
 {
     con = 3;
@@ -223,6 +259,11 @@ if (clean_up)
     exit;
 }
 
+if con == 4
+{
+	scr_levelup()
+}
+
 if (con == 3 && !i_ex(obj_cutscene_master))
 {
     global.interact = 0;
@@ -230,23 +271,23 @@ if (con == 3 && !i_ex(obj_cutscene_master))
     global.plot = 230;
     con = 99;
     
-    with (_floor_shadow_kris)
-    {
-        instance_destroy();
-    }
+    //with (_floor_shadow_kris)
+    //{
+    //    instance_destroy();
+    //}
     
-    with (_floor_shadow_susie)
-    {
-        instance_destroy();
-    }
+    //with (_floor_shadow_susie)
+    //{
+    //    instance_destroy();
+    //}
     
-    with (_highlight_kris)
-    {
-        instance_destroy();
-    }
+    //with (_highlight_kris)
+    //{
+    //    instance_destroy();
+    //}
     
-    with (_highlight_susie)
-    {
-        instance_destroy();
-    }
+    //with (_highlight_susie)
+    //{
+    //    instance_destroy();
+    //}
 }
