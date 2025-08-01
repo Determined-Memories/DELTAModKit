@@ -26,6 +26,7 @@
     {"name":"inst_5FA8FCD1","path":"rooms/room_lw_dwtestclosed/room_lw_dwtestclosed.yy",},
     {"name":"inst_776E5634","path":"rooms/room_lw_dwtestclosed/room_lw_dwtestclosed.yy",},
     {"name":"inst_5DCA9CAF","path":"rooms/room_lw_dwtestclosed/room_lw_dwtestclosed.yy",},
+    {"name":"inst_313C8C43","path":"rooms/room_lw_dwtestclosed/room_lw_dwtestclosed.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -69,6 +70,9 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_doorparent","path":"objects/obj_doorparent/obj_doorparent.yy",},"propertyId":{"name":"doorEntrance","path":"objects/obj_doorparent/obj_doorparent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"24",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.5,"scaleY":0.5,"x":100.0,"y":240.0,},
         {"$GMRInstance":"v3","%Name":"inst_5DCA9CAF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":1,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5DCA9CAF","objectId":{"name":"obj_markerAny","path":"objects/obj_markerAny/obj_markerAny.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":140.0,"y":180.0,},
+        {"$GMRInstance":"v3","%Name":"inst_313C8C43","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_313C8C43","objectId":{"name":"obj_musicerAny","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_musicerAny","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"propertyId":{"name":"mysong","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"wind.ogg",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":40.0,},
       ],"layers":[],"name":"CollisionDoor","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":16777215,"effectEnabled":true,"effectType":null,"gridX":20,"gridY":20,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":12,"SerialiseWidth":16,"TileCompressedData":[
           -52,0,1,233,-5,234,1,235,-9,0,1,243,-5,244,1,245,-9,0,1,243,-5,244,1,245,-9,0,1,243,-5,244,1,245,-9,

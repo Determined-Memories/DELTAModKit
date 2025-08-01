@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Ch1",
-    "path":"folders/Tile Sets/LW/Sprite/Ch1.yy",
+    "name":"Chapter 1",
+    "path":"folders/DELTARUNE/Tilesets/Light World/Source Sprites/Chapter 1.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

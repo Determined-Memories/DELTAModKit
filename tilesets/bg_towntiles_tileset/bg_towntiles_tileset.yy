@@ -12,8 +12,8 @@
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Ch1",
-    "path":"folders/Tile Sets/LW/Tileset/Ch1.yy",
+    "name":"Chapter 1",
+    "path":"folders/DELTARUNE/Tilesets/Light World/Tilesets/Chapter 1.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

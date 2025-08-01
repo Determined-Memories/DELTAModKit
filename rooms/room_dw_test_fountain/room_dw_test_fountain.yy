@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"room_dw_test_fountain",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/room_dw_test_fountain/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -14,6 +14,7 @@
     {"name":"inst_1DBA3DEB","path":"rooms/room_dw_test_fountain/room_dw_test_fountain.yy",},
     {"name":"inst_516E3569","path":"rooms/room_dw_test_fountain/room_dw_test_fountain.yy",},
     {"name":"inst_7FC52549","path":"rooms/room_dw_test_fountain/room_dw_test_fountain.yy",},
+    {"name":"inst_61DC5F79","path":"rooms/room_dw_test_fountain/room_dw_test_fountain.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -31,6 +32,9 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_doorparent","path":"objects/obj_doorparent/obj_doorparent.yy",},"propertyId":{"name":"doorRoom","path":"objects/obj_doorparent/obj_doorparent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"room_dw_test",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_doorparent","path":"objects/obj_doorparent/obj_doorparent.yy",},"propertyId":{"name":"doorEntrance","path":"objects/obj_doorparent/obj_doorparent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"8",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":5.0,"scaleY":1.0,"x":220.0,"y":480.0,},
+        {"$GMRInstance":"v3","%Name":"inst_61DC5F79","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_61DC5F79","objectId":{"name":"obj_musicerAny","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_musicerAny","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"propertyId":{"name":"mysong","path":"objects/obj_musicerAny/obj_musicerAny.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"THE_HOLY.ogg",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":40.0,"y":0.0,},
       ],"layers":[],"name":"COLLISION_DOOR","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"BGCOLOR","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":16777216,"effectEnabled":true,"effectType":null,"gridX":20,"gridY":20,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"BGCOLOR","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":true,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

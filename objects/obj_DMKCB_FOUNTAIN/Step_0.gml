@@ -48,6 +48,13 @@ with (obj_sprhighlight)
 
 with (myint)
 {
+	
+	if myinteract == 999 && !d_ex()
+	{
+		myinteract = false;
+	    global.interact = false;
+	}
+	
     if (myinteract == 3)
     {
         global.interact = 1;
@@ -77,16 +84,10 @@ with (myint)
 			global.tempflag[6] = true
 			global.darkzone = false;
 			global.fountainopen = false;
-			room_goto(room_lw_dwtestclosed) // Placeholder Anim
-			//global.interact = 3;
+			room_goto(room_lw_dwtestclosed)
 		}
     }
 	
-	if myinteract = 999
-	{
-		myinteract = false;
-	    global.interact = false;
-	}
 }
 
 if (con == 0)

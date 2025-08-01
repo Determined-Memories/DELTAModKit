@@ -3,6 +3,7 @@ if global.tempflag[6]
 	global.tempflag[6] = false;
 	global.fountainopen = true;
 }
+snd_free_all()
 
 timer = 0;
 con = 0;
