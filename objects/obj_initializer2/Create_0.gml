@@ -82,7 +82,7 @@ if (global.is_console)
 else
 {
     global_flagname_init(); // flagnames are stripped
-    //scr_84_init_localization(); // no translations im too lazy
+    scr_84_init_localization(); // Mc didn't feel like adding this lol
     pal_swap_init_system(shd_pal_swapper); // this gives mc nightmares
     global.damagefont = font_add_sprite_ext(spr_numbersfontbig, "0123456789", 20, 0);
     global.damagefontgold = font_add_sprite_ext(spr_numbersfontbig_gold, "0123456789+-%", 20, 0);

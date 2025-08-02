@@ -1,4 +1,4 @@
-draw_set_font(global.main_font);
+draw_set_font(scr_84_get_font("main"));
 
 if (TYPE == 1 && SUBTYPE == 0)
 {
@@ -148,10 +148,10 @@ if (MENU_NO >= 0)
                 }
             }
             
-			draw_set_font(global.main_font);
+			draw_set_font(scr_84_get_font("main"));
             
             draw_text_shadow(BOX_X1 + 25, BOX_Y1 + 5, NOWNAME);
-            draw_set_font(global.main_font);
+            draw_set_font(scr_84_get_font("main"));
             draw_set_halign(fa_right);
             draw_text_shadow(BOX_X1 + 180, BOX_Y1 + 5, NOWTIME);
             draw_set_halign(fa_left);
@@ -366,7 +366,7 @@ if (MENU_NO >= 0)
         CHFILETEXT = stringsetsub("Ch ~1 Files", string(global.chapter - 1));
         CHSELECTTEXT = "Chapter Select";
         QUITTEXT = "End Program";
-        LANGUAGETEXT = "English";
+        LANGUAGETEXT = (global.lang == "en") ? ("日本語") : ("English");
         
         if (TYPE == 1)
         {
@@ -406,7 +406,7 @@ if (MENU_NO >= 0)
         if (CANQUIT)
             draw_text_shadow(204, 210, QUITTEXT);
         
-        draw_set_font(global.main_font);
+        draw_set_font(global.lang == "en" ? fnt_ja_main : fnt_main);
         
         draw_set_color(COL_A);
         
@@ -419,10 +419,10 @@ if (MENU_NO >= 0)
             languagex = 136;
         
         draw_text_shadow(languagex, 210, LANGUAGETEXT);
-        draw_set_font(global.main_font);
+        draw_set_font(scr_84_get_font("main"));
     }
     
-    draw_set_font(global.main_font);
+    draw_set_font(scr_84_get_font("main"));
     
     if (TYPE == 1)
     {
@@ -441,7 +441,7 @@ if (MENU_NO >= 0)
         draw_set_color(c_white);
     }
     
-    draw_set_font(global.main_font);
+    draw_set_font(scr_84_get_font("main"));
     draw_set_alpha(1);
     
     if (MESSAGETIMER <= 0)
@@ -508,7 +508,7 @@ HEARTYCUR += ((HEARTY - HEARTYCUR) / 2);
 if (MENU_NO >= 0)
     draw_sprite(spr_heartsmall, 0, HEARTXCUR, HEARTYCUR);
 
-draw_set_font(global.main_font);
+draw_set_font(scr_84_get_font("main"));
 draw_set_color(c_white);
 draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter));
-draw_set_font(global.main_font);
+draw_set_font(scr_84_get_font("main"));

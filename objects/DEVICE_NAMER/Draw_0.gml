@@ -180,7 +180,7 @@ if (EVENT == 76)
 
 if (DRAWNAME)
 {
-    draw_set_font(global.main_font);
+    draw_set_font(scr_84_get_font("main"));
     draw_set_color(c_white);
     draw_set_halign(fa_center);
     draw_text_transformed(camerax() + 160, cameray() + 40 + (FIXY / 2), global.truename, 1 + (FIXY / 100), 1 + (FIXY / 100), 1 + random(4));

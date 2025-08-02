@@ -1,4 +1,4 @@
-pal_swap_set(_palsprite, _palette, false);
+pal_swap_set(current_palette, palette_index, false);
 if (swordmode == 0)
     draw_self();
 
@@ -116,7 +116,7 @@ if (scr_debug())
     if (drawdebug)
     {
         draw_set_color(c_white);
-        draw_set_font(global.main_font);
+        draw_set_font(scr_84_get_font("main"));
         draw_text_outline(x + sprite_width, y, "floorheight=" + string(floorheight), 0);
     }
 }

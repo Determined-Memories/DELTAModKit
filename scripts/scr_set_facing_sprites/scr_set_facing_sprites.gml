@@ -1,10 +1,10 @@
 variable_global_set("%%ACTORDEFAULTFACINGSPRITES%%", {})
 variable_global_set("%%ACTORNAMECHANGER%%", {})
 
-function scr_set_facing_sprites(arg0)
+function scr_set_facing_sprites(chara, changepal = true)
 {
-    _actorname = arg0;
-    name = arg0;
+    _actorname = chara;
+    name = chara;
 	
     if (is_string(_actorname))
     {
@@ -308,6 +308,11 @@ function scr_set_facing_sprites(arg0)
     rtsprite = rsprite;
     utsprite = usprite;
     ltsprite = lsprite;
+	if changepal
+	{
+		if name == "kris" || name == "ralsei" || name == "susie" // The Full Name is Probably: "Sprite Palette Kris Susie Ralsei Statue"
+			current_palette = spr_palette_krs_statue;
+	}
 }
 
 function scr_createfacingsprites(nameidentifier, down,left,up,right)

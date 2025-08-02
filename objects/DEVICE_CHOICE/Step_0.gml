@@ -144,7 +144,7 @@ if (TYPE >= 0 && TYPE <= 2)
         
         if (TYPE == 0)
         {
-            draw_set_font(global.main_font);
+            draw_set_font(scr_84_get_font("main"));
             IDEALX += ((string_width(NAME[CURX][CURY]) / 2) - 10);
         }
     }
@@ -205,7 +205,7 @@ if (TYPE == 3)
         str = string_copy(str, 4, string_length(str) - 3);
     }
     
-    draw_set_font(global.main_font);
+    draw_set_font(scr_84_get_font("main"));
     IDEALX = (NAMEX[CURX][CURY] + (string_width(str) / 2)) - 10;
     IDEALY = NAMEY[CURX][CURY] - 2;
     

@@ -1,0 +1,1 @@
+current_palette = pal_kris_custom

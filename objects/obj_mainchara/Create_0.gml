@@ -30,7 +30,7 @@ climbbuffer = 0;
 floorheight = 0;
 darkmode = global.darkzone;
 
-_palette = 0
+palette_index = 0
 cutscene = 0;
 press_l = 0;
 press_r = 0;
@@ -67,16 +67,14 @@ dsprite = spr_krisd;
 rsprite = spr_krisr;
 usprite = spr_krisu;
 lsprite = spr_krisl;
-_palsprite = pal_krislight
+current_palette = spr_palette_krs_statue;
 //climbsprite = 3707; // The Cliambclaws Sprites aren't here. { Though they were for some reason in Ch2, which the ModKit is Heavily Based off of.}
 
 if darkmode {
 	dsprite = spr_krisd_dark;
 	rsprite = spr_krisr_dark;
 	usprite = spr_krisu_dark;
-	lsprite = spr_krisl_dark;	
-	
-	_palsprite = pal_krisdark
+	lsprite = spr_krisl_dark;
 	
 	stepping = true;
     image_xscale = 2;

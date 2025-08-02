@@ -10,5 +10,5 @@ function scr_debug_get_start_room() {
 	//show_debug_message(array_length(global.char))
 	
 	global.darkzone = true; 
-	return keyboard_check_direct(vk_anykey) ? PLACE_MENU : room_dw_test; 
+	return keyboard_check_direct(vk_alt) ? PLACE_MENU : room_dw_test; 
 	}

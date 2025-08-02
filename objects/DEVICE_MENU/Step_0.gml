@@ -1,8 +1,8 @@
-if (scr_debug())
-{
-    if (keyboard_check_pressed(ord("R")))
-        room_restart();
-}
+//if (scr_debug())
+//{
+//    if (keyboard_check_pressed(ord("R")))
+//        room_restart();
+//}
 
 if (!input_enabled)
     exit;
@@ -660,6 +660,7 @@ if (MENU_NO == 0)
         if (MENUCOORD[M] == 6)
         {
             SELNOISE = 1;
+            scr_change_language();
         }
         
         if (MENUCOORD[M] == 7)

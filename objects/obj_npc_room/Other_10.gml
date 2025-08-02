@@ -31,7 +31,7 @@ else
 		var i = 0
 		while i < array_length(CUSTOM_TEXT)
 		{
-			global.msg[i] = CUSTOM_TEXT[i]
+			global.msg[i] = scr_getstringloc(CUSTOM_TEXT[i])
 			i++
 		
 			if i == array_length(CUSTOM_TEXT)

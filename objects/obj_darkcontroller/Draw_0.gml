@@ -48,7 +48,7 @@ if (drawchar == 1)
             ymod = -7;
         
         draw_set_color(c_white);
-        draw_set_font(global.mainbig_font);
+        draw_set_font(scr_84_get_font("mainbig"));
         draw_text(xx + 520, ((yy + tp) - 60) + ymod, string_hash_to_newline(stringsetsub("D$ ~1", string(global.gold))));
         
         if (ymod != 0)
@@ -302,7 +302,7 @@ if (global.menuno == 4)
     charcoord = global.char[coord];
     menusiner += 1;
     draw_set_color(c_white);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     draw_text(xx + 130, yy + 105, string_hash_to_newline(global.charname[charcoord]));
     
     for (i = 0; i < 3; i += 1)
@@ -495,7 +495,7 @@ if (global.menuno == 2)
     charcoord = global.char[coord];
     menusiner += 1;
     draw_set_color(c_white);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     var charname_xoff = langopt(0, -25);
     draw_text(xx + 135 + charname_xoff, yy + 107, string_hash_to_newline(global.charname[charcoord]));
     
@@ -911,7 +911,7 @@ if (global.menuno == 1)
     draw_set_color(c_black);
     draw_rectangle(xx + langopt(70, 46), yy + 90, xx + langopt(570, 594), yy + 360, false);
     scr_darkbox(xx + langopt(60, 36), yy + 80, xx + langopt(580, 604), yy + 370);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     scr_itemname();
     
     if (global.submenu == 1)

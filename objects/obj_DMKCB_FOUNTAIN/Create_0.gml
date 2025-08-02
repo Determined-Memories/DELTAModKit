@@ -1,8 +1,15 @@
+_destroydarkners = false;
+
 if global.tempflag[6]
 {
 	global.tempflag[6] = false;
 	global.fountainopen = true;
+	_destroydarkners = true;
+	with obj_caterpillarchara
+		if name == "ralsei"
+			instance_destroy()
 }
+audio_stop_all()
 snd_free_all()
 
 timer = 0;

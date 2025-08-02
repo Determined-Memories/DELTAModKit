@@ -1,4 +1,4 @@
-draw_set_font(global.mainbig_font);
+draw_set_font(scr_84_get_font("mainbig"));
 draw_set_color(c_lime);
 draw_set_alpha(image_alpha);
 draw_text(x, y, string_hash_to_newline(stringsetsub("+~1", string(healamt))));

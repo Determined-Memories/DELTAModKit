@@ -180,9 +180,9 @@ if (keyboard_check(vk_shift) && keyboard_check(vk_control) && keyboard_check_pre
 
 if (keyboard_check(vk_shift) && keyboard_check(vk_control) && keyboard_check_pressed(ord("M")))
 {
-    //scr_change_language();
+    scr_change_language();
     //scr_84_load_ini();
-    room_restart();
+    //room_restart();
 }
 
 if (keyboard_check(vk_shift) && keyboard_check(vk_alt) && keyboard_check_pressed(ord("M")))

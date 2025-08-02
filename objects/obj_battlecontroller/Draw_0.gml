@@ -57,7 +57,7 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
     if (global.myfight == 0)
     {
         draw_sprite(spr_heart, 0, xx + 55, yy + 385 + (global.bmenucoord[global.bmenuno][global.charturn] * 30));
-        draw_set_font(global.mainbig_font);
+        draw_set_font(scr_84_get_font("mainbig"));
         namewidthb[0] = string_width(string_hash_to_newline(global.monstername[0]));
         namewidthb[1] = string_width(string_hash_to_newline(global.monstername[1]));
         namewidthb[2] = string_width(string_hash_to_newline(global.monstername[2]));
@@ -228,7 +228,7 @@ if (global.bmenuno == 2 && global.myfight == 0 && global.flag[34] == 1)
         icy = 445;
     
     draw_sprite(spr_heart, 0, xx + icx, yy + icy);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     
     for (i = 0; i < 3; i += 1)
     {
@@ -295,7 +295,7 @@ if (global.bmenuno == 2 && global.myfight == 0 && global.flag[34] == 0)
     
     var _cant = 0;
     draw_sprite(spr_heart, 0, xx + icx, yy + icy);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     
     for (i = 0; i < 3; i += 1)
     {
@@ -375,7 +375,7 @@ if (global.bmenuno == 4 && global.myfight == 0)
         icy = 445;
     
     draw_sprite(spr_heart, 0, xx + icx, yy + icy);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     
     for (i = 0; i < 3; i += 1)
     {
@@ -430,7 +430,7 @@ if (global.bmenuno == 9 && global.myfight == 0)
         icy = 445;
     
     draw_sprite(spr_heart, 0, xx + icx, yy + icy);
-    draw_set_font(global.mainbig_font);
+    draw_set_font(scr_84_get_font("mainbig"));
     
     for (i = 0; i < 6; i += 1)
     {
@@ -518,7 +518,7 @@ if (global.bmenuno == 7 || global.bmenuno == 8)
     if (global.myfight == 0)
     {
         draw_sprite(spr_heart, 0, xx + 55, yy + 385 + (global.bmenucoord[global.bmenuno][global.charturn] * 30));
-        draw_set_font(global.mainbig_font);
+        draw_set_font(scr_84_get_font("mainbig"));
         
         for (i = 0; i < 3; i += 1)
         {

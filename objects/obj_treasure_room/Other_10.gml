@@ -38,7 +38,7 @@ else
     var itemgetstring = scr_itemget_anytype_text(itemidchest, itemtype);
     msgsetsub(0, "* (You opened the treasure chest.^1)&* (Inside was \\cY~1\\cW.)/", itemname, "obj_treasure_room_slash_Other_10_gml_65_0");
 	if extratext
-		msgnext(CUSTOM_EXTRATEXT + "/");
+		msgnext(scr_getstringloc(CUSTOM_EXTRATEXT) + "/");
     msgnext(itemgetstring);
     
 	if itemtype == "flag" // Custom.
@@ -46,7 +46,7 @@ else
 		scr_speaker("no_name")
 		msgset(0, "* (You opened the treasure chest.)/")
 		if extratext
-			msgnext(CUSTOM_EXTRATEXT + "/%");
+			msgnext(scr_getstringloc(CUSTOM_EXTRATEXT) + "/%");
 		else
 			msgnext("* (Inside was nothing.)&* (It feels like something has changed.)");
 		show_debug_message(CUSTOM_ITEM)

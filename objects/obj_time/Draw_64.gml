@@ -11,7 +11,7 @@ if scr_debug() && showmodkitmessage {
 	var prev_alpha = draw_get_alpha();
 	var prev_align = draw_get_halign();
 	
-	draw_set_font(global.main_font);
+	draw_set_font(scr_84_get_font("main"));
 	draw_set_color(c_white);
 	draw_set_alpha(0.6);
 	

@@ -61,4 +61,8 @@ function arr_pop(arr) {
 function arr_length(arr) { return array_length(arr); }
 
 // string
-function stringsetloc(str, code) { return str; }
+function stringsetloc(str, code) { 
+	
+	return scr_getstringloc(str); 
+	
+	}

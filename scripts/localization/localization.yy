@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"localization",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"localization",
+  "parent":{
+    "name":"Engine",
+    "path":"folders/DELTARUNE/Scripts/Engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

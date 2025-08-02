@@ -1,4 +1,4 @@
-draw_set_font(global.main_font);
+draw_set_font(scr_84_get_font("main"));
 xfade = (10 - fadebuffer) / 10;
 
 if (xfade > 1)

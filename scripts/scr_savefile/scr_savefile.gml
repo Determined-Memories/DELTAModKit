@@ -1028,7 +1028,7 @@ function scr_load()
     //    global.currentroom = room_id;
     //}
     
-    __loadedroom = room;
+    __loadedroom = global.currentroom;
     
     //if (scr_dogcheck())
     //    __loadedroom = 83;

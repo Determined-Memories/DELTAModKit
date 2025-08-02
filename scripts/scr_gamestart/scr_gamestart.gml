@@ -55,8 +55,6 @@ function get_chapter_switch_parameters()
 function scr_gamestart()
 {
 	__global_object_depths();
-	global.main_font = fnt_main;
-	global.mainbig_font = fnt_mainbig;
 	
     global.darkzone = 1;
     global.filechoice = 0;
@@ -77,7 +75,7 @@ function scr_gamestart()
     global.char[1] = DRCharacter.Susie;
     global.char[2] = DRCharacter.Ralsei;
 	
-	global.lang = "en";
+	//global.lang = "en";
 	
     global.gold = 0;
     global.xp = 0;

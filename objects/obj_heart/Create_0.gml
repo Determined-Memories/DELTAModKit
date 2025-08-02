@@ -24,3 +24,5 @@ if (button2_h())
     disableslow = 1;
 
 remove_slow_z_buffer = 40;
+
+scr_heartcolor(0)

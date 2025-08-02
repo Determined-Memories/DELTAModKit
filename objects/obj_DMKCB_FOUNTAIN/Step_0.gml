@@ -1,3 +1,8 @@
+if _destroydarkners
+	with obj_caterpillarchara
+		if name == "ralsei"
+			instance_destroy()
+
 if (!shadinit)
 {
     shadinit = 1;

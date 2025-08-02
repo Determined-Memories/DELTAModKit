@@ -1,5 +1,5 @@
 with obj_mainchara
-	_palette = 4;
+	palette_index = 4;
 	
 if holidaysmode
 {

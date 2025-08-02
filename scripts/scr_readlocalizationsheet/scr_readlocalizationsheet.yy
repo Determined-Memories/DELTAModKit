@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_readlocalizationsheet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_readlocalizationsheet",
+  "parent":{
+    "name":"CUSTOMLOCAL",
+    "path":"folders/Custom/Scripts/CUSTOMLOCAL.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

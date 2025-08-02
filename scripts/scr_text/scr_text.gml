@@ -32,16 +32,16 @@ function scr_text_extra(msc){
 			if !variable_global_exists("bossmsg")
 				global.bossmsg = true;
 			
-			msgset(0, global.bossmsg ? "* Hey Boss, are you ready to return?/" : "%/");
+			msgset(0, global.bossmsg ? scr_getstringloc("* Hey Boss, are you ready to return?/") : "%/");
 			msgnext("\\C2");
 			show_debug_message(global.msc)
 			break;	
 		}
 		
 		case 20001: {
-			if !variable_global_exists("returnpoint")
-				global.returnpoint = room_dw_test;
-			global.msg[0] = "%%"
+				if !variable_global_exists("returnpoint")
+					global.returnpoint = room_dw_test;
+				global.msg[0] = "%%"
 				if global.choice == 0
 				{
 					with obj_mainchara
@@ -52,6 +52,7 @@ function scr_text_extra(msc){
 				if global.choice == 1
 				{
 				}
+				global.returnpoint = room_dw_test;
 			break;
 		}
 		

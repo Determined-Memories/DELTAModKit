@@ -30,7 +30,6 @@ if holidaysmode
 	{
 		scr_set_facing_sprites("krislight")
 		name = "kris"
-		_palsprite = pal_krislight
 	}
 	
 	with all

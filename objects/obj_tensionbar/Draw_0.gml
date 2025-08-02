@@ -153,7 +153,7 @@ surface_reset_target();
 draw_surface(healthbar_surf, x, y);
 draw_sprite(spr_tplogo, 0, x - 30, y + 30);
 draw_set_color(c_white);
-draw_set_font(global.mainbig_font);
+draw_set_font(scr_84_get_font("mainbig"));
 flashsiner += 1;
 tamt = floor((apparent / global.maxtension) * 100);
 maxed = 0;
