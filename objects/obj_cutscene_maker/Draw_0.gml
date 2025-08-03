@@ -53,7 +53,7 @@ for (j = 0; j <= step_max; j++)
             draw_sprite_ext(actor_endsprite[i][j], 0, actor_startx[i][j], actor_starty[i][j], 1 + global.darkzone, 1 + global.darkzone, 0, c_fuchsia, 0.5);
             draw_set_color(c_red);
             draw_set_font(scr_84_get_font("main"));
-            draw_text(actor_endx[i][j], actor_endy[i][j], string_hash_to_newline(stringsetsub("actor, ~1  step:~2", string(i), string(j), "obj_cutscene_maker_slash_Draw_0_gml_60_0")));
+            draw_text(actor_endx[i][j], actor_endy[i][j], safe_string_hash_to_newline(stringsetsub("actor, ~1  step:~2", string(i), string(j), "obj_cutscene_maker_slash_Draw_0_gml_60_0")));
         }
     }
 }

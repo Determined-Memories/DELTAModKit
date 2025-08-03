@@ -56,13 +56,13 @@ if (menuno == 0)
         draw_set_font(fnt_mainbig);
     
     draw_set_halign(fa_left);
-	draw_text((60 * d) + xx, (60 * d) + yy, string_hash_to_newline(name_current));
+	draw_text((60 * d) + xx, (60 * d) + yy, safe_string_hash_to_newline(name_current));
     
     draw_set_halign(fa_right);
-    draw_text((200 * d) + xx, (60 * d) + yy, string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+    draw_text((200 * d) + xx, (60 * d) + yy, safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
     draw_text((261 * d) + xx, (60 * d) + yy, scr_timedisp(time_current));
     draw_set_halign(fa_center);
-    draw_text_width((160 * d) + xx, (85 * d) + yy, string_hash_to_newline(scr_roomname(room)), 360);
+    draw_text_width((160 * d) + xx, (85 * d) + yy, safe_string_hash_to_newline(scr_roomname(room)), 360);
     draw_set_halign(fa_left);
     var myoff = 0;
     
@@ -74,8 +74,8 @@ if (menuno == 0)
     
     if (xcoord < 2)
     {
-        draw_text(xx + (85 * d), yy + (110 * d), string_hash_to_newline("Save"));
-        draw_text(xx + (175 * d), yy + (110 * d), string_hash_to_newline("Return"));
+        draw_text(xx + (85 * d), yy + (110 * d), safe_string_hash_to_newline("Save"));
+        draw_text(xx + (175 * d), yy + (110 * d), safe_string_hash_to_newline("Return"));
         
         if (type == 1)
         {
@@ -100,7 +100,7 @@ if (menuno == 0)
     }
     else
     {
-        draw_text(xx + (85 * d), yy + (110 * d), string_hash_to_newline("File saved."));
+        draw_text(xx + (85 * d), yy + (110 * d), safe_string_hash_to_newline("File saved."));
     }
 }
 else if (menuno == 1)
@@ -149,7 +149,7 @@ else if (menuno == 1)
     draw_set_halign(fa_center);
     draw_text(xline[0], yline, global.truename);
     draw_set_halign(fa_left);
-    draw_text(xline[1], yline, string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+    draw_text(xline[1], yline, safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
     draw_set_halign(fa_right);
     draw_text(xline[2], yline, scr_timedisp(time_current));
     draw_set_halign(fa_center);
@@ -169,7 +169,7 @@ else if (menuno == 1)
         {
             var xl = [xx + mx + numscale(64), xx + mx + numscale(483), xx + numscale(320)];
             draw_set_halign(fa_left);
-            draw_text(xl[0], yy + my + numscale(20) + (i * mspace), string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+            draw_text(xl[0], yy + my + numscale(20) + (i * mspace), safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
             draw_set_halign(fa_right);
             draw_text(xl[1], yy + my + numscale(20) + (i * mspace), scr_timedisp(time_file[i]));
             draw_set_halign(fa_center);
@@ -202,7 +202,7 @@ else if (menuno == 1)
     if (global.darkzone == 0)
         bo = 3;
     
-    draw_text(xx + (160 * scale), yy + my + (135 * scale) + bo, string_hash_to_newline(returntxt));
+    draw_text(xx + (160 * scale), yy + my + (135 * scale) + bo, safe_string_hash_to_newline(returntxt));
     draw_set_halign(fa_left);
     draw_set_color(c_white);
     
@@ -298,12 +298,12 @@ else if (menuno == 1)
         overwritetext = stringsetsub("Overwrite Slot ~1?", mpos + 1);
         draw_set_color(c_white);
         draw_set_halign(fa_center);
-        draw_text(xx + numscale(320), yy + numscale(123), string_hash_to_newline(overwritetext));
+        draw_text(xx + numscale(320), yy + numscale(123), safe_string_hash_to_newline(overwritetext));
         draw_set_color(c_yellow);
         var currentSpace = numscale(70);
         var horzspace = numscale(80);
         draw_set_halign(fa_left);
-        draw_text(xx + horzspace, yy + numscale(165) + currentSpace, string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+        draw_text(xx + horzspace, yy + numscale(165) + currentSpace, safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
         draw_set_halign(fa_right);
         draw_text((xx + numscale(640)) - horzspace, yy + numscale(165) + currentSpace, scr_timedisp(time_current));
         draw_set_halign(fa_center);
@@ -316,7 +316,7 @@ else if (menuno == 1)
         draw_set_color(c_white);
         draw_set_color(c_white);
         draw_set_halign(fa_left);
-        draw_text(xx + horzspace, yy + numscale(165), string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+        draw_text(xx + horzspace, yy + numscale(165), safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
         draw_set_halign(fa_right);
         draw_text((xx + numscale(640)) - horzspace, yy + numscale(165), scr_timedisp(time_file[mpos]));
         draw_set_halign(fa_center);
@@ -338,14 +338,14 @@ else if (menuno == 1)
         else
             draw_set_color(c_white);
         
-        draw_text(xx + numscale(170), yy + numscale(324), string_hash_to_newline(savetxt));
+        draw_text(xx + numscale(170), yy + numscale(324), safe_string_hash_to_newline(savetxt));
         
         if (overcoord == 1)
             draw_set_color(c_yellow);
         else
             draw_set_color(c_white);
         
-        draw_text(xx + numscale(350), yy + numscale(324), string_hash_to_newline(returntxt));
+        draw_text(xx + numscale(350), yy + numscale(324), safe_string_hash_to_newline(returntxt));
         
         if (overcoord == 0)
             draw_sprite(heartsprite, 0, xx + numscale(142), yy + numscale(324) + (string_height(savetxt) / 4));
@@ -441,7 +441,7 @@ else if (menuno == 2)
     draw_set_halign(fa_center);
     draw_text(xx + numscale(320), yy + numscale(32) + yoff, global.truename);
     draw_set_halign(fa_left);
-    draw_text(xx + mx + numscale(40), yy + numscale(32) + yoff, string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+    draw_text(xx + mx + numscale(40), yy + numscale(32) + yoff, safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
     draw_set_halign(fa_right);
     draw_text(xx + mx + numscale(483), yy + numscale(32) + yoff, scr_timedisp(time_current));
     draw_set_halign(fa_center);
@@ -465,7 +465,7 @@ else if (menuno == 2)
             if (level_file[i] != 0)
             {
                 draw_set_halign(fa_left);
-                draw_text(xx + mx + numscale(64), yy + my + numscale(20) + (i * mspace), string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
+                draw_text(xx + mx + numscale(64), yy + my + numscale(20) + (i * mspace), safe_string_hash_to_newline(stringsetsub("LV ~1", global.chapter)));
                 draw_set_halign(fa_right);
                 draw_text(xx + mx + numscale(483), yy + my + numscale(20) + (i * mspace), scr_timedisp(time_file[i]));
                 draw_set_halign(fa_center);

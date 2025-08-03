@@ -58,9 +58,9 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
     {
         draw_sprite(spr_heart, 0, xx + 55, yy + 385 + (global.bmenucoord[global.bmenuno][global.charturn] * 30));
         draw_set_font(scr_84_get_font("mainbig"));
-        namewidthb[0] = string_width(string_hash_to_newline(global.monstername[0]));
-        namewidthb[1] = string_width(string_hash_to_newline(global.monstername[1]));
-        namewidthb[2] = string_width(string_hash_to_newline(global.monstername[2]));
+        namewidthb[0] = string_width(safe_string_hash_to_newline(global.monstername[0]));
+        namewidthb[1] = string_width(safe_string_hash_to_newline(global.monstername[1]));
+        namewidthb[2] = string_width(safe_string_hash_to_newline(global.monstername[2]));
         var namewidthmax = 0;
         
         for (i = 0; i < 3; i++)
@@ -101,7 +101,7 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
                 if (global.mercymod[i] >= global.mercymax[i])
                     mercydraw = 1;
                 
-                namewidth = string_width(string_hash_to_newline(global.monstername[i]));
+                namewidth = string_width(safe_string_hash_to_newline(global.monstername[i]));
                 
                 if (tireddraw == 1)
                 {
@@ -127,7 +127,7 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
                         draw_sprite(spr_sparestar, 0, xx + 80 + namewidth + 20, yy + 385 + (i * 30));
                 }
                 
-                draw_text_colour(xx + 80, yy + 375 + (i * 30), string_hash_to_newline(global.monstername[i]), mnamecolor1, mnamecolor2, mnamecolor2, mnamecolor1, 1);
+                draw_text_colour(xx + 80, yy + 375 + (i * 30), safe_string_hash_to_newline(global.monstername[i]), mnamecolor1, mnamecolor2, mnamecolor2, mnamecolor1, 1);
                 var __drawstatus = 0;
                 
                 if (global.bmenuno == 13)
@@ -136,7 +136,7 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
                 if (__drawstatus == 0)
                 {
                     draw_set_color(c_gray);
-                    draw_text(xx + 80 + namewidth + 60, yy + 375 + (i * 30), string_hash_to_newline(global.monstercomment[i]));
+                    draw_text(xx + 80 + namewidth + 60, yy + 375 + (i * 30), safe_string_hash_to_newline(global.monstercomment[i]));
                     
                     draw_set_color(c_maroon);
                     draw_rectangle(xx + 420, yy + 380 + (i * 30), xx + 500, yy + 380 + (i * 30) + 15, false);
@@ -161,7 +161,7 @@ if (global.bmenuno == 1 || global.bmenuno == 3 || global.bmenuno == 11 || global
 						__actname = __plainactname;
                     
                     draw_set_color(hpcolorsoft[global.char[global.charturn] - 1]);
-                    draw_text_width(xx + 80 + namewidthmax + 60, yy + 375 + (i * 30), string_hash_to_newline(__actname), 514 - (80 + namewidthmax + 60));
+                    draw_text_width(xx + 80 + namewidthmax + 60, yy + 375 + (i * 30), safe_string_hash_to_newline(__actname), 514 - (80 + namewidthmax + 60));
                 }
                 
                 mercyamt = global.mercymod[i];
@@ -253,20 +253,20 @@ if (global.bmenuno == 2 && global.myfight == 0 && global.flag[34] == 1)
                 draw_set_color(merge_color(c_aqua, c_blue, 0.3));
         }
         
-        draw_text(xx + 30, yy + 375 + (i * 30), string_hash_to_newline(global.spellnameb[thischar][(page * 6) + (i * 2)]));
+        draw_text(xx + 30, yy + 375 + (i * 30), safe_string_hash_to_newline(global.spellnameb[thischar][(page * 6) + (i * 2)]));
         draw_set_color(c_white);
         
         if (global.tension < global.spellcost[thischar][(page * 6) + (i * 2) + 1])
             draw_set_color(c_gray);
         
-        draw_text(xx + 260, yy + 375 + (i * 30), string_hash_to_newline(global.spellnameb[thischar][(page * 6) + (i * 2) + 1]));
+        draw_text(xx + 260, yy + 375 + (i * 30), safe_string_hash_to_newline(global.spellnameb[thischar][(page * 6) + (i * 2) + 1]));
     }
     
     draw_set_color(c_gray);
-    draw_text(xx + spell_offset, yy + 375, string_hash_to_newline(global.spelldescb[thischar][(page * 6) + spellcoord]));
+    draw_text(xx + spell_offset, yy + 375, safe_string_hash_to_newline(global.spelldescb[thischar][(page * 6) + spellcoord]));
     thiscost = floor((global.spellcost[thischar][(page * 6) + spellcoord] / global.maxtension) * 100);
     draw_set_color(c_orange);
-    draw_text(xx + spell_offset, yy + 440, string_hash_to_newline(string(thiscost) + "% TP"));
+    draw_text(xx + spell_offset, yy + 440, safe_string_hash_to_newline(string(thiscost) + "% TP"));
 }
 
 if (global.bmenuno == 2 && global.myfight == 0 && global.flag[34] == 0)
@@ -337,18 +337,18 @@ if (global.bmenuno == 2 && global.myfight == 0 && global.flag[34] == 0)
                 }
             }
             
-            draw_text(xx + 30 + (__n * 230), yy + 375 + (i * 30), string_hash_to_newline(global.battlespellname[thischar][(page * 6) + (i * 2) + __n]));
+            draw_text(xx + 30 + (__n * 230), yy + 375 + (i * 30), safe_string_hash_to_newline(global.battlespellname[thischar][(page * 6) + (i * 2) + __n]));
             __n++;
         }
     }
     
     draw_set_color(c_gray);
-    draw_text(xx + spell_offset, yy + 375, string_hash_to_newline(global.battlespelldesc[thischar][(page * 6) + spellcoord]));
+    draw_text(xx + spell_offset, yy + 375, safe_string_hash_to_newline(global.battlespelldesc[thischar][(page * 6) + spellcoord]));
     thiscost = floor((global.battlespellcost[thischar][(page * 6) + spellcoord] / global.maxtension) * 100);
     draw_set_color(c_orange);
     
     if (thiscost > 0)
-        draw_text(xx + spell_offset, yy + 440, string_hash_to_newline(string(thiscost) + "% TP"));
+        draw_text(xx + spell_offset, yy + 440, safe_string_hash_to_newline(string(thiscost) + "% TP"));
 }
 
 if (global.bmenuno == 4 && global.myfight == 0)
@@ -379,8 +379,8 @@ if (global.bmenuno == 4 && global.myfight == 0)
     
     for (i = 0; i < 3; i += 1)
     {
-        var s1 = string_hash_to_newline(tempitemnameb[(page * 6) + (i * 2)][global.charturn]);
-        var s2 = string_hash_to_newline(tempitemnameb[(page * 6) + (i * 2) + 1][global.charturn]);
+        var s1 = safe_string_hash_to_newline(tempitemnameb[(page * 6) + (i * 2)][global.charturn]);
+        var s2 = safe_string_hash_to_newline(tempitemnameb[(page * 6) + (i * 2) + 1][global.charturn]);
         var s1_width = string_width(s1);
         var s2_width = string_width(s2);
         var s1_xscale = min(1, 200 / s1_width);
@@ -397,7 +397,7 @@ if (global.bmenuno == 4 && global.myfight == 0)
         draw_sprite_ext(spr_morearrow, 0, xx + 470, (yy + 395) - (sin(s_siner / 10) * 2), 1, -1, 0, c_white, 1);
     
     draw_set_color(c_gray);
-    draw_text(xx + spell_offset, yy + 375, string_hash_to_newline(tempitemdescb[(page * 6) + itemcoord][global.charturn]));
+    draw_text(xx + spell_offset, yy + 375, safe_string_hash_to_newline(tempitemdescb[(page * 6) + itemcoord][global.charturn]));
 }
 
 if (global.bmenuno == 9 && global.myfight == 0)
@@ -480,7 +480,7 @@ if (global.bmenuno == 9 && global.myfight == 0)
         if (chartime == 5)
             draw_sprite_ext(spr_headnoelle, 0, xx + 30 + xoffset, yy + 375 + yoffset, 1, 1, 0, noeblend, 1);*/
         
-        var s1 = string_hash_to_newline(actname[i]);
+        var s1 = safe_string_hash_to_newline(actname[i]);
         var s1_width = max(1, string_width(s1));
         var s1_xscale = (206 - charoffset) / s1_width;
         
@@ -490,17 +490,17 @@ if (global.bmenuno == 9 && global.myfight == 0)
         if (s1_xscale < 0.5)
             s1_xscale = 0.5;
         
-        draw_text_transformed(xx + 30 + charoffset + xoffset, yy + 375 + yoffset, string_hash_to_newline(actname[i]), s1_xscale, 1, 0);
+        draw_text_transformed(xx + 30 + charoffset + xoffset, yy + 375 + yoffset, safe_string_hash_to_newline(actname[i]), s1_xscale, 1, 0);
     }
     
     draw_set_color(c_gray);
-    draw_text(xx + 500, yy + 375, string_hash_to_newline(actdesc[actcoord]));
+    draw_text(xx + 500, yy + 375, safe_string_hash_to_newline(actdesc[actcoord]));
     
     if (global.tensionselect > 0)
     {
         thiscost = round((acttpcost[actcoord] / global.maxtension) * 100);
         draw_set_color(c_orange);
-        draw_text(xx + 500, yy + 440, string_hash_to_newline(string(thiscost) + "% TP"));
+        draw_text(xx + 500, yy + 440, safe_string_hash_to_newline(string(thiscost) + "% TP"));
     }
     
     with (global.monsterinstance[global.bmenucoord[11][global.charturn]])
@@ -534,7 +534,7 @@ if (global.bmenuno == 7 || global.bmenuno == 8)
                 }
                 
                 draw_set_color(c_white);
-                draw_text(xx + 80, yy + 375 + (i * 30), string_hash_to_newline(global.charname[global.char[i]]));
+                draw_text(xx + 80, yy + 375 + (i * 30), safe_string_hash_to_newline(global.charname[global.char[i]]));
                 draw_set_color(c_maroon);
                 draw_rectangle(xx + 400, yy + 380 + (i * 30), xx + 500, yy + 380 + (i * 30) + 15, false);
                 draw_set_color(c_lime);

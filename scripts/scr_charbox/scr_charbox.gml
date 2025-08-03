@@ -1,5 +1,7 @@
 function scr_charbox()
 {
+	try
+	{
     for (c = 0; c < DRHero.__MAX__; c += 1)
     {
         if (havechar[c] == 1)
@@ -26,7 +28,6 @@ function scr_charbox()
             
             if (charpos[c] == 0 && chartotal == 1)
                 xchunk = 213;
-            
             if (gc == charpos[c])
             {
                 if (mmy[c] > -32)
@@ -80,7 +81,6 @@ function scr_charbox()
                     for (sglowi = 0; sglowi < 3; sglowi += 1)
                         if (global.monster[sglowi] == 1 && global.monsterstatus[sglowi] == 1 && global.tension >= scr_hero_get_pacify_spell_cost(c))
                             pacify_glow = 1;
-                
                 var icon_offset = 5;
                 {
                     draw_sprite(spr_btfight, btc[0], xx + xchunk + 15 + icon_offset, (485 - bp) + yy);
@@ -155,9 +155,9 @@ function scr_charbox()
                 draw_set_color(c_red);
             
             draw_set_halign(fa_right);
-            draw_text(xx + 160 + xchunk, ((bpoff + b_offset) - 2) + mmy[c], string_hash_to_newline(global.hp[c + 1]));
+            draw_text(xx + 160 + xchunk, ((bpoff + b_offset) - 2) + mmy[c], safe_string_hash_to_newline(global.hp[c + 1]));
             draw_sprite(spr_hpslash, 0, xx + 159 + xchunk, ((bpoff + b_offset) - 4) + mmy[c]);
-            draw_text(xx + 205 + xchunk, ((bpoff + b_offset) - 2) + mmy[c], string_hash_to_newline(global.maxhp[c + 1]));
+            draw_text(xx + 205 + xchunk, ((bpoff + b_offset) - 2) + mmy[c], safe_string_hash_to_newline(global.maxhp[c + 1]));
             draw_set_halign(fa_left);
             draw_set_color(c_maroon);
             draw_rectangle(xx + 128 + xchunk, bpoff + b_offset + 11 + mmy[c], xx + 203 + xchunk, bpoff + b_offset + 19 + mmy[c], false);
@@ -169,4 +169,9 @@ function scr_charbox()
             }
         }
     }
+	}
+	catch (ex)
+	{
+		show_debug_message(ex)
+	}
 }

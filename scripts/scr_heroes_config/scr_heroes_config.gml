@@ -471,7 +471,7 @@ function scr_character_get_powers(charIdx) {
 			_powers[0] = false; // ???
 			_powers[1] = [c_dkgray, "???", obj_darkcontroller.dograndom >= 97 ? function (ch_y) {
 				draw_set_color(c_white);
-		        draw_text(xx + 100, ch_y, string_hash_to_newline("Dog:"));
+		        draw_text(xx + 100, ch_y, safe_string_hash_to_newline("Dog:"));
 		        draw_sprite_ext(spr_dog_sleep, -threebuffer / 30, xx + 220, ch_y + 5, 2, 2, 0, c_white, 1);
 			} : false, false, false] // Dog or ???
 			break;
@@ -508,7 +508,7 @@ function scr_character_get_powers(charIdx) {
 		case DRCharacter.Starwalker: {
 			_powers[0] = [c_white, "Stars", function (ch_y) {
 				draw_set_color(c_white);
-		        draw_text(xx + 100, ch_y, string_hash_to_newline("Stars:"));
+		        draw_text(xx + 100, ch_y, safe_string_hash_to_newline("Stars:"));
 		        draw_sprite_ext(spr_sparestar, 0, xx + 260, ch_y + 10, 1, 1, 0, c_white, 1);
 				draw_sprite_ext(spr_sparestar, 0, xx + 260 - 16 - 2, ch_y + 10, 1, 1, 0, c_white, 1);
 				draw_sprite_ext(spr_sparestar, 0, xx + 260 - 32 - 4, ch_y + 10, 1, 1, 0, c_white, 1);

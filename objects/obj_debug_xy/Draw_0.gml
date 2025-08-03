@@ -234,8 +234,8 @@ if (show_all_object_xy == true)
                     draw_rectangle(findo.x - 4, findo.y - 32, findo.x + 80, findo.y, false);
                     draw_set_font(fnt_main);
                     draw_set_color(c_aqua);
-                    draw_text(findo.x, findo.y - 32, string_hash_to_newline(object_get_name(findo.object_index)));
-                    draw_text(findo.x, findo.y - 16, string_hash_to_newline(string(fox) + " , " + string(foy)));
+                    draw_text(findo.x, findo.y - 32, safe_string_hash_to_newline(object_get_name(findo.object_index)));
+                    draw_text(findo.x, findo.y - 16, safe_string_hash_to_newline(string(fox) + " , " + string(foy)));
                     draw_set_color(c_red);
                     draw_rectangle(findo.bbox_left, findo.bbox_top, findo.bbox_right, findo.bbox_bottom, true);
                 }
@@ -264,7 +264,7 @@ if (show_all_object_xy == true)
     draw_set_color(c_black);
     draw_rectangle(x - 4, y - 24, x + 60, y, false);
     draw_set_color(c_fuchsia);
-    draw_text(x, y - 20, string_hash_to_newline(string(fox) + " , " + string(foy)));
+    draw_text(x, y - 20, safe_string_hash_to_newline(string(fox) + " , " + string(foy)));
 }
 
 draw_set_color(c_black);
@@ -576,7 +576,7 @@ if (i_ex(selected_object))
             
             draw_set_color(c_yellow);
             copybuffer -= 1;
-            draw_text(x, y, string_hash_to_newline(copymessage));
+            draw_text(x, y, safe_string_hash_to_newline(copymessage));
         }
     }
 }

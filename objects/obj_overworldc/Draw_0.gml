@@ -46,64 +46,64 @@ if (global.interact == 5)
         
         draw_set_color(c_white);
         draw_set_font(fnt_small);
-        draw_text(23 + xx, 49 + moveyy, string_hash_to_newline(stringsetsub("HP  ~1/~2", string(global.lhp), string(global.lmaxhp))));
-        draw_text(23 + xx, 40 + moveyy, string_hash_to_newline(stringsetsub("LV  ~1", string(global.llv))));
-        draw_text(23 + xx, 58 + moveyy, string_hash_to_newline(stringsetsub("$   ~1", string(global.lgold))));
+        draw_text(23 + xx, 49 + moveyy, safe_string_hash_to_newline(stringsetsub("HP  ~1/~2", string(global.lhp), string(global.lmaxhp))));
+        draw_text(23 + xx, 40 + moveyy, safe_string_hash_to_newline(stringsetsub("LV  ~1", string(global.llv))));
+        draw_text(23 + xx, 58 + moveyy, safe_string_hash_to_newline(stringsetsub("$   ~1", string(global.lgold))));
         draw_set_font(fnt_main);
-        draw_text(23 + xx, 20 + moveyy, string_hash_to_newline(global.lcharname));
+        draw_text(23 + xx, 20 + moveyy, safe_string_hash_to_newline(global.lcharname));
         var _itemTextColor = hasitems ? c_white : c_gray;
         draw_set_color(_itemTextColor);
-        draw_text(42 + xx, 84 + yy, string_hash_to_newline("ITEM"));
+        draw_text(42 + xx, 84 + yy, safe_string_hash_to_newline("ITEM"));
         draw_set_color(c_white);
-        draw_text(42 + xx, 102 + yy, string_hash_to_newline("STAT"));
-        draw_text(42 + xx, 120 + yy, string_hash_to_newline("CELL"));
+        draw_text(42 + xx, 102 + yy, safe_string_hash_to_newline("STAT"));
+        draw_text(42 + xx, 120 + yy, safe_string_hash_to_newline("CELL"));
         
         if (global.menuno == 1 || global.menuno == 5)
         {
             for (i = 0; i < 8; i += 1)
-                draw_text(116 + xx, 30 + yy + (i * 16), string_hash_to_newline(global.litemname[i]));
+                draw_text(116 + xx, 30 + yy + (i * 16), safe_string_hash_to_newline(global.litemname[i]));
             
-            draw_text(116 + xx, 170 + yy, string_hash_to_newline("USE"));
-            draw_text(116 + xx + 48, 170 + yy, string_hash_to_newline("INFO"));
-            draw_text(116 + xx + 105, 170 + yy, string_hash_to_newline("DROP"));
+            draw_text(116 + xx, 170 + yy, safe_string_hash_to_newline("USE"));
+            draw_text(116 + xx + 48, 170 + yy, safe_string_hash_to_newline("INFO"));
+            draw_text(116 + xx + 105, 170 + yy, safe_string_hash_to_newline("DROP"));
         }
     }
     
     if (global.menuno == 3)
     {
         for (i = 0; i < 7; i += 1)
-            draw_text(116 + xx, 30 + yy + (i * 16), string_hash_to_newline(global.phonename[i]));
+            draw_text(116 + xx, 30 + yy + (i * 16), safe_string_hash_to_newline(global.phonename[i]));
     }
     
     if (global.menuno == 2)
     {
-        draw_text(108 + xx, 32 + yy, string_hash_to_newline(stringsetsub("\"~1\"", global.lcharname)));
-        draw_text(108 + xx, 62 + yy, string_hash_to_newline(stringsetsub("LV  ~1", string(global.llv))));
-        draw_text(108 + xx, 78 + yy, string_hash_to_newline(stringsetsub("HP  ~1 / ~2", string(global.lhp), string(global.lmaxhp))));
-        draw_text(108 + xx, 110 + yy, string_hash_to_newline(stringsetsub("AT  ~1 (~2)", string(global.lat), string(global.lwstrength))));
-        draw_text(108 + xx, 126 + yy, string_hash_to_newline(stringsetsub("DF  ~1 (~2)", string(global.ldf), string(global.ladef))));
+        draw_text(108 + xx, 32 + yy, safe_string_hash_to_newline(stringsetsub("\"~1\"", global.lcharname)));
+        draw_text(108 + xx, 62 + yy, safe_string_hash_to_newline(stringsetsub("LV  ~1", string(global.llv))));
+        draw_text(108 + xx, 78 + yy, safe_string_hash_to_newline(stringsetsub("HP  ~1 / ~2", string(global.lhp), string(global.lmaxhp))));
+        draw_text(108 + xx, 110 + yy, safe_string_hash_to_newline(stringsetsub("AT  ~1 (~2)", string(global.lat), string(global.lwstrength))));
+        draw_text(108 + xx, 126 + yy, safe_string_hash_to_newline(stringsetsub("DF  ~1 (~2)", string(global.ldf), string(global.ladef))));
         weaponname = "None";
         armorname = "None";
 		
 		if (global.lweapon > DRLightItem.None) weaponname = scr_lightitem_name(global.lweapon);
 		if (global.larmor > DRLightItem.None) armorname = scr_lightitem_name(global.larmor);
         
-        draw_text(108 + xx, 156 + yy, string_hash_to_newline(stringsetsub("WEAPON: ~1", weaponname)));
-        draw_text(108 + xx, 172 + yy, string_hash_to_newline(stringsetsub("ARMOR: ~1", armorname)));
-        draw_text(108 + xx, 192 + yy, string_hash_to_newline(stringsetsub("MONEY: ~1", string(global.lgold))));
+        draw_text(108 + xx, 156 + yy, safe_string_hash_to_newline(stringsetsub("WEAPON: ~1", weaponname)));
+        draw_text(108 + xx, 172 + yy, safe_string_hash_to_newline(stringsetsub("ARMOR: ~1", armorname)));
+        draw_text(108 + xx, 192 + yy, safe_string_hash_to_newline(stringsetsub("MONEY: ~1", string(global.lgold))));
         
         if (string_length(global.lcharname) >= 7)
         {
-            draw_text(192 + xx, 32 + yy, string_hash_to_newline("???"));
+            draw_text(192 + xx, 32 + yy, safe_string_hash_to_newline("???"));
         }
         else if (global.flag[914] > 0)
         {
             var krispreservationsociety = stringsetsub("Since#Chapter ~1", global.flag[914]);
-            draw_text(192 + xx, 32 + yy, string_hash_to_newline(krispreservationsociety));
+            draw_text(192 + xx, 32 + yy, safe_string_hash_to_newline(krispreservationsociety));
         }
         
         nextlevel = 0;
-        draw_text(192 + xx, 110 + yy, string_hash_to_newline(stringsetsub("EXP: ~1", string(global.lxp))));
+        draw_text(192 + xx, 110 + yy, safe_string_hash_to_newline(stringsetsub("EXP: ~1", string(global.lxp))));
         
         if (global.llv == 1)
             nextlevel = 10 - global.lxp;
@@ -165,7 +165,7 @@ if (global.interact == 5)
         if (global.llv >= 20)
             nextlevel = 0;
         
-        draw_text(192 + xx, 126 + yy, string_hash_to_newline(stringsetsub("NEXT: ~1", string(nextlevel))));
+        draw_text(192 + xx, 126 + yy, safe_string_hash_to_newline(stringsetsub("NEXT: ~1", string(nextlevel))));
     }
     
     if (global.menuno == 444)

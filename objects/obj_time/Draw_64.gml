@@ -24,7 +24,7 @@ if scr_debug() && showmodkitmessage {
 	
 	draw_set_halign(textalign_center);
 	
-	var _t = string_hash_to_newline("DELTARUNE Ch. " + string(global.chapter) + " " + global.versionno + "#Running in Editor");
+	var _t = safe_string_hash_to_newline("DELTARUNE Ch. " + string(global.chapter) + " " + global.versionno + "#Running in Editor");
 	draw_text(xcent, starty, _t);
 	draw_text(xcent, balign, room_get_name(room));
 	

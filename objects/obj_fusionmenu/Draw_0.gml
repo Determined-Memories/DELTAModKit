@@ -72,24 +72,24 @@ if (type == 3 && init == 1)
             {
                 draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, xx + 380, yy + 323, 2, 2, 0, c_white, 1);
                 draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], false), 0, xx + 380, yy + 353, 2, 2, 0, c_white, 1);
-                draw_text(xx + 414, yy + 320, string_hash_to_newline("More Info"));
-                draw_text(xx + 414, yy + 350, string_hash_to_newline("Quit"));
+                draw_text(xx + 414, yy + 320, safe_string_hash_to_newline("More Info"));
+                draw_text(xx + 414, yy + 350, safe_string_hash_to_newline("Quit"));
             }
             else*/
             {
-                draw_text(xx + 380, yy + 320, string_hash_to_newline(stringsetsub("~1: More Info#~2: Quit", scr_get_input_name(4), scr_get_input_name(5))));
+                draw_text(xx + 380, yy + 320, safe_string_hash_to_newline(stringsetsub("~1: More Info#~2: Quit", scr_get_input_name(4), scr_get_input_name(5))));
             }
         }
         /*else if (global.is_console || obj_gamecontroller.gamepad_active)
         {
             draw_sprite_ext(scr_getbuttonsprite(global.input_g[4], false), 0, xx + 380, yy + 323, 2, 2, 0, c_white, 1);
             draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], false), 0, xx + 380, yy + 353, 2, 2, 0, c_white, 1);
-            draw_text(xx + 414, yy + 320, string_hash_to_newline("More Info"));
-            draw_text(xx + 414, yy + 350, string_hash_to_newline("Quit"));
+            draw_text(xx + 414, yy + 320, safe_string_hash_to_newline("More Info"));
+            draw_text(xx + 414, yy + 350, safe_string_hash_to_newline("Quit"));
         }*/
         else
         {
-            draw_text(xx + 380, yy + 320, string_hash_to_newline(stringsetsub("~1: More Info#~2: Quit", scr_get_input_name(4), scr_get_input_name(5))));
+            draw_text(xx + 380, yy + 320, safe_string_hash_to_newline(stringsetsub("~1: More Info#~2: Quit", scr_get_input_name(4), scr_get_input_name(5))));
         }
         
         if (alternateMenu)
@@ -137,7 +137,7 @@ if (type == 3 && init == 1)
         if (!jp)
         {
             draw_set_font(fnt_dotumche);
-            draw_text_ext_transformed(xx + 300, yy + ymod, string_hash_to_newline(recruitDesc[menuCoord[1]]), 20, 280, 1, 1, 0);
+            draw_text_ext_transformed(xx + 300, yy + ymod, safe_string_hash_to_newline(recruitDesc[menuCoord[1]]), 20, 280, 1, 1, 0);
         }
         
         draw_set_font(memfont);
@@ -166,26 +166,26 @@ if (type == 3 && init == 1)
             
             if (!jp)
             {
-                if (string_width(string_hash_to_newline(stringl[i])) >= 60)
-                    stringlscale = 80 / string_width(string_hash_to_newline(stringl[i]));
+                if (string_width(safe_string_hash_to_newline(stringl[i])) >= 60)
+                    stringlscale = 80 / string_width(safe_string_hash_to_newline(stringl[i]));
             }
             
-            if (string_width(string_hash_to_newline(stringm[i])) >= 290)
-                stringmscale = 290 / string_width(string_hash_to_newline(stringm[i]));
+            if (string_width(safe_string_hash_to_newline(stringm[i])) >= 290)
+                stringmscale = 290 / string_width(safe_string_hash_to_newline(stringm[i]));
             
             draw_set_halign(fa_left);
-            draw_text_transformed(xx + 80, yy + 240 + (i * 40), string_hash_to_newline(stringl[i]), stringlscale, 1, 0);
-            draw_text_transformed(xx + 80 + 100, yy + 240 + (i * 40), string_hash_to_newline(stringm[i]), stringmscale, 1, 0);
+            draw_text_transformed(xx + 80, yy + 240 + (i * 40), safe_string_hash_to_newline(stringl[i]), stringlscale, 1, 0);
+            draw_text_transformed(xx + 80 + 100, yy + 240 + (i * 40), safe_string_hash_to_newline(stringm[i]), stringmscale, 1, 0);
             draw_set_halign(fa_right);
             
             if (i != 3)
             {
-                draw_text_transformed(xx + 560, yy + 240 + (i * 40), string_hash_to_newline(stringn[i]), squished, 1, 0);
-                draw_text_transformed(xx + 590, yy + 240 + (i * 40), string_hash_to_newline(stringo[i]), squished, 1, 0);
+                draw_text_transformed(xx + 560, yy + 240 + (i * 40), safe_string_hash_to_newline(stringn[i]), squished, 1, 0);
+                draw_text_transformed(xx + 590, yy + 240 + (i * 40), safe_string_hash_to_newline(stringo[i]), squished, 1, 0);
             }
             else
             {
-                draw_text_transformed(xx + 590, yy + 240 + (i * 40), string_hash_to_newline(stringel), squished, 1, 0);
+                draw_text_transformed(xx + 590, yy + 240 + (i * 40), safe_string_hash_to_newline(stringel), squished, 1, 0);
             }
             
             draw_set_halign(fa_left);
@@ -228,7 +228,7 @@ if (type == 3 && init == 1)
             var button_x = (global.lang == "en") ? (xx + 165) : (xx + 84);
             draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], false), 0, button_x, yy + 402, 2, 2, 0, c_white, 1);
             var x_offset = (global.lang == "en") ? 0 : 38;
-            draw_text(xx + 80 + x_offset, yy + 400, string_hash_to_newline("Press         to Return"));
+            draw_text(xx + 80 + x_offset, yy + 400, safe_string_hash_to_newline("Press         to Return"));
         }*/
         else
         {

@@ -1,7 +1,7 @@
 draw_set_color(image_blend);
 draw_set_alpha(image_alpha);
 draw_set_font(scr_84_get_font("main"));
-draw_text(x, y, string_hash_to_newline(msg));
+draw_text(x, y, safe_string_hash_to_newline(msg));
 draw_set_alpha(1);
 image_alpha -= 0.1;
 

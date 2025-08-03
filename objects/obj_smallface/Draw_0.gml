@@ -26,13 +26,13 @@ draw_set_alpha(facealpha);
 if (type == 0 || type == 3)
 {
     draw_set_color(mycolor);
-    draw_text(x + 70 + cxoff, y + 10 + cyoff, string_hash_to_newline(mystring));
+    draw_text(x + 70 + cxoff, y + 10 + cyoff, safe_string_hash_to_newline(mystring));
 }
 
 if (type == 1 && active == 1 && getrid == 0)
 {
     draw_set_color(mycolor);
-    draw_text(x + 70 + cxoff, y + 15 + cyoff, string_hash_to_newline(mystring));
+    draw_text(x + 70 + cxoff, y + 15 + cyoff, safe_string_hash_to_newline(mystring));
     finished = 1;
 }
 
@@ -51,7 +51,7 @@ if (type == 2 || type == 4)
                 finished = 1;
         }
         
-        draw_text(x + 70 + random(1) + cxoff, y + 15 + random(1) + cyoff, string_hash_to_newline(partstring));
+        draw_text(x + 70 + random(1) + cxoff, y + 15 + random(1) + cyoff, safe_string_hash_to_newline(partstring));
     }
 }
 

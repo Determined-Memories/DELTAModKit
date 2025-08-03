@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"safe_string_hash_to_newline",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"safe_string_hash_to_newline",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Custom/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

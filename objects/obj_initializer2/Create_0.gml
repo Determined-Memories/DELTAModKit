@@ -4,7 +4,7 @@ audio_group_load(1) // Loud Sounds
 
 global.is_console = /*scr_is_switch_os() || */os_type == os_ps4 || os_type == os_ps5;
 
-if (!global.is_console)
+if (!global.is_console) && os_browser == false
     window_enable_borderless_fullscreen(true);
 
 //global.debug = 0;
@@ -12,8 +12,7 @@ var launch_data = scr_init_launch_parameters();
 global.launcher = launch_data.is_launcher;
 textures_loaded = false;
 
-if (global.is_console)
-    gpu_set_texfilter(false);
+gpu_set_texfilter(false);
 
 /*if (global.launcher)
 {
@@ -83,7 +82,7 @@ else
 {
     global_flagname_init(); // flagnames are stripped
     scr_84_init_localization(); // Mc didn't feel like adding this lol
-    pal_swap_init_system(shd_pal_swapper); // this gives mc nightmares
+    pal_swap_init_system(shd_pal_swapper, shd_pal_html_sprite, shd_pal_html_surface); // this gives mc nightmares
     global.damagefont = font_add_sprite_ext(spr_numbersfontbig, "0123456789", 20, 0);
     global.damagefontgold = font_add_sprite_ext(spr_numbersfontbig_gold, "0123456789+-%", 20, 0);
     global.hpfont = font_add_sprite_ext(spr_numbersfontsmall, "0123456789-+", 0, 2);

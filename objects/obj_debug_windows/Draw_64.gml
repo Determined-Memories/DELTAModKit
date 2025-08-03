@@ -11,8 +11,8 @@ if string_width(button_text[i]) > wd - (padding * 2)
 }
 
 ht = 40 + (bspace * button_amount);
-mx = (window_mouse_get_x() / window_get_width()) * surface_get_width(application_surface) //mouse_x - camerax();
-my = (window_mouse_get_y() / window_get_height()) * surface_get_height(application_surface)//mouse_y - cameray();
+mx = ((display_mouse_get_x() - window_get_x()) / window_get_width()) * surface_get_width(application_surface) //mouse_x - camerax();
+my = ((display_mouse_get_y() - window_get_y()) / window_get_height()) * surface_get_height(application_surface)//mouse_y - cameray();
 
 draw_set_color(c_black);
 draw_rectangle(xx - 4, yy - 4, xx + wd + 4, yy + ht + 4, false);

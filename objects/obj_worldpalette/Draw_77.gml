@@ -1,0 +1,7 @@
+pal_swap_set(palette_sprite, palette_index, true)
+draw_set_color(c_white)
+draw_set_alpha(1)
+draw_surface(application_surface, 0, 0)
+draw_set_alpha(0.25)
+draw_rectangle(0, 0, 10, 10, false)
+pal_swap_reset()

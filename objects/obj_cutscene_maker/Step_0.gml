@@ -159,5 +159,5 @@ if (sunkus_kb_check_pressed(vk_space))
         }
     }
 	
-    clipboard_set_text(string_hash_to_newline(totalstring));
+    clipboard_set_text(safe_string_hash_to_newline(totalstring));
 }

@@ -57,12 +57,12 @@ for (m = 0; m < menuMax; m++)
                 textxscale = menuHeaderWidth[m][j];
             
             if (menuHeaderWidth[m][j] >= 5)
-                textxscale = clamp(menuHeaderWidth[m] / string_width(string_hash_to_newline(menuHeaderText[m][j])), 0.5, 1);
+                textxscale = clamp(menuHeaderWidth[m] / string_width(safe_string_hash_to_newline(menuHeaderText[m][j])), 0.5, 1);
             
             if (menuHeaderHeight[m][j] > 0)
                 textyscale = menuHeaderHeight[m][j];
             
-            draw_text_transformed(xx + menuHeaderX[m][j], yy + menuHeaderY[m][j], string_hash_to_newline(menuHeaderText[m][j]), textxscale, textyscale, 0);
+            draw_text_transformed(xx + menuHeaderX[m][j], yy + menuHeaderY[m][j], safe_string_hash_to_newline(menuHeaderText[m][j]), textxscale, textyscale, 0);
         }
         
         if (m == menu)
@@ -80,11 +80,11 @@ for (m = 0; m < menuMax; m++)
                     var button_x_offset = (global.lang == "en") ? 0 : -40;
                     draw_sprite_ext(scr_getbuttonsprite(global.input_g[5], false), 0, xx + 190 + button_x_offset, yy + 22, 2, 2, 0, c_white, 1);
                     var x_offset = (global.lang == "en") ? 0 : -36;
-                    draw_text(xx + 18 + x_offset, yy + 20, string_hash_to_newline(optionTopComment[m][menuCoord[m]]));
+                    draw_text(xx + 18 + x_offset, yy + 20, safe_string_hash_to_newline(optionTopComment[m][menuCoord[m]]));
                 }
                 else
                 {
-                    draw_text(xx + 20, yy + 20, string_hash_to_newline(optionTopComment[m][menuCoord[m]]));
+                    draw_text(xx + 20, yy + 20, safe_string_hash_to_newline(optionTopComment[m][menuCoord[m]]));
                 }
             }
         }
@@ -126,12 +126,12 @@ for (m = 0; m < menuMax; m++)
                 textxscale = menuTextXScale[m];
             
             if (menuTextXScale[m] >= 5)
-                textxscale = clamp(menuTextXScale[m] / string_width(string_hash_to_newline(optionText[m][j])), 0.5, 1);
+                textxscale = clamp(menuTextXScale[m] / string_width(safe_string_hash_to_newline(optionText[m][j])), 0.5, 1);
             
             if (menuTextYScale[m] > 0)
                 textyscale = menuTextYScale[m];
             
-            draw_text_transformed(textx, texty, string_hash_to_newline(optionText[m][j]), textxscale, textyscale, 0);
+            draw_text_transformed(textx, texty, safe_string_hash_to_newline(optionText[m][j]), textxscale, textyscale, 0);
             wrap++;
             
             if (wrap >= menuWidth[m])

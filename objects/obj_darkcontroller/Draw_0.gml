@@ -49,10 +49,10 @@ if (drawchar == 1)
         
         draw_set_color(c_white);
         draw_set_font(scr_84_get_font("mainbig"));
-        draw_text(xx + 520, ((yy + tp) - 60) + ymod, string_hash_to_newline(stringsetsub("D$ ~1", string(global.gold))));
+        draw_text(xx + 520, ((yy + tp) - 60) + ymod, safe_string_hash_to_newline(stringsetsub("D$ ~1", string(global.gold))));
         
         if (ymod != 0)
-            draw_text(xx + 520, ((yy + tp) - 32) + ymod, string_hash_to_newline(stringsetsub("PTs ~1", string(global.flag[1044]))));
+            draw_text(xx + 520, ((yy + tp) - 32) + ymod, safe_string_hash_to_newline(stringsetsub("PTs ~1", string(global.flag[1044]))));
     }
 }
 
@@ -69,7 +69,7 @@ if (global.menuno == 5)
         var _heartXPos = (global.lang == "en") ? (xx + 145) : (xx + 125);
         var _selectXPos = (global.lang == "ja" && global.is_console) ? (xx + 385) : (xx + 430);
         draw_set_color(c_white);
-        draw_text(xx + 270, yy + 100, string_hash_to_newline("CONFIG"));
+        draw_text(xx + 270, yy + 100, safe_string_hash_to_newline("CONFIG"));
         audvol = string(round(abs(global.flag[17] * 100))) + "%";
         musvol = string(round(abs(global.flag[16] * 100))) + "%";
         runoff = "OFF";
@@ -100,17 +100,17 @@ if (global.menuno == 5)
         if (global.submenu == 33)
             draw_set_color(c_yellow);
         
-        draw_text(_xPos, yy + 150, string_hash_to_newline("Master Volume"));
-        draw_text(_selectXPos, yy + 150, string_hash_to_newline(audvol));
+        draw_text(_xPos, yy + 150, safe_string_hash_to_newline("Master Volume"));
+        draw_text(_selectXPos, yy + 150, safe_string_hash_to_newline(audvol));
         draw_set_color(c_white);
-        draw_text(_xPos, yy + 185, string_hash_to_newline("Controls"));
-        draw_text(_xPos, yy + 220, string_hash_to_newline("Simplify VFX"));
-        draw_text(_selectXPos, yy + 220, string_hash_to_newline(flashoff));
+        draw_text(_xPos, yy + 185, safe_string_hash_to_newline("Controls"));
+        draw_text(_xPos, yy + 220, safe_string_hash_to_newline("Simplify VFX"));
+        draw_text(_selectXPos, yy + 220, safe_string_hash_to_newline(flashoff));
         
         if (global.is_console)
         {
-            draw_text(_xPos, yy + 255, string_hash_to_newline(autorun_text));
-            draw_text(_selectXPos, yy + 255, string_hash_to_newline(runoff));
+            draw_text(_xPos, yy + 255, safe_string_hash_to_newline(autorun_text));
+            draw_text(_selectXPos, yy + 255, safe_string_hash_to_newline(runoff));
             
             if (global.submenu == 36)
                 draw_set_color(c_yellow);
@@ -120,17 +120,17 @@ if (global.menuno == 5)
             draw_text(_xPos, yy + 290, "Border");
             draw_text(_selectXPos, yy + 290, border_options[selected_border]);
             draw_set_color(c_white);
-            draw_text(_xPos, yy + 325, string_hash_to_newline("Return to Title"));
-            draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
+            draw_text(_xPos, yy + 325, safe_string_hash_to_newline("Return to Title"));
+            draw_text(_xPos, yy + 360, safe_string_hash_to_newline(back_text));
         }
         else
         {
-            draw_text(_xPos, yy + 255, string_hash_to_newline("Fullscreen"));
-            draw_text(xx + 430, yy + 255, string_hash_to_newline(fullscreenoff));
-            draw_text(_xPos, yy + 290, string_hash_to_newline(autorun_text));
-            draw_text(xx + 430, yy + 290, string_hash_to_newline(runoff));
-            draw_text(_xPos, yy + 325, string_hash_to_newline("Return to Title"));
-            draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
+            draw_text(_xPos, yy + 255, safe_string_hash_to_newline("Fullscreen"));
+            draw_text(xx + 430, yy + 255, safe_string_hash_to_newline(fullscreenoff));
+            draw_text(_xPos, yy + 290, safe_string_hash_to_newline(autorun_text));
+            draw_text(xx + 430, yy + 290, safe_string_hash_to_newline(runoff));
+            draw_text(_xPos, yy + 325, safe_string_hash_to_newline("Return to Title"));
+            draw_text(_xPos, yy + 360, safe_string_hash_to_newline(back_text));
         }
     }
     
@@ -144,7 +144,7 @@ if (global.menuno == 5)
         var _yOffset = (global.lang == "en") ? 0 : -4;
         var _headerOffset = (is_dualshock && global.lang == "ja") ? -5 : 0;
         draw_set_color(c_white);
-        draw_text(xx + 105, yy + 100 + _headerOffset, string_hash_to_newline("Function"));
+        draw_text(xx + 105, yy + 100 + _headerOffset, safe_string_hash_to_newline("Function"));
         
         /*if (global.is_console)
         {
@@ -154,10 +154,10 @@ if (global.menuno == 5)
         }
         else*/
         {
-            draw_text(xx + 325, yy + 100 + _headerOffset, string_hash_to_newline("Key"));
+            draw_text(xx + 325, yy + 100 + _headerOffset, safe_string_hash_to_newline("Key"));
             
             //if (obj_gamecontroller.gamepad_active)
-            //    draw_text(xx + 435, yy + 100 + _headerOffset, string_hash_to_newline("Gamepad"));
+            //    draw_text(xx + 435, yy + 100 + _headerOffset, safe_string_hash_to_newline("Gamepad"));
         }
         
         my_function[0] = "DOWN";
@@ -205,11 +205,11 @@ if (global.menuno == 5)
             {
                 var _textHeight = 29;
                 _textYPos = (global.lang == "en") ? (yy + 137) : (yy + 136);
-                draw_text(xx + 105, _textYPos + (i * (_textHeight + line_padding)) + _yOffset, string_hash_to_newline(my_function[i]));
+                draw_text(xx + 105, _textYPos + (i * (_textHeight + line_padding)) + _yOffset, safe_string_hash_to_newline(my_function[i]));
             }
             else
             {
-                draw_text(xx + 105, yy + 140 + (i * (28 + line_padding)) + _yOffset, string_hash_to_newline(my_function[i]));
+                draw_text(xx + 105, yy + 140 + (i * (28 + line_padding)) + _yOffset, safe_string_hash_to_newline(my_function[i]));
             }
             
             if (i < 7)
@@ -237,7 +237,7 @@ if (global.menuno == 5)
                     draw_sprite_ext(_sprite, 0, _xPos, _yPos + (i * (_sprite_height + line_padding)) + _yOffset, 2, 2, 0, c_white, 1);
                     
                     if (!global.is_console)
-                        draw_text(xx + 325, yy + voff + 140 + (i * vspacing), string_hash_to_newline(global.asc_def[global.input_k[i]]));
+                        draw_text(xx + 325, yy + voff + 140 + (i * vspacing), safe_string_hash_to_newline(global.asc_def[global.input_k[i]]));
                 }
                 else if (global.is_console)
                 {
@@ -254,7 +254,7 @@ if (global.menuno == 5)
                 }
                 else*/
                 {
-                    draw_text(xx + 325, yy + voff + 140 + (i * vspacing), string_hash_to_newline(global.asc_def[global.input_k[i]]));
+                    draw_text(xx + 325, yy + voff + 140 + (i * vspacing), safe_string_hash_to_newline(global.asc_def[global.input_k[i]]));
                     
                     /*if (obj_gamecontroller.gamepad_active)
                     {
@@ -303,7 +303,7 @@ if (global.menuno == 4)
     menusiner += 1;
     draw_set_color(c_white);
     draw_set_font(scr_84_get_font("mainbig"));
-    draw_text(xx + 130, yy + 105, string_hash_to_newline(global.charname[charcoord]));
+    draw_text(xx + 130, yy + 105, safe_string_hash_to_newline(global.charname[charcoord]));
     
     for (i = 0; i < 3; i += 1)
     {
@@ -336,13 +336,13 @@ if (global.menuno == 4)
         ch_y[ch_i] = ch_yoff + (ch_i * ch_vspace);
     
     draw_set_color(c_white);
-    draw_text(xx + 100, ch_y[0], string_hash_to_newline("Attack: "));
+    draw_text(xx + 100, ch_y[0], safe_string_hash_to_newline("Attack: "));
     draw_item_icon(xx + 74, ch_y[0] + 6, 1);
-    draw_text(xx + 100, ch_y[1], string_hash_to_newline("Defense: "));
+    draw_text(xx + 100, ch_y[1], safe_string_hash_to_newline("Defense: "));
     draw_item_icon(xx + 74, ch_y[1] + 6, 4);
-    draw_text(xx + 100, ch_y[2], string_hash_to_newline("Magic: "));
+    draw_text(xx + 100, ch_y[2], safe_string_hash_to_newline("Magic: "));
     draw_item_icon(xx + 74, ch_y[2] + 6, 5);
-    draw_text(xx + 100, ch_y[5], string_hash_to_newline("Guts: "));
+    draw_text(xx + 100, ch_y[5], safe_string_hash_to_newline("Guts: "));
     draw_item_icon(xx + 74, ch_y[5] + 6, 9);
     char_desc = "LV1 ";
     guts_amount = 0;
@@ -357,7 +357,7 @@ if (global.menuno == 4)
 		
 		if !is_array(thing) {
 			draw_set_color(c_dkgray);
-            draw_text(xx + 100, ch_y[pid + 3], string_hash_to_newline("???"));
+            draw_text(xx + 100, ch_y[pid + 3], safe_string_hash_to_newline("???"));
 			continue;
 		}
 		
@@ -369,17 +369,17 @@ if (global.menuno == 4)
 		}
 		
 		draw_set_color(thing[0]);
-		draw_text(xx + 100, ch_y[pid + 3], string_hash_to_newline(thing[1]));
+		draw_text(xx + 100, ch_y[pid + 3], safe_string_hash_to_newline(thing[1]));
 		if thing[3] != false
 			draw_item_icon(xx + 74, ch_y[pid + 3] + 6, thing[3]);
 			
 		if thing[4] != false
-			draw_text(xx + 230, ch_y[pid + 3], string_hash_to_newline(thing[4]));
+			draw_text(xx + 230, ch_y[pid + 3], safe_string_hash_to_newline(thing[4]));
 	}
 	
 	draw_set_color(c_white);
     
-    draw_text(xx + 320, yy + 105, string_hash_to_newline(char_desc));
+    draw_text(xx + 320, yy + 105, safe_string_hash_to_newline(char_desc));
     var guts_xoff = langopt(0, 16);
     
     for (i = 0; i < guts_amount; i += 1)
@@ -403,9 +403,9 @@ if (global.menuno == 4)
         }
     }
     
-    draw_text(xx + 230, ch_y[0], string_hash_to_newline(floor(atsum)));
-    draw_text(xx + 230, ch_y[1], string_hash_to_newline(floor(dfsum)));
-    draw_text(xx + 230, ch_y[2], string_hash_to_newline(floor(magsum)));
+    draw_text(xx + 230, ch_y[0], safe_string_hash_to_newline(floor(atsum)));
+    draw_text(xx + 230, ch_y[1], safe_string_hash_to_newline(floor(dfsum)));
+    draw_text(xx + 230, ch_y[2], safe_string_hash_to_newline(floor(magsum)));
     var spell_xoff = langopt(0, -10);
     
     for (i = 0; i < 6; i += 1)
@@ -430,14 +430,14 @@ if (global.menuno == 4)
                 draw_set_color(c_white);
             
             if (global.lang == "ja")
-                draw_text(xx + 310, ch_y[i], string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
+                draw_text(xx + 310, ch_y[i], safe_string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
             else
-                draw_text(xx + 340, ch_y[i], string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
+                draw_text(xx + 340, ch_y[i], safe_string_hash_to_newline(string(round((global.spellcost[charcoord][i] / global.maxtension) * 100)) + "%"));
             
             if (global.lang == "ja")
-                draw_text(xx + 390 + spell_xoff, ch_y[i], string_hash_to_newline(global.spellname[charcoord][i]));
+                draw_text(xx + 390 + spell_xoff, ch_y[i], safe_string_hash_to_newline(global.spellname[charcoord][i]));
             else
-                draw_text(xx + 410 + spell_xoff, ch_y[i], string_hash_to_newline(global.spellname[charcoord][i]));
+                draw_text(xx + 410 + spell_xoff, ch_y[i], safe_string_hash_to_newline(global.spellname[charcoord][i]));
         }
     }
     
@@ -454,7 +454,7 @@ if (global.menuno == 4)
     if (deschaver == 1)
     {
         draw_set_color(c_white);
-        draw_text(xx + 20, yy + 10, string_hash_to_newline(global.spelldesc[charcoord][global.submenucoord[21]]));
+        draw_text(xx + 20, yy + 10, safe_string_hash_to_newline(global.spelldesc[charcoord][global.submenucoord[21]]));
     }
     
     xx = memxx;
@@ -497,7 +497,7 @@ if (global.menuno == 2)
     draw_set_color(c_white);
     draw_set_font(scr_84_get_font("mainbig"));
     var charname_xoff = langopt(0, -25);
-    draw_text(xx + 135 + charname_xoff, yy + 107, string_hash_to_newline(global.charname[charcoord]));
+    draw_text(xx + 135 + charname_xoff, yy + 107, safe_string_hash_to_newline(global.charname[charcoord]));
     
     for (i = 0; i < 3; i += 1)
     {
@@ -549,37 +549,37 @@ if (global.menuno == 2)
     
     if (charweaponname[charcoord] != " ")
     {
-        draw_text(xx + 365, yy + 112, string_hash_to_newline(charweaponname[charcoord]));
+        draw_text(xx + 365, yy + 112, safe_string_hash_to_newline(charweaponname[charcoord]));
         draw_item_icon(xx + 343, yy + 118, charweaponicon[charcoord]);
     }
     else
     {
         draw_set_color(c_dkgray);
-        draw_text(xx + 365, yy + 112, string_hash_to_newline("(Nothing)"));
+        draw_text(xx + 365, yy + 112, safe_string_hash_to_newline("(Nothing)"));
         draw_set_color(c_white);
     }
     
     if (global.chararmor1[charcoord] != 0)
     {
-        draw_text(xx + 365, yy + 142, string_hash_to_newline(chararmor1name[charcoord]));
+        draw_text(xx + 365, yy + 142, safe_string_hash_to_newline(chararmor1name[charcoord]));
         draw_item_icon(xx + 343, yy + 148, chararmor1icon[charcoord]);
     }
     else
     {
         draw_set_color(c_dkgray);
-        draw_text(xx + 365, yy + 142, string_hash_to_newline("(Nothing)"));
+        draw_text(xx + 365, yy + 142, safe_string_hash_to_newline("(Nothing)"));
         draw_set_color(c_white);
     }
     
     if (global.chararmor2[charcoord] != 0)
     {
-        draw_text(xx + 365, yy + 172, string_hash_to_newline(chararmor2name[charcoord]));
+        draw_text(xx + 365, yy + 172, safe_string_hash_to_newline(chararmor2name[charcoord]));
         draw_item_icon(xx + 343, yy + 178, chararmor2icon[charcoord]);
     }
     else
     {
         draw_set_color(c_dkgray);
-        draw_text(xx + 365, yy + 172, string_hash_to_newline("(Nothing)"));
+        draw_text(xx + 365, yy + 172, safe_string_hash_to_newline("(Nothing)"));
         draw_set_color(c_white);
     }
     
@@ -603,12 +603,12 @@ if (global.menuno == 2)
             
             if (global.weapon[i] != 0)
             {
-                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), string_hash_to_newline(weaponname[i]));
+                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), safe_string_hash_to_newline(weaponname[i]));
             }
             else
             {
                 draw_set_color(c_dkgray);
-                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), string_hash_to_newline("---------"));
+                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), safe_string_hash_to_newline("---------"));
             }
             
             j += 1;
@@ -633,12 +633,12 @@ if (global.menuno == 2)
             
             if (global.armor[i] != DRArmor.None)
             {
-                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), string_hash_to_newline(armorname[i]));
+                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), safe_string_hash_to_newline(armorname[i]));
             }
             else
             {
                 draw_set_color(c_dkgray);
-                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), string_hash_to_newline("---------"));
+                draw_text(xx + 384 + eq_xoff, yy + 230 + (j * ch_vspace), safe_string_hash_to_newline("---------"));
             }
             
             j += 1;
@@ -691,14 +691,14 @@ if (global.menuno == 2)
         txt = armordesc[global.submenucoord[global.submenu]];
     
     if (txt != "")
-        draw_text(xx + 20 + descoff, yy + 10, string_hash_to_newline(txt));
+        draw_text(xx + 20 + descoff, yy + 10, safe_string_hash_to_newline(txt));
     
     draw_set_color(c_white);
-    draw_text(xx + 100, yy + 230 + (ch_vspace * 0), string_hash_to_newline("Attack: "));
+    draw_text(xx + 100, yy + 230 + (ch_vspace * 0), safe_string_hash_to_newline("Attack: "));
     draw_item_icon(xx + 74, yy + 236 + (ch_vspace * 0), 1);
-    draw_text(xx + 100, yy + 230 + (ch_vspace * 1), string_hash_to_newline("Defense: "));
+    draw_text(xx + 100, yy + 230 + (ch_vspace * 1), safe_string_hash_to_newline("Defense: "));
     draw_item_icon(xx + 74, yy + 236 + (ch_vspace * 1), 4);
-    draw_text(xx + 100, yy + 230 + (ch_vspace * 2), string_hash_to_newline("Magic: "));
+    draw_text(xx + 100, yy + 230 + (ch_vspace * 2), safe_string_hash_to_newline("Magic: "));
     draw_item_icon(xx + 74, yy + 236 + (ch_vspace * 2), 5);
     atsum = global.at[global.char[coord]] + global.itemat[global.char[coord]][0] + global.itemat[global.char[coord]][1] + global.itemat[global.char[coord]][2];
     dfsum = global.df[global.char[coord]] + global.itemdf[global.char[coord]][0] + global.itemdf[global.char[coord]][1] + global.itemdf[global.char[coord]][2];
@@ -860,12 +860,12 @@ if (global.menuno == 2)
             if (_abilitytext[i] == " " || _abilitytext[i] == "")
             {
                 draw_set_color(_abilitycolor[i]);
-                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), string_hash_to_newline("(No ability.)"));
+                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), safe_string_hash_to_newline("(No ability.)"));
             }
             else
             {
                 draw_set_color(_abilitycolor[i]);
-                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), string_hash_to_newline(_abilitytext[i]));
+                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), safe_string_hash_to_newline(_abilitytext[i]));
                 draw_set_color(c_orange);
                 draw_item_icon(xx + 74, yy + 238 + (ch_vspace * (i + 3)), _abilityicon[i]);
             }
@@ -891,12 +891,12 @@ if (global.menuno == 2)
             if (_abilitytext[i] == " " || _abilitytext[i] == "")
             {
                 draw_set_color(c_dkgray);
-                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), string_hash_to_newline("(No ability.)"));
+                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), safe_string_hash_to_newline("(No ability.)"));
             }
             else
             {
                 draw_set_color(_abilitycolor[i]);
-                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), string_hash_to_newline(_abilitytext[i]));
+                draw_text(xx + 100, yy + 230 + (ch_vspace * (i + 3)), safe_string_hash_to_newline(_abilitytext[i]));
                 draw_set_color(c_orange);
                 draw_item_icon(xx + 74, yy + 238 + (ch_vspace * (i + 3)), _abilityicon[i]);
             }
@@ -928,7 +928,7 @@ if (global.menuno == 1)
             draw_set_color(c_gray);
     }
     
-    draw_text(xx + itemoff[0], yy + 110, string_hash_to_newline("USE"));
+    draw_text(xx + itemoff[0], yy + 110, safe_string_hash_to_newline("USE"));
     
     if (global.submenu > 1)
     {
@@ -938,7 +938,7 @@ if (global.menuno == 1)
             draw_set_color(c_gray);
     }
     
-    draw_text(xx + itemoff[1], yy + 110, string_hash_to_newline("TOSS"));
+    draw_text(xx + itemoff[1], yy + 110, safe_string_hash_to_newline("TOSS"));
     
     if (global.submenu > 1)
     {
@@ -948,7 +948,7 @@ if (global.menuno == 1)
             draw_set_color(c_gray);
     }
     
-    draw_text(xx + itemoff[2], yy + 110, string_hash_to_newline("KEY"));
+    draw_text(xx + itemoff[2], yy + 110, safe_string_hash_to_newline("KEY"));
     
     if (global.submenu >= 2 && global.submenu <= 6 && global.submenu != 4)
     {
@@ -963,13 +963,13 @@ if (global.menuno == 1)
             draw_sprite(spr_heart, 0, xheart, yheart);
         
         draw_set_color(c_white);
-        draw_text(xx + 20, yy + 10, string_hash_to_newline(itemdesc[global.submenucoord[2]]));
+        draw_text(xx + 20, yy + 10, safe_string_hash_to_newline(itemdesc[global.submenucoord[2]]));
     }
     
     if (global.submenu == 7)
     {
         draw_set_color(c_white);
-        draw_text(xx + 20, yy + 10, string_hash_to_newline(stringsetsub("Really throw away the#~1?", global.itemname[global.submenucoord[2]])));
+        draw_text(xx + 20, yy + 10, safe_string_hash_to_newline(stringsetsub("Really throw away the#~1?", global.itemname[global.submenucoord[2]])));
     }
     
     if (global.submenucoord[1] != 2)
@@ -978,8 +978,8 @@ if (global.menuno == 1)
         
         for (i = 0; i < 6; i += 1)
         {
-            draw_text(xx + langopt(148, 94), yy + 154 + (30 * i), string_hash_to_newline(global.itemname[i * 2]));
-            draw_text(xx + 358, yy + 154 + (30 * i), string_hash_to_newline(global.itemname[(i * 2) + 1]));
+            draw_text(xx + langopt(148, 94), yy + 154 + (30 * i), safe_string_hash_to_newline(global.itemname[i * 2]));
+            draw_text(xx + 358, yy + 154 + (30 * i), safe_string_hash_to_newline(global.itemname[(i * 2) + 1]));
         }
         
         draw_set_color(c_white);
@@ -989,8 +989,8 @@ if (global.menuno == 1)
         
         for (i = 0; i < 6; i += 1)
         {
-            draw_text(xx + langopt(146, 92), yy + 152 + (30 * i), string_hash_to_newline(global.itemname[i * 2]));
-            draw_text(xx + 356, yy + 152 + (30 * i), string_hash_to_newline(global.itemname[(i * 2) + 1]));
+            draw_text(xx + langopt(146, 92), yy + 152 + (30 * i), safe_string_hash_to_newline(global.itemname[i * 2]));
+            draw_text(xx + 356, yy + 152 + (30 * i), safe_string_hash_to_newline(global.itemname[(i * 2) + 1]));
         }
     }
     
@@ -1001,8 +1001,8 @@ if (global.menuno == 1)
         
         for (i = 0; i < 6; i += 1)
         {
-            draw_text(xx + langopt(148, 94), yy + 154 + (30 * i), string_hash_to_newline(keyitemname[i * 2]));
-            draw_text(xx + 358, yy + 154 + (30 * i), string_hash_to_newline(keyitemname[(i * 2) + 1]));
+            draw_text(xx + langopt(148, 94), yy + 154 + (30 * i), safe_string_hash_to_newline(keyitemname[i * 2]));
+            draw_text(xx + 358, yy + 154 + (30 * i), safe_string_hash_to_newline(keyitemname[(i * 2) + 1]));
         }
         
         draw_set_color(c_white);
@@ -1020,7 +1020,7 @@ if (global.menuno == 1)
                     draw_set_color(c_ltgray);
             }
             
-            draw_text(xx + langopt(146, 92), yy + 152 + (30 * i), string_hash_to_newline(keyitemname[i * 2]));
+            draw_text(xx + langopt(146, 92), yy + 152 + (30 * i), safe_string_hash_to_newline(keyitemname[i * 2]));
             
             if (global.submenu == 4)
             {
@@ -1030,7 +1030,7 @@ if (global.menuno == 1)
                     draw_set_color(c_ltgray);
             }
             
-            draw_text(xx + 356, yy + 152 + (30 * i), string_hash_to_newline(keyitemname[(i * 2) + 1]));
+            draw_text(xx + 356, yy + 152 + (30 * i), safe_string_hash_to_newline(keyitemname[(i * 2) + 1]));
         }
         
         if (global.submenu == 4)
@@ -1044,7 +1044,7 @@ if (global.menuno == 1)
             
             draw_sprite(spr_heart, 0, xheart, yheart);
             draw_set_color(c_white);
-            draw_text(xx + 20, yy + 10, string_hash_to_newline(keyitemdesc[global.submenucoord[4]]));
+            draw_text(xx + 20, yy + 10, safe_string_hash_to_newline(keyitemdesc[global.submenucoord[4]]));
         }
     }
 }

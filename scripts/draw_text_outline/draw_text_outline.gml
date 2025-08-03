@@ -39,18 +39,18 @@ function draw_text_shadow(x, y, text)
 {
     __txtcolor__ = draw_get_color();
     draw_set_color(c_black);
-    draw_text(x + 1, y + 1, string_hash_to_newline(text));
+    draw_text(x + 1, y + 1, safe_string_hash_to_newline(text));
     draw_set_color(__txtcolor__);
-    draw_text(x, y, string_hash_to_newline(text));
+    draw_text(x, y, safe_string_hash_to_newline(text));
 }
 
 function draw_text_shadow_width(x, y, text, width)
 {
     __txtcolor__ = draw_get_color();
     draw_set_color(c_black);
-    draw_text_width(x + 1, y + 1, string_hash_to_newline(text), width);
+    draw_text_width(x + 1, y + 1, safe_string_hash_to_newline(text), width);
     draw_set_color(__txtcolor__);
-    draw_text_width(x, y, string_hash_to_newline(text), width);
+    draw_text_width(x, y, safe_string_hash_to_newline(text), width);
 }
 
 function draw_text_width(x, y, text, width)

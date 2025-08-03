@@ -160,15 +160,15 @@ maxed = 0;
 
 if (tamt < 100)
 {
-    draw_text(x - 30, y + 70, string_hash_to_newline(string(floor((apparent / global.maxtension) * 100))));
-    draw_text(x - 25, y + 95, string_hash_to_newline("%"));
+    draw_text(x - 30, y + 70, safe_string_hash_to_newline(string(floor((apparent / global.maxtension) * 100))));
+    draw_text(x - 25, y + 95, safe_string_hash_to_newline("%"));
 }
 
 if (tamt >= 100)
 {
     maxed = 1;
     draw_set_color(barcolors[2]);
-    draw_text(x - 28, y + 70, string_hash_to_newline("M"));
-    draw_text(x - 24, y + 90, string_hash_to_newline("A"));
-    draw_text(x - 20, y + 110, string_hash_to_newline("X"));
+    draw_text(x - 28, y + 70, safe_string_hash_to_newline("M"));
+    draw_text(x - 24, y + 90, safe_string_hash_to_newline("A"));
+    draw_text(x - 20, y + 110, safe_string_hash_to_newline("X"));
 }

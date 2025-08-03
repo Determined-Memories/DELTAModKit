@@ -69,7 +69,7 @@ if (choicerstyle == 0)
     
     if (choicetotal >= 1)
     {
-        var str1width = string_width(string_hash_to_newline(global.choicemsg[1]));
+        var str1width = string_width(safe_string_hash_to_newline(global.choicemsg[1]));
         heartposx[1] = (xx + (276 * dar)) - str1width;
         heartposy[1] = yy + ((34 + d_add) * dar) + (fighting * 30);
         textposx[1] = heartposx[1] + (16 * dar);
@@ -78,13 +78,13 @@ if (choicerstyle == 0)
     
     if (choicetotal >= 2)
     {
-        var msg0right = heartposx[0] + (16 * dar) + string_width(string_hash_to_newline(global.choicemsg[0]));
+        var msg0right = heartposx[0] + (16 * dar) + string_width(safe_string_hash_to_newline(global.choicemsg[0]));
         var msg1left = heartposx[1];
-        var msg2width = string_width(string_hash_to_newline(global.choicemsg[2])) + (16 * dar);
+        var msg2width = string_width(safe_string_hash_to_newline(global.choicemsg[2])) + (16 * dar);
         
         if (choicetotal == 3)
         {
-            var msg3width = string_width(string_hash_to_newline(global.choicemsg[3])) + (16 * dar);
+            var msg3width = string_width(safe_string_hash_to_newline(global.choicemsg[3])) + (16 * dar);
             
             if (msg3width > msg2width)
                 msg2width = msg3width;

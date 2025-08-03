@@ -1,4 +1,4 @@
-if active
+if active && !os_browser
 if (global.plot >= plot_begin && global.plot < plot_end)
 {
     pal_swap_layer_init();

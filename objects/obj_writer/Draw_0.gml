@@ -680,7 +680,7 @@ if (view_current == 0)
             if (mychar == "#")
             {
                 if (string_char_at(mystring, n - 1) != "`")
-                    mychar = string_hash_to_newline(mychar);
+                    mychar = safe_string_hash_to_newline(mychar);
             }
             
             if (jpspecial == 1)
