@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_gamepads",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_gamepads",
+  "parent":{
+    "name":"Engine",
+    "path":"folders/DELTARUNE/Scripts/Engine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -204,17 +204,15 @@ function scr_spell_get_battle_use_text(spellid) {
             global.msg[0] = stringsetsub("* ~1 spared ~2!/%", global.charname[global.char[caster]], global.monstername[star]);
             scr_retarget_spell();
             
-            if (!global.monsterdata[star].understandsmercy)
-            {
-                global.msg[0] = stringsetsub("* ~1 spared ~2!&* But, it was not something that can understand \\cYMERCY\\c0./%", "scr_spelltext_slash_scr_spelltext_gml_91_0");
-            }
-			else
-            if (global.mercymod[star] >= 100)
-            {
+            if (!global.monsterdata[star].understandsmercy){
+                global.msg[0] = stringsetsubloc("* ~1 spared ~2!&* But, it was not something that can understand \\cYMERCY\\c0./%", global.charname[global.char[caster]], global.monstername[star], "scr_spells_config_slash_scr_spells_config_gml_207_0");
+				if string_length(global.charname[global.char[caster]]) + string_length(global.monstername[star]) > 20 {
+					global.msg[0] = stringsetsubloc("* ~1 spared ~2!&^5.^1.^1.^9%/", global.charname[global.char[caster]], global.monstername[star], "scr_spells_config_slash_scr_spells_config_gml_209_0");
+					global.msg[1] = stringsetloc("* But, it was not something that can understand \\cYMERCY\\c0./%", "scr_spells_config_slash_scr_spells_config_gml_210_0");
+				}
+            } else if (global.mercymod[star] >= 100)
                 global.msg[0] = stringsetsub("* ~1 spared ~2!/%", global.charname[global.char[caster]], global.monstername[star]);
-            }
-            else
-            {
+            else {
                 global.msg[0] = stringsetsub("* ~1 spared ~2^2!&* But its name wasn't \\cYYELLOW\\cW.../%", global.charname[global.char[caster]], global.monstername[star]);
                 
                 if (global.monsterstatus[star] == 1)
@@ -237,7 +235,7 @@ function scr_spell_get_battle_use_text(spellid) {
                 }
             }
             
-            if (cancelattack == 1)
+            if (cancelattack == true)
                 global.msg[0] = stringsetsub("* ~1 spared!/%", global.charname[global.char[caster]]);
 			break;
 		}

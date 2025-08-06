@@ -15,8 +15,7 @@ function substringargs(str, offset, args)
     return str;
 }
 
-function stringsetsub()
-{
+function stringsetsub(){
     var len = argument_count;
     var args;
     
@@ -27,35 +26,34 @@ function stringsetsub()
     return str;
 }
 
+function stringsetsubloc(){
+    var len = argument_count;
+    var args;
+    
+    for (var i = 0; i < len; i++)
+        args[i] = argument[i];
+	
+    var str = substringargs(scr_getstringloc(argument[0]), 1, args);
+    return str;
+}
 function strlen(str) {return string_length(str)}
 
-function substr()
-{
+function substr(){
     var str = argument[0];
     var pos = argument[1];
     
     if (pos < 0)
-    {
         pos = strlen(str) + 1 + pos;
-    }
     
     var len;
     
     if (argument_count == 2)
-    {
         len = (strlen(str) - pos) + 1;
-    }
     else
-    {
         len = argument[2];
-    }
     
     if (len > 0)
-    {
         return string_copy(str, pos, len);
-    }
     else
-    {
         return "";
-    }
 }

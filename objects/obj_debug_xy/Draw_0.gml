@@ -95,14 +95,7 @@ if (main_focus)
 
 if (keyboard_check_pressed(vk_pagedown))
 {
-    if (show_all_object_xy == true)
-    {
-        show_all_object_xy = false;
-    }
-    else
-    {
-        show_all_object_xy = true;
-    }
+    show_all_object_xy = !show_all_object_xy;
     
     mouse_held = 0;
 }
@@ -114,24 +107,13 @@ if (i_ex(selected_object) && !keyboard_check(ord("P")))
         os = selected_object;
         
         if (keyboard_check(vk_up))
-        {
             os.y -= 1;
-        }
-        
         if (keyboard_check(vk_left))
-        {
             os.x -= 1;
-        }
-        
         if (keyboard_check(vk_down))
-        {
             os.y += 1;
-        }
-        
         if (keyboard_check(vk_right))
-        {
             os.x += 1;
-        }
         
         draw_sprite_ext_flash(os.sprite_index, os.image_index, os.x, os.y, os.image_xscale, os.image_yscale, os.image_angle, os.image_blend, (sin(siner / 8) * 0.5) + 0.5);
     }
@@ -142,37 +124,29 @@ if (keyboard_check_pressed(vk_pageup))
     xy_camera_relative++;
     
     if (xy_camera_relative >= 3)
-    {
         xy_camera_relative = 0;
-    }
 }
 
 if (keyboard_check_pressed(vk_delete))
 {
-    if (i_ex(selected_object))
+    if i_ex(selected_object)
     {
         with (selected_object)
-        {
             instance_destroy();
-        }
         
         selected_object = -999;
     }
 }
 
 if (keyboard_check_pressed(ord("V")))
-{
 	show_invisible = !show_invisible
-}
 
 if (siner >= 5 && mouse_check_button_pressed(mb_middle))
 {
     instance_destroy();
     
     with (obj_debug_windows)
-    {
         instance_destroy();
-    }
 }
 
 if (show_all_object_xy == true)
@@ -276,7 +250,6 @@ draw_line_width(x + 7, y + 7, x + 3, y + 3, 3);
 old_right_click = false;
 
 if (!old_right_click)
-{
     if (mouse_check_button_pressed(mb_right))
     {
         main_focus = false;
@@ -284,53 +257,34 @@ if (!old_right_click)
         if (!i_ex(obj_debug_windows))
         {
             instance_create(0, 0, obj_debug_windows);
-            
             if (!i_ex(selected_object))
-            {
                 obj_debug_windows.type = 1;
-            }
             
             with (obj_debug_windows)
-            {
                 event_user(15);
-            }
         }
         else
-        {
             with (obj_debug_windows)
-            {
                 instance_destroy();
-            }
-        }
     }
-}
 
 if (i_ex(selected_object))
 {
     so = selected_object;
     
-    if (object_get_parent(so.object_index) == obj_monsterparent)
-    {
-        if (enable_mouse_wheel)
-        {
-            if (mouse_wheel_up() || mouse_wheel_down())
-            {
-                with (so)
-                {
-                    if (state == 0)
+    if object_get_parent(so.object_index) == obj_monsterparent
+        if enable_mouse_wheel
+            if mouse_wheel_up() or mouse_wheel_down() // I feel like Toby would use "or" instead of "||"
+                with so
+                    if state == 0
                     {
                         state = 3;
                         shakex = 2;
                         hurttimer = 10;
                     }
-                    else
-                    {
+                    else {
                         state = 0;
                     }
-                }
-            }
-        }
-    }
     
     if (so.object_index == obj_actor)
     {
@@ -369,13 +323,9 @@ if (i_ex(selected_object))
         }
         
         if (button2_h())
-        {
             cardinal_grid_align = true;
-        }
         else
-        {
             cardinal_grid_align = false;
-        }
         
         if (old_right_click)
         {

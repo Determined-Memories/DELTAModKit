@@ -59,7 +59,6 @@ function scr_enemy_set_sprites(enemyId) {
 function scr_monstersetup()
 {
     scr_monster_actreset(myself);
-
 	// simul acts mean simultaneous acts btw
     switch (global.monstertype[myself]) {
         case DREnemy.TestEnemy:
@@ -74,32 +73,37 @@ function scr_monstersetup()
             global.sparepoint[myself] = 10;
             global.mercymod[myself] = 0;
             global.mercymax[myself] = 100;
-			
             global.canact[DRCharacter.Kris][myself][0] = 1;
             global.actname[DRCharacter.Kris][myself][0] = "Check";
-            global.canact[DRCharacter.Kris][myself][1] = 1;
-            global.actname[DRCharacter.Kris][myself][1] = "Warning";
-            global.canact[DRCharacter.Kris][myself][2] = 1;
-            global.actname[DRCharacter.Kris][myself][2] = "Victory";
-            global.canact[DRCharacter.Kris][myself][3] = 1;
-            global.actname[DRCharacter.Kris][myself][3] = "SimuDance";
-            global.actsimul[DRCharacter.Kris][myself][3] = 1;
-            global.canact[DRCharacter.Kris][myself][4] = 1;
-            global.actname[DRCharacter.Kris][myself][4] = "Victory (S)";
-            global.canact[DRCharacter.Kris][myself][5] = 1;
-            global.actname[DRCharacter.Kris][myself][5] = "Lecture";
+			global.monsterdata[myself].understandsmercy = round(random_range(0, 1))
+			if !global.monsterdata[myself].understandsmercy
+				global.monstername[myself] = "NO MERCY Enemy";
+			else
+			{
+	            global.canact[DRCharacter.Kris][myself][1] = 1;
+	            global.actname[DRCharacter.Kris][myself][1] = "Warning";
+	            global.canact[DRCharacter.Kris][myself][2] = 1;
+	            global.actname[DRCharacter.Kris][myself][2] = "Victory";
+	            global.canact[DRCharacter.Kris][myself][3] = 1;
+	            global.actname[DRCharacter.Kris][myself][3] = "SimuDance";
+	            global.actsimul[DRCharacter.Kris][myself][3] = 1;
+	            global.canact[DRCharacter.Kris][myself][4] = 1;
+	            global.actname[DRCharacter.Kris][myself][4] = "Victory (S)";
+	            global.canact[DRCharacter.Kris][myself][5] = 1;
+	            global.actname[DRCharacter.Kris][myself][5] = "Lecture";
 			
-            global.canact[DRCharacter.Susie][myself][0] = 1;
-            global.actname[DRCharacter.Susie][myself][0] = "CoolDance";
-            global.canact[DRCharacter.Susie][myself][1] = 1;
-            global.actname[DRCharacter.Susie][myself][1] = "SimuDance";
-            global.actsimul[DRCharacter.Susie][myself][1] = 1;
+	            global.canact[DRCharacter.Susie][myself][0] = 1;
+	            global.actname[DRCharacter.Susie][myself][0] = "CoolDance";
+	            global.canact[DRCharacter.Susie][myself][1] = 1;
+	            global.actname[DRCharacter.Susie][myself][1] = "SimuDance";
+	            global.actsimul[DRCharacter.Susie][myself][1] = 1;
 			
-            global.canact[DRCharacter.Ralsei][myself][0] = 1;
-            global.actname[DRCharacter.Ralsei][myself][0] = "CoolDance";
-            global.canact[DRCharacter.Ralsei][myself][1] = 1;
-            global.actname[DRCharacter.Ralsei][myself][1] = "SimuDance";
-            global.actsimul[DRCharacter.Ralsei][myself][1] = 1;
+	            global.canact[DRCharacter.Ralsei][myself][0] = 1;
+	            global.actname[DRCharacter.Ralsei][myself][0] = "CoolDance";
+	            global.canact[DRCharacter.Ralsei][myself][1] = 1;
+	            global.actname[DRCharacter.Ralsei][myself][1] = "SimuDance";
+	            global.actsimul[DRCharacter.Ralsei][myself][1] = 1;
+			}
             break;
     }
 	

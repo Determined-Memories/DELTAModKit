@@ -1,17 +1,3 @@
-function scr_get_chapter_recruit_data(chapter)
-{
-    var recruit_ids = [];
-	
-	switch (chapter) {
-		//case 1: recruit_ids = [5, 6, 11, 13, 14, 15, 22, 23]; break;
-		//case 2: recruit_ids = [30, 31, 32, 33, 34, 35, 36, 40, 42, 44]; break;
-		//case 3: recruit_ids = [54, 55, 56, 57, 58, 59, 60, 61]; break;
-		default: recruit_ids = [ DREnemy.TestEnemy ]; break;
-	}
-	
-    return recruit_ids;
-}
-
 function scr_recruit_info(recruitid)
 {
     _recruitcount = 1;
@@ -34,21 +20,6 @@ function scr_recruit_info(recruitid)
     
     switch (recruitid) // recruitid is of type DREnemy
     {
-		case DREnemy.TestEnemy: {
-			_sprite = spr_diamond_overworld;
-            _name = "Test Enemy";
-            _desc = "It is a test enemy. Literally, just that.";
-            _like = "Testing";
-            _dislike = "Bugs and Glitches";
-            _chapter = 1;
-            _level = 1;
-            _attack = 1;
-            _defense = 1;
-            _element = "TEST";
-            _dialogue[0] = "* I am the tester./%";
-			break;	
-		}
-		
         case 5:
             _sprite = spr_diamond_overworld;
             _name = "Rudinn";
@@ -62,7 +33,6 @@ function scr_recruit_info(recruitid)
             _element = "JEWEL";
             _dialogue[0] = "* Hey^1, boss^1! I'll have a Dark Candy Starfait!/%";
             break;
-        
         case 6:
             _sprite = spr_heartenemy_overworld;
             _name = "Hathy";
@@ -76,7 +46,6 @@ function scr_recruit_info(recruitid)
             _element = "HEART";
             _dialogue[0] = "* (Hathy is going to order a heart-foam latte.)/%";
             break;
-        
         case 11:
             _sprite = spr_ponman_idle;
             _name = "Ponman";
@@ -90,7 +59,6 @@ function scr_recruit_info(recruitid)
             _element = "ORDER";
             _dialogue[0] = "* (Looks like it wants to osmose some flavorful cubes.)/%";
             break;
-        
         case 13:
             _sprite = spr_npc_rabbick_clean;
             _name = "Rabbick";
@@ -104,7 +72,6 @@ function scr_recruit_info(recruitid)
             _element = "RABBIT:DUST";
             _dialogue[0] = "* (Looks like it wants to be dabbed with rubbing alcohol.)/%";
             break;
-        
         case 14:
             _sprite = spr_blockguy_spared;
             _name = "Bloxer";
@@ -118,7 +85,6 @@ function scr_recruit_info(recruitid)
             _element = "FIGHT";
             _dialogue[0] = "* Everything tastes better with a normally-shaped body!/%";
             break;
-        
         case 15:
             _sprite = spr_jigsawry_spared;
             _name = "Jigsawry";
@@ -132,7 +98,6 @@ function scr_recruit_info(recruitid)
             _element = "MOUSE:PUZZ";
             _dialogue[0] = "* Lemonade? ..^1. Please./%";
             break;
-        
         case 20:
             _sprite = spr_joker_main;
             _name = "JEVIL";
@@ -147,7 +112,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = stringsetloc("", "scr_recruit_info_slash_scr_recruit_info_gml_122_0");
             _placeable = 0;
             break;
-        
         case 22:
             _sprite = spr_diamond_knight_overworld;
             _name = "Rudinn Ranger";
@@ -161,7 +125,6 @@ function scr_recruit_info(recruitid)
             _element = "JEWEL:BLADE";
             _dialogue[0] = "* Boss...? You're treating me...? Oh^1, you shouldn't have^1! (smile)/%";
             break;
-        
         case 23:
             _sprite = spr_hathyx_overworld;
             _name = "Head Hathy";
@@ -175,7 +138,6 @@ function scr_recruit_info(recruitid)
             _element = "HEART:ICE";
             _dialogue[0] = "* (Head Hathy drinks an ice tea in silence...)/%";
             break;
-        
         case 30:
             _sprite = spr_omawaroid_idle;
             _name = "Ambyu-Lance";
@@ -190,7 +152,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Pipooo^1! Nothing beats a nice shot of espresso..^1. Want me to give you a \"shot\"^1, too!?/%";
             _recruitcount = 4;
             break;
-        
         case 31:
             _sprite = spr_poppup_idle;
             _name = "Poppup";
@@ -205,7 +166,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* NOMU NOMU.&* BERRY GOOD!/%";
             _recruitcount = 3;
             break;
-        
         case 32:
             _sprite = spr_tasque_idle;
             _name = "Tasque";
@@ -220,7 +180,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (It's drinking K_K's electric milk JPEG.)/%";
             _recruitcount = 5;
             break;
-        
         case 33:
             _sprite = spr_werewire_idle;
             _name = "Werewire";
@@ -235,7 +194,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (It has some kind of energy drink.)/%";
             _recruitcount = 6;
             break;
-        
         case 34:
             _sprite = spr_maus_idle;
             _name = "Maus";
@@ -250,7 +208,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (It's drinking melted cheese.)/%";
             _recruitcount = 3;
             break;
-        
         case 35:
             _sprite = spr_virovirokun_idle;
             _name = "Virovirokun";
@@ -265,7 +222,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Wanna share my soda? We'll both get sick that way..^1. Hee hee./%";
             _recruitcount = 4;
             break;
-        
         case 36:
             _sprite = spr_npc_butler;
             _name = "Swatchling";
@@ -280,7 +236,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Boss? Shall we sit down and enjoy a nice earl grey?/%";
             _recruitcount = 5;
             break;
-        
         case 40:
             _sprite = spr_werewerewire_idle;
             _name = "Werewerewire";
@@ -295,7 +250,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (..^1. it's crushing its energy drink with its hand...)/%";
             _recruitcount = 1;
             break;
-        
         case 42:
             _sprite = spr_npc_tasquemanager;
             _name = "Tasque Manager";
@@ -307,11 +261,10 @@ function scr_recruit_info(recruitid)
             _attack = 10;
             _defense = 7;
             _element = "CAT:ORDER";
-            _dialogue[0] = stringsetloc("", "scr_recruit_info_slash_scr_recruit_info_gml_288_0");
+            _dialogue[0] = stringsetloc("", "scr_recruit_info_slash_scr_recruit_info_gml_263_0"); // Was Originally 288, but it was moved in the order.
             _placeable = 0;
             _recruitcount = 1;
             break;
-        
         case 44:
             _sprite = spr_mauswheel_idle;
             _name = "Mauswheel";
@@ -326,7 +279,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (It's getting electricity from the melted cheese like a water wheel)/%";
             _recruitcount = 1;
             break;
-        
         case 54:
             _sprite = spr_shadowman_idle_a;
             _name = "Shadowguy";
@@ -341,7 +293,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (Seems to just be enjoying the musical ambience.)/%";
             _recruitcount = 25;
             break;
-        
         case 55:
             _sprite = spr_shutta_idle;
             _name = "Shuttah";
@@ -356,7 +307,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Shush^1! Don't do the move..^1. I am photographing the drink!/%";
             _recruitcount = 2;
             break;
-        
         case 56:
             _sprite = spr_npc_zapper;
             _name = "Zapper";
@@ -371,7 +321,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Say da word^1, boss..^1. I'll give dis drink a sip it won't forget./%";
             _recruitcount = 2;
             break;
-        
         case 57:
             _sprite = spr_ribbick_Idle;
             _name = "Ribbick";
@@ -386,7 +335,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (Looks like it want to be dabbed with rubbing alcohol.)/%";
             _recruitcount = 3;
             break;
-        
         case 58:
             _sprite = spr_watercooler;
             _name = "Watercooler";
@@ -401,7 +349,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* (Seems like they're drinking water.)&* (..^1. feels questionable.)/%";
             _recruitcount = 1;
             break;
-        
         case 59:
             _sprite = spr_pippins_idle;
             _name = "Pippins";
@@ -416,7 +363,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* This drink's not mine? It's fine. I'm just keeping it warm./%";
             _recruitcount = 5;
             break;
-        
         case 60:
             _sprite = spr_elnina_idle_left;
             _name = "Elnina";
@@ -431,7 +377,6 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Oh no^1, where's Lanino? He better not be having a team relationship.../%";
             _recruitcount = 1;
             break;
-        
         case 61:
             _sprite = spr_lanino_idle_left;
             _name = "Lanino";
@@ -446,6 +391,19 @@ function scr_recruit_info(recruitid)
             _dialogue[0] = "* Haven't been on a date alone for a while^1! ..^1. which^1, isn't a date./%";
             _recruitcount = 1;
             break;
+		case DREnemy.TestEnemy: 
+			_sprite = spr_diamond_overworld;
+            _name = "Test Enemy";
+            _desc = "It is a test enemy. Literally, just that.";
+            _like = "Testing";
+            _dislike = "Bugs and Glitches";
+            _chapter = 1;
+            _level = 1;
+            _attack = 1;
+            _defense = 1;
+            _element = "TEST";
+            _dialogue[0] = "* I am the tester./%";
+			break;
     }
     
     if (_sprite == spr_darkconfigbt)
@@ -455,4 +413,18 @@ function scr_recruit_info(recruitid)
     }
     
     _recruitcountcurrent = round(global.flag[recruitid + 600] / (1 / _recruitcount));
+}
+
+function scr_get_chapter_recruit_data(chapter)
+{
+    var recruit_ids = [];
+	
+	switch (chapter) {
+		//case 1: recruit_ids = [5, 6, 11, 13, 14, 15, 22, 23]; break;
+		//case 2: recruit_ids = [30, 31, 32, 33, 34, 35, 36, 40, 42, 44]; break;
+		//case 3: recruit_ids = [54, 55, 56, 57, 58, 59, 60, 61]; break;
+		default: recruit_ids = [ DREnemy.TestEnemy ]; break;
+	}
+	
+    return recruit_ids;
 }

@@ -1,3 +1,4 @@
+// Goes in __view_get
 function __view_get(property, index)
 {
     var __prop = property;
@@ -82,6 +83,7 @@ function __view_get(property, index)
     return __res;
 }
 
+// Goes in __view_set
 function __view_set(property, index, value)
 {
     var __prop = property;
@@ -92,11 +94,13 @@ function __view_set(property, index, value)
     return __res;
 }
 
+// Goes in __view_set_internal
 function __view_set_internal(property, index, value)
 {
     var __prop = property;
     var __index = index;
     var __val = value;
+	var __res = false;
     var __cam = view_get_camera(__index);
     switch (__prop)
     {
@@ -172,7 +176,7 @@ function __view_set_internal(property, index, value)
             break;
     }
     
-    return 0;
+    return __res;
 }
 
 enum e__VW

@@ -1,18 +1,21 @@
-if (global.interact == 5)
-{
+/*
+--------------------------------
+Lookie, Comments to try to align
+The KEYS with their Proper Lines.
+--------------------------------
+*/
+
+if (global.interact == 5) {
     charcon = 1;
-    
-    if (global.submenu == 5 || global.submenu == 22)
-    {
+    if (global.submenu == 5 || global.submenu == 22) {
         global.charselect = global.submenucoord[global.submenu];
         global.faceaction[0] = 0;
         global.faceaction[1] = 0;
         global.faceaction[2] = 0;
         global.faceaction[global.charselect] = 7;
         
-        if (left_p())
-        {
-            movenoise = 1;
+        if (left_p()) {
+            movenoise = true;
             
             if (global.submenucoord[global.submenu] > 0)
                 global.submenucoord[global.submenu] -= 1;
@@ -20,9 +23,8 @@ if (global.interact == 5)
                 global.submenucoord[global.submenu] = chartotal - 1;
         }
         
-        if (right_p())
-        {
-            movenoise = 1;
+        if (right_p()) {
+            movenoise = true;
             
             if (global.submenucoord[global.submenu] < (chartotal - 1))
                 global.submenucoord[global.submenu] += 1;
@@ -30,19 +32,15 @@ if (global.interact == 5)
                 global.submenucoord[global.submenu] = 0;
         }
         
-        if (button1_p() && onebuffer < 0 && twobuffer < 0)
-        {
+        if (button1_p() && onebuffer < 0 && twobuffer < 0) {
             onebuffer = 2;
             
-            if (global.submenu == 5)
-            {
+            if (global.submenu == 5) {
                 scr_itemuse(global.item[global.submenucoord[2]]);
                 
                 if (usable == 1)
-                {
-                    //with (obj_event_manager)
-                    //    trigger_event(GameEvent.Zero, GameEvent.Eleven);
-                }
+                    {}//with (obj_event_manager)
+                        //trigger_event(GameEvent.Zero, GameEvent.Eleven);
                 
                 if (usable == 1 && replaceable == 0)
                     scr_itemshift(global.submenucoord[2], 0);
@@ -55,11 +53,9 @@ if (global.interact == 5)
                 global.charselect = -1;
             }
             
-            if (global.submenu == 22)
-            {
-				// unused
-                //scr_spell_overworld(global.spell[global.char[global.submenucoord[20]]][global.submenucoord[21]]);
-                //global.tension -= global.spellcost[global.char[global.submenucoord[20]]][global.submenucoord[21]];
+            if (global.submenu == 22) {
+                scr_spell_overworld(global.spell[global.char[global.submenucoord[20]]][global.submenucoord[21]]);
+                global.tension -= global.spellcost[global.char[global.submenucoord[20]]][global.submenucoord[21]];
             }
         }
         
@@ -89,28 +85,26 @@ if (global.interact == 5)
         }
     }
     
-    if (global.submenu == 6 || global.submenu == 7 || global.menuno == 3)
-    {
+    if (global.submenu == 6 || global.submenu == 7 || global.menuno == 3) {
         global.charselect = 3;
         global.faceaction[0] = 7;
         global.faceaction[1] = 7;
         global.faceaction[2] = 7;
         
-        if (button1_p() && onebuffer < 0 && global.submenu == 6)
-        {
+        if (button1_p() && onebuffer < 0 && global.submenu == 6) {
             onebuffer = 2;
             global.faceaction[0] = 0;
             global.faceaction[1] = 0;
             global.faceaction[2] = 0;
             scr_itemuse(global.item[global.submenucoord[2]]);
             
-            if (usable == 1)
+            if (usable == true)
             {
                 //with (obj_event_manager)
                 //   trigger_event(UnknownEnum.Value_0, UnknownEnum.Value_11);
             }
             
-            if (usable == 1 && replaceable == 0)
+            if (usable == true && replaceable == false)
                 scr_itemshift(global.submenucoord[2], 0);
             else if (replaceable > 0)
                 global.item[global.submenucoord[2]] = replaceable;
@@ -120,8 +114,7 @@ if (global.interact == 5)
             global.submenu = 2;
         }
         
-        if (button1_p() && onebuffer < 0 && global.submenu == 7)
-        {
+        if (button1_p() && onebuffer < 0 && global.submenu == 7) {
             onebuffer = 2;
             global.faceaction[0] = 0;
             global.faceaction[1] = 0;
@@ -134,18 +127,16 @@ if (global.interact == 5)
             snd_play(snd_heavyswing);
             
             if (throwitem == 4)
-            {
-                if (global.char[2] == 3 || global.char[1] == 3)
-                {
+                if (global.char[2] == 3 || global.char[1] == 3) {
                     global.interact = 1;
                     scr_closemenu();
                     global.fc = 2;
                     global.typer = 31;
                     global.fe = 9;
                     global.msg[0] = stringsetloc("* .../%", "obj_darkcontroller_slash_Step_0_gml_135_0");
-                    
-                    if (global.flag[207] == 1)
-                    {
+					
+					// Manual Throw away.
+                    if (global.flag[207] == 1) {
                         global.fc = 0;
                         global.typer = 6;
                         global.msg[0] = stringsetloc("* (You tossed the Manual hard.^1)&* (Its pages scatter in the wind.)/", "obj_darkcontroller_slash_Step_0_gml_141_0");
@@ -175,11 +166,9 @@ if (global.interact == 5)
                     dl = instance_create(0, 0, obj_dialoguer);
                     dl.free = 1;
                 }
-            }
         }
         
-        if (button1_p() && onebuffer < 0 && global.menuno == 3)
-        {
+        if (button1_p() && onebuffer < 0 && global.menuno == 3) {
             twobuffer = 2;
             onebuffer = 2;
             global.faceaction[0] = 0;
@@ -187,13 +176,12 @@ if (global.interact == 5)
             global.faceaction[2] = 0;
             global.charselect = -1;
             global.interact = 6;
-            //scr_talkroom(); // this is unused lmao
+            scr_talkroom(); // this is unused lmao // I'm aware, but... So? Still fun
             global.menuno = -1;
             charcon = 0;
         }
         
-        if (button2_p() && twobuffer < 0)
-        {
+        if (button2_p() && twobuffer < 0) {
             cancelnoise = 1;
             twobuffer = 2;
             global.faceaction[0] = 0;
@@ -468,7 +456,7 @@ if (global.interact == 5)
             
             if (!global.is_console)
             {
-                gamepad_exists = false;// obj_gamecontroller.gamepad_active;
+                gamepad_exists = obj_gamecontroller.gamepad_active;
                 gamepad_id = 0;
             }
             

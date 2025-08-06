@@ -56,8 +56,8 @@ else
     if (itemtype == "nothing")
     {
         scr_speaker("no_name");
-        msgset(0, "* (You opened the treasure chest.)/", "obj_treasure_room_slash_Other_10_gml_30_0");
-        msgnext("* (Inside was nothing.)/%", "obj_treasure_room_slash_Other_10_gml_31_0");
+        msgset(0, "* (You opened the treasure chest.)/");
+        msgnext("* (Inside was nothing.)/%");
         noroom = 0;
         close = 0;
     }

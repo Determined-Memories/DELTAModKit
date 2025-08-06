@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Contact",
-    "path":"folders/DELTARUNE/Sprites/Menus/Contact.yy",
+    "name":"DEPTHS",
+    "path":"folders/DELTARUNE/Sprites/Menus/Contact/IMAGES/DEPTHS.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

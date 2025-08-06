@@ -1,11 +1,10 @@
-function scr_createmonsterdata() constructor
-{
+function scr_createmonsterdata() constructor {
 	understandsmercy = true;
 	createsdarkness = false;
+	testdatatestloc = stringsetloc()
 }
 
-function scr_monster_statreset(monsterid)
-{
+function scr_monster_statreset(monsterid){
     global.monster[monsterid] = 0;
     global.monsterx[monsterid] = 0;
     global.monstery[monsterid] = 0;
@@ -28,8 +27,7 @@ function scr_monster_statreset(monsterid)
     scr_monster_actreset(monsterid);
 }
 
-function scr_monster_actreset(arg0)
-{
+function scr_monster_actreset(arg0){
     for (__fj = 0; __fj < 6; __fj += 1)
         for (__charIdx = DRCharacter.None; __charIdx < DRCharacter.__MAX__; __charIdx++) {
 			global.canact[__charIdx][arg0][__fj] = 0;
@@ -41,8 +39,7 @@ function scr_monster_actreset(arg0)
 		}
 }
 
-function scr_monster_add(arg0, arg1)
-{
+function scr_monster_add(arg0, arg1){
     __returnid = -1;
     
     for (__mopenslot = 0; __mopenslot < 3; __mopenslot++)

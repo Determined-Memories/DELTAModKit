@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_talkroom",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_talkroom",
+  "parent":{
+    "name":"World",
+    "path":"folders/DELTARUNE/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

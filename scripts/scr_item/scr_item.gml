@@ -542,7 +542,7 @@ function scr_itemget_anytype_text()
     if (_itemtype == "money")
     {
         noroom = false; // * Your \\cYMONEY HOLE\\cW can never be full./
-        itemtypename = stringsetloc("MONEY HOLE", "scr_itemget_anytype_text_slash_scr_itemget_anytype_text_gml_51_0");
+        itemtypename = stringsetloc("MONEY HOLE", "scr_itemget_anytype_text_slash_scr_itemget_anytype_text_gml_544_0");
         itemname = string(_itemid) + stringsetloc(" Dark Dollars", "scr_itemget_anytype_text_slash_scr_itemget_anytype_text_gml_52_0");
     }
     

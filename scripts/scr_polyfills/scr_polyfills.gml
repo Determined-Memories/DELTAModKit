@@ -62,7 +62,9 @@ function arr_length(arr) { return array_length(arr); }
 
 // string
 function stringsetloc(str, code) { 
-	
 	return scr_getstringloc(str); 
+}
 	
-	}
+function stringset(string){ // This Means "LOCALIZE MY STRING, TOBY FOX AUTOMATIC CONVERSION SYSTEMS"
+    return string
+}

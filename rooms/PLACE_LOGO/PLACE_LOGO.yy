@@ -18,7 +18,7 @@
   "name":"PLACE_LOGO",
   "parent":{
     "name":"Contact",
-    "path":"folders/Custom/Rooms/Contact.yy",
+    "path":"folders/DELTARUNE/Rooms/Contact.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

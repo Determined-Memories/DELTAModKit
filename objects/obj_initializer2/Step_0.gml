@@ -31,8 +31,8 @@ if (audio_group_is_loaded(1))
     if (scr_completed_chapter_any_slot(global.chapter))
         menu_go = 2;
     
-    if (scr_debug())
-        menu_go = 3;
+    //if (scr_debug())
+    //    menu_go = 3;
     
     if (menu_go == 0 || menu_go == 1)
     {
