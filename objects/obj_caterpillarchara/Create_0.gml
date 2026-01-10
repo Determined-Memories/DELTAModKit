@@ -17,7 +17,6 @@ init_clothes = false;
 blushtimer = 0;
 shadow_force_off = false;
 name = "susie";
-target = 12;
 sprite_init = false;
 target = 12;
 usprite = spr_susieu_dark;
@@ -33,8 +32,7 @@ pr = parent.rsprite;
 pl = parent.lsprite;
 pu = parent.usprite;
 
-for (i = 0; i < 75; i += 1)
-{
+for (i = 0; i < 75; i += 1) {
     remx[i] = parent.x;
     remy[i] = parent.y;
     facing[i] = global.facing;
@@ -52,3 +50,6 @@ forget = 0;
 ignoredepth = 0;
 halign = 6;
 valign = 16;
+depthbonus = 5
+
+characterslot = 0

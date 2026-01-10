@@ -285,6 +285,41 @@ function scr_character_set_caterpillar_sprites(charIdx) {
 	}
 }
 
+function scr_character_set_caterpillar_offsets(charIdx) {
+	// All Alignment Values have been Changed for Lightworld Scale, and will be Resized to Dark At the end of This Script.
+	#region Default Caterpillar
+	depthbonus = 5
+    halign = 3
+    valign = 6;
+	var autoresizeoffsets = true
+	#endregion
+	switch charIdx {
+			case DRCharacter.Susie: { // Susie Uses Default Horizontal alignment and Vertical Alignment
+				if global.darkzone == true depthbonus -= 60;	
+				break
+			}
+			case DRCharacter.Ralsei: {
+				depthbonus -= 80
+		        halign = 1;
+		        valign = 6;
+				break
+			}
+			case DRCharacter.Noelle: {
+				depthbonus -= 5
+		        halign = 2
+		        valign = 9
+				break
+			}
+			
+			// Starwalker Uses Default.
+	}
+	
+	if autoresizeoffsets && global.darkzone {
+		halign *= 2
+		valign *= 2
+	}
+}
+
 function scr_character_get_max_hp(charIdx) {
 	var chapter = global.chapter;
 	var defaultChapterIncreaseFormula = (chapter > 1 ? 30 : 0) + (chapter - 1) * 40;
@@ -524,3 +559,4 @@ function scr_character_set_names() {
 	
 	global.charname[DRCharacter.Starwalker] = "Starwalker";
 }
+

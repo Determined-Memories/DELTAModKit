@@ -1,5 +1,4 @@
-if (global.interact == 5)
-{
+if (global.interact == 5) {
     charcon = 1;
     
     if (global.submenu == 5 || global.submenu == 22)
