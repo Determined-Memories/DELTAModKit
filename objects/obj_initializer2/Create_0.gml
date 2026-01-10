@@ -1,13 +1,16 @@
-scr_modinit()
-
-audio_group_load(1) // Loud Sounds
-
 global.is_console = /*scr_is_switch_os() || */os_type == os_ps4 || os_type == os_ps5;
+
+#macro direction_DOWN 0
+#macro direction_RIGHT 1
+#macro direction_UP 2
+#macro direction_LEFT 3
+
+scr_load_audio()
 
 if (!global.is_console) && os_browser == false
     window_enable_borderless_fullscreen(true);
 
-//global.debug = 0;
+global.debug = DEBUGMODE
 var launch_data = scr_init_launch_parameters();
 global.launcher = launch_data.is_launcher;
 textures_loaded = false;
@@ -73,8 +76,7 @@ scr_input_manager_init();
 
 if (global.is_console)
 {
-    if (os_type == os_ps4 || os_type == os_ps5)
-        window_set_cursor(cr_none);
+    if (os_type == os_ps4 || os_type == os_ps5) window_set_cursor(cr_none);
     
     ossafe_savedata_load();
 }
@@ -104,7 +106,7 @@ else
         instance_create(0, 0, obj_time);
 }
 
-loadtex = -4;
+loadtex = noone;
 
 //if (global.is_console)
 //    loadtex = instance_create(0, 0, obj_prefetchtex);

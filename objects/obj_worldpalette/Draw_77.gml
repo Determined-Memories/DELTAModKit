@@ -1,7 +1,4 @@
-pal_swap_set(palette_sprite, palette_index, true)
-draw_set_color(c_white)
-draw_set_alpha(1)
-draw_surface(application_surface, 0, 0)
-draw_set_alpha(0.25)
-draw_rectangle(0, 0, 10, 10, false)
+// Warning, this won't work with screen transitions, as those Also Change the colors.
+pal_swap_set(palette_sprite, palette_index, false)
+draw_surface_stretched(application_surface, application_get_position()[0], application_get_position()[1], window_get_width(), window_get_height())
 pal_swap_reset()

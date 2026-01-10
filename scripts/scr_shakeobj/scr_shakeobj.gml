@@ -1,5 +1,4 @@
-function scr_shakeobj()
-{
+function scr_shakeobj(){
     var _shakeobj = instance_create(x, y, obj_shakeobj);
     _shakeobj.target = id;
     
@@ -25,8 +24,7 @@ function scr_shakeobj()
         event_user(0);
 }
 
-function scr_shakeobj_x()
-{
+function scr_shakeobj_x(){
     shakeobj = instance_create(x, y, obj_shakeobj);
     shakeobj.target = id;
     

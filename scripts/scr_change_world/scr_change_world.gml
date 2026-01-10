@@ -7,7 +7,7 @@ function scr_become_dark()
     {
         var weapon = get_weapon_by_lw_id(global.litem[i]);
         
-        if (weapon != -4)
+        if (weapon != noone)
         {
             if (!scr_weaponcheck_inventory(weapon.dw_id) && !scr_weaponcheck_equipped_any(weapon.dw_id))
                 scr_weaponget(weapon.dw_id);

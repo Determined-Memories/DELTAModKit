@@ -14,4 +14,4 @@ ballmake = 1;
 releasetimer = 0;
 ceilheight = 0;
 ceiltimer = 0;
-fountain_sound = -4;
+fountain_sound = noone;

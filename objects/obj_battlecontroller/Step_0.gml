@@ -1029,22 +1029,18 @@ if (global.mnfight == 2 && timeron == 1)
 }
 
 if (global.myfight == 3)
-{
-    if (scr_monsterpop() == 0 && !instance_exists(obj_writer))
-    {
-        scr_combat_result();
+    if (scr_monsterpop() == 0 && !instance_exists(obj_writer)) {
+        scr_wincombat(); // MC accidentally changed this via renaming a script.
         
         if (global.myfight == 3)
             scr_endturn();
     }
-}
 
 if (global.myfight == 5)
 {
     myfightreturntimer--;
     
-    if (myfightreturntimer <= 0)
-    {
+    if (myfightreturntimer <= 0) {
         scr_mnendturn();
         global.spelldelay = 10;
         

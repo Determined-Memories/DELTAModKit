@@ -1,0 +1,3 @@
+image_index = random_range(0, sprite_get_number(sprite_index))
+
+show_debug_message("SMOKE")

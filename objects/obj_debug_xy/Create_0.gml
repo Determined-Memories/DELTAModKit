@@ -1,3 +1,4 @@
+if DEBUGMODE {
 if (instance_number(object_index) > 1)
 {
     instance_destroy();
@@ -31,3 +32,4 @@ panremx = camerax();
 panremy = cameray();
 enable_mouse_wheel = false;
 old_right_click = false;
+} else exit;

@@ -1,5 +1,4 @@
-if (ds_map_find_value(async_load, "id") == global.savedata_async_id)
-{
+if (ds_map_find_value(async_load, "id") == global.savedata_async_id) {
     global.savedata_async_id = -1;
     
     if (global.savedata_async_load)
@@ -11,9 +10,7 @@ if (ds_map_find_value(async_load, "id") == global.savedata_async_id)
             global.savedata_error = true;
             global.savedata_debuginfo = "load failed: " + string(ds_map_find_value(async_load, "status"));
             global.savedata = ds_map_create();
-        }
-        else
-        {
+        } else {
             global.savedata_error = false;
             global.savedata_debuginfo = "load succeeded";
             var json = buffer_read(global.savedata_buffer, buffer_string);

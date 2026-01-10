@@ -1,5 +1,4 @@
-function scr_armorinfo_mine()
-{
+function scr_armorinfo_mine(){
     for (i = 0; i < 6; i += 1)
     {
         scr_armorinfo(global.chararmor1[i]);
@@ -51,7 +50,7 @@ function scr_armorinfo_mine()
 
 function scr_armorinfo_all()
 {
-    for (i = 0; i < 48; i += 1)
+    for (i = 0; i < array_length(global.armor); i += 1)
     {
         scr_armorinfo(global.armor[i]);
         armorname[i] = armornametemp;

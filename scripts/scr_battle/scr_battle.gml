@@ -1,5 +1,4 @@
-function scr_battle(encounterno, specialbattle, enemy0, enemy1, enemy2)
-{
+function scr_battle(encounterno, specialbattle, enemy0, enemy1, enemy2) {
     global.specialbattle = specialbattle;
     global.encounterno = encounterno;
     

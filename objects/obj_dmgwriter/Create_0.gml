@@ -19,12 +19,11 @@ killtimer = 0;
 killactive = 0;
 
 with (obj_dmgwriter)
-{
     if (type != 3)
         killtimer = 0;
-}
 
 specialmessage = 0;
 stayincamera = 1;
+
 xx = camerax();
 message_sprite = spr_battlemsg;

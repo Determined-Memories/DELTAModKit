@@ -1,5 +1,4 @@
-function scr_funnytext_init()
-{
+function scr_funnytext_init() {
     global.writerobj[argument0] = obj_funnytext;
     global.writerobjx[argument0] = argument1;
     global.writerobjy[argument0] = argument2;

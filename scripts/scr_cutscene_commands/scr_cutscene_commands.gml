@@ -809,16 +809,16 @@ function scr_cutscene_commands()
                 actor_id[jjj].visible = 0;
                 
                 if (actor_id[jjj].facing == "d")
-                    global.facing = 0;
+                    global.facing = direction_DOWN;
                 
                 if (actor_id[jjj].facing == "r")
-                    global.facing = 1;
+                    global.facing = direction_RIGHT;
                 
                 if (actor_id[jjj].facing == "u")
-                    global.facing = 2;
+                    global.facing = direction_UP;
                 
                 if (actor_id[jjj].facing == "l")
-                    global.facing = 3;
+                    global.facing = direction_LEFT;
             }
         }
     }

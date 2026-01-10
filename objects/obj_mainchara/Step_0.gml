@@ -187,44 +187,44 @@ if (global.interact == 0 && freeze == 0)
     if (nopress == 1 && pressdir != -1)
         global.facing = pressdir;
     
-    if (global.facing == 2)
+    if (global.facing == direction_UP)
     {
         if (press_d == 1)
-            global.facing = 0;
+            global.facing = direction_DOWN;
         
         if (press_u == 0 && pressdir != -1)
             global.facing = pressdir;
     }
     
-    if (global.facing == 0)
+    if (global.facing == direction_DOWN)
     {
         if (press_u == 1)
-            global.facing = 2;
+            global.facing = direction_UP;
         
         if (press_d == 0 && pressdir != -1)
             global.facing = pressdir;
     }
     
-    if (global.facing == 3)
+    if (global.facing == direction_LEFT)
     {
         if (press_r == 1)
-            global.facing = 1;
+            global.facing = direction_RIGHT;
         
         if (press_l == 0 && pressdir != -1)
             global.facing = pressdir;
     }
     
-    if (global.facing == 1)
+    if (global.facing == direction_RIGHT)
     {
         if (press_l == 1)
-            global.facing = 3;
+            global.facing = direction_LEFT;
         
         if (press_r == 0 && pressdir != -1)
             global.facing = pressdir;
     }
     
     if (press_r == 1)
-        swordfacing = 1;
+        swordfacing = direction_RIGHT;
     
     if (press_l == 1)
         swordfacing = -1;
@@ -738,16 +738,16 @@ if (fun == 0)
 
 if (fun == 0)
 {
-    if (global.facing == 0)
+    if (global.facing == direction_DOWN)
         sprite_index = dsprite;
     
-    if (global.facing == 1)
+    if (global.facing == direction_RIGHT)
         sprite_index = rsprite;
     
-    if (global.facing == 2)
+    if (global.facing == direction_UP)
         sprite_index = usprite;
     
-    if (global.facing == 3)
+    if (global.facing == direction_LEFT)
         sprite_index = lsprite;
     
     if (climbing == 1)
@@ -785,7 +785,7 @@ if (onebuffer < 0)
             thisinteract = 0;
             d = global.darkzone + 1;
             
-            if (global.facing == 1)
+            if (global.facing == direction_RIGHT)
             {
                 if (collision_rectangle(x + (sprite_width / 2), y + (6 * d) + (sprite_height / 2), x + sprite_width + (13 * d), y + sprite_height, obj_interactable, false, true))
                     thisinteract = 1;
@@ -802,10 +802,10 @@ if (onebuffer < 0)
                 if (thisinteract == 2)
                     interactedobject = collision_rectangle(x + (sprite_width / 2), y + (6 * d) + (sprite_height / 2), x + sprite_width + (13 * d), y + sprite_height, obj_interactablesolid, false, true);
                 
-                if (interactedobject != -4)
+                if (interactedobject != noone)
                 {
                     with (interactedobject)
-                        facing = 3;
+                        facing = direction_LEFT;
                     
                     with (interactedobject)
                         scr_interact();
@@ -814,7 +814,7 @@ if (onebuffer < 0)
             
             thisinteract = 0;
             
-            if (global.facing == 3)
+            if (global.facing == direction_LEFT)
             {
                 if (collision_rectangle(x + (sprite_width / 2), y + (6 * d) + (sprite_height / 2), x - (13 * d), y + sprite_height, obj_interactable, false, true))
                     thisinteract = 1;
@@ -831,10 +831,10 @@ if (onebuffer < 0)
                 if (thisinteract == 2)
                     interactedobject = collision_rectangle(x + (sprite_width / 2), y + (6 * d) + (sprite_height / 2), x - (13 * d), y + sprite_height, obj_interactablesolid, false, true);
                 
-                if (interactedobject != -4)
+                if (interactedobject != noone)
                 {
                     with (interactedobject)
-                        facing = 1;
+                        facing = direction_RIGHT;
                     
                     with (interactedobject)
                         scr_interact();
@@ -843,7 +843,7 @@ if (onebuffer < 0)
             
             thisinteract = 0;
             
-            if (global.facing == 0)
+            if (global.facing == direction_DOWN)
             {
                 if (collision_rectangle(x + (4 * d), y + (28 * d), (x + sprite_width) - (4 * d), y + sprite_height + (15 * d), obj_interactable, false, true))
                     thisinteract = 1;
@@ -860,10 +860,10 @@ if (onebuffer < 0)
                 if (thisinteract == 2)
                     interactedobject = collision_rectangle(x + (4 * d), y + (28 * d), (x + sprite_width) - (4 * d), y + sprite_height + (15 * d), obj_interactablesolid, false, true);
                 
-                if (interactedobject != -4)
+                if (interactedobject != noone)
                 {
                     with (interactedobject)
-                        facing = 2;
+                        facing = direction_UP;
                     
                     with (interactedobject)
                         scr_interact();
@@ -872,7 +872,7 @@ if (onebuffer < 0)
             
             thisinteract = 0;
             
-            if (global.facing == 2)
+            if (global.facing == direction_UP)
             {
                 if (collision_rectangle(x + 3, (y + sprite_height) - (5 * d), (x + sprite_width) - (5 * d), y + (5 * d), obj_interactable, false, true))
                     thisinteract = 1;
@@ -909,7 +909,7 @@ if (onebuffer < 0)
                 if (interactedobject != noone)
                 {
                     with (interactedobject)
-                        facing = 0;
+                        facing = direction_DOWN;
                     
                     with (interactedobject)
                         scr_interact();

@@ -45,7 +45,7 @@ if (global.interact == 5)
                     dontthrowtype = 2;
                 }
                 
-                var is_weapon_type = get_weapon_by_lw_id(global.litem[global.menucoord[1]]) != -4;
+                var is_weapon_type = get_weapon_by_lw_id(global.litem[global.menucoord[1]]) != noone;
                 
                 if (is_weapon_type)
                 {

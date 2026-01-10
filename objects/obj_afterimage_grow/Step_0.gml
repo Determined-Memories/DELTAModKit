@@ -1,4 +1,4 @@
-if target != -4 && i_ex(target) {
+if target != noone && i_ex(target) {
 	x = target.x;
 	y = target.y;
 }

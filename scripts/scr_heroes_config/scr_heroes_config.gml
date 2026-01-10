@@ -64,6 +64,10 @@ function scr_hero_get_attackbackground_color(heroIdx) {
 		case DRHero.Kris:	return c_blue;
 		case DRHero.Susie:	return c_purple;
 		case DRHero.Ralsei: return c_green;
+		case DRHero.Noelle: return c_yellow; // Real quick Checked Deltarune's Code and it uses c_yellow Here.
+		
+		case DRHero.Starwalker: return #FFE400;
+
 		
 		default: return scr_hero_get_color(heroIdx);
 	}

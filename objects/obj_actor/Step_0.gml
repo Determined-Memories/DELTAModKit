@@ -37,7 +37,7 @@ if (auto_walk == 1)
     }
 }
 
-if (auto_facing == 1)
+if (auto_facing == direction_RIGHT)
 {
     v_vspeed = 0;
     v_hspeed = 0;

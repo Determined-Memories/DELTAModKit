@@ -4,22 +4,23 @@ image_speed = 0;
 if (global.darkzone)
     scr_darksize(id);
 
-walk = 0;
-fun = 0;
-follow = 1;
-runmove = 0;
-dir = 0;
+walk = false;
+fun = false;
+follow = true;
+runmove = false;
+dir = direction_DOWN;
 walkbuffer = 0;
 walktimer = 0;
-slided = 0;
-specialed = 0;
+slided = false;
+specialed = false;
 init_clothes = false;
 blushtimer = 0;
 shadow_force_off = false;
+
+// Char Init
 name = "susie";
-target = 12;
 sprite_init = false;
-target = 12;
+target = 12; 
 usprite = spr_susieu_dark;
 dsprite = spr_susied_dark;
 rsprite = spr_susier_dark;
@@ -31,14 +32,14 @@ dsprite_blush = spr_ralsei_walk_down_blush;
 rsprite_blush = spr_ralsei_walk_right_blush;
 lsprite_blush = spr_ralsei_walk_left_blush;
 
+// Kris Follow Init
 parent = obj_mainchara;
 pd = parent.dsprite;
 pr = parent.rsprite;
 pl = parent.lsprite;
 pu = parent.usprite;
 
-for (i = 0; i < 75; i += 1)
-{
+for (i = 0; i < 75; i += 1){
     remx[i] = parent.x;
     remy[i] = parent.y;
     facing[i] = global.facing;
@@ -51,8 +52,12 @@ mywidth = sprite_width;
 myheight = sprite_height;
 xoffset = 0;
 yoffset = 0;
-init = 0;
-forget = 0;
-ignoredepth = 0;
+init = false;
+forget = false; // Dont Forget!
+ignoredepth = false;
 halign = 6;
 valign = 16;
+
+// Custom INIT
+current_palette = spr_palette_krs_statue // sprite palette krisralseisusie statue
+palette_index = 0

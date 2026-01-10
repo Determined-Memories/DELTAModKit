@@ -1,4 +1,4 @@
-if (!scr_debug())
+if (!scr_debug() && DEBUGMODE)
 {
     instance_destroy();
 }

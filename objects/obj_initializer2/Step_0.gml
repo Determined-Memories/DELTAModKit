@@ -20,8 +20,7 @@ if (global.is_console)
 
 var CH = string(global.chapter);
 
-if (audio_group_is_loaded(1))
-{
+if (audio_group_is_loaded(audio_sfx)) {
     roomchoice = room_legend;//PLACE_CONTACT;
     menu_go = 0;
     
@@ -65,8 +64,7 @@ if (audio_group_is_loaded(1))
     room_goto(roomchoice);
 }
 
-if (scr_debug())
-{
+if (scr_debug()) {
     if (!instance_exists(obj_debugProfiler))
         instance_create_depth(0, 0, 0, obj_debugProfiler);
 }

@@ -187,7 +187,7 @@ function scr_phonename()
 
 function scr_litemuseb(idx, lightWorldId)
 {
-    var is_weapon = get_weapon_by_lw_id(lightWorldId) != -4;
+    var is_weapon = get_weapon_by_lw_id(lightWorldId) != noone;
 	show_debug_message(get_weapon_by_lw_id(lightWorldId));
 	show_debug_message("isweapon {0} lightworldid {1}", is_weapon, lightWorldId);
     

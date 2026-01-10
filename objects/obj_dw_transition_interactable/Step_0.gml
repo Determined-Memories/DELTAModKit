@@ -5,7 +5,7 @@ if (talking == 2)
         global.interact = 0;
         talking = 0;
         myinteract = 0;
-        global.facing = 0;
+        global.facing = direction_DOWN;
     }
 }
 

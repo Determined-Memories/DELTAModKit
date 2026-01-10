@@ -344,16 +344,11 @@ function scr_save()
     var uraboss = 0;
     
     if (global.chapter == 1)
-    {
         if (global.flag[241] == 6)
             uraboss = 1;
         else if (global.flag[241] == 7)
             uraboss = 2;
-    }
-    else
-    {
-        uraboss = scr_get_secret_boss_result(global.chapter);
-    }
+    else uraboss = scr_get_secret_boss_result(global.chapter);
     
     ini_write_real(scr_ini_chapter(global.chapter, global.filechoice), "UraBoss", uraboss);
     ini_write_string(scr_ini_chapter(global.chapter, global.filechoice), "Version", string(global.versionno));
@@ -460,12 +455,13 @@ function scr_saveprocess(slot)
         scr_ds_list_write(global.weaponstyle, stats_amount);
         ossafe_file_text_writeln(myfileid);
     }
-    
-    ossafe_file_text_write_string(myfileid, "CHARACTERAMT: " + string(DRHero.__MAX__));
-    for (i = 0; i < DRHero.__MAX__; i++)
-    {
-        if (!global.is_console)
-        {
+    var amt = DRHero.__MAX__ + 1
+	var STR = "CHARACTERAMT:" + string(amt)
+	show_debug_message(STR)
+    ossafe_file_text_write_string(myfileid, STR);
+    ossafe_file_text_writeln(myfileid);
+    for (i = 0; i < DRHero.__MAX__; i++) {
+        if (!global.is_console) {
             ossafe_file_text_write_real(myfileid, global.hp[i]);
             ossafe_file_text_writeln(myfileid);
             ossafe_file_text_write_real(myfileid, global.maxhp[i]);
@@ -526,8 +522,7 @@ function scr_saveprocess(slot)
     ossafe_file_text_write_real(myfileid, global.grazesize);
     ossafe_file_text_writeln(myfileid);
     
-    if (global.is_console)
-    {
+    if (global.is_console) {
         scr_ds_list_write(global.item, 13);
         ossafe_file_text_writeln(myfileid);
         scr_ds_list_write(global.keyitem, 13);
@@ -541,24 +536,21 @@ function scr_saveprocess(slot)
     }
     else
     {
-        for (j = 0; j < 13; j += 1)
-        {
+        for (j = 0; j < 13; j += 1) {
             ossafe_file_text_write_real(myfileid, global.item[j]);
             ossafe_file_text_writeln(myfileid);
             ossafe_file_text_write_real(myfileid, global.keyitem[j]);
             ossafe_file_text_writeln(myfileid);
         }
         
-        for (j = 0; j < 48; j++)
-        {
+        for (j = 0; j < 48; j++) {
             ossafe_file_text_write_real(myfileid, global.weapon[j]);
             ossafe_file_text_writeln(myfileid);
             ossafe_file_text_write_real(myfileid, global.armor[j]);
             ossafe_file_text_writeln(myfileid);
         }
         
-        for (j = 0; j < 72; j++)
-        {
+        for (j = 0; j < 72; j++) {
             ossafe_file_text_write_real(myfileid, global.pocketitem[j]);
             ossafe_file_text_writeln(myfileid);
         }
@@ -775,15 +767,17 @@ function scr_load()
         ossafe_file_text_readln(myfileid);
     }
 
-	var newread = ossafe_file_text_read_string(myfileid)
-	var amt = 5 // Original Max for DELTAMODKIT save files.
-	if newread != string_digits(newread){ // we can assume it's using the updated system
-		amt = real(string_digits(newread)) // Using the Amount of Characters returned by the Save Point.
+	var newread = string_replace_all(ossafe_file_text_read_string(myfileid), " ", "")
+	var amt = 5 // Original Max for DELTAMODKIT & DELTARUNE save files (starwalker doesnt save in old ways...)
+	show_debug_message(newread)
+	show_debug_message(string_digits(newread))
+	if newread != string_digits(newread) { // we can assume it's using the updated system
+		amt = real(string_digits(newread)) - 1 // Using the Amount of Characters returned by the Save Point.
+		ossafe_file_text_readln(myfileid);
 	}
-	else
+	show_debug_message("CHARACTERAMT:" + string(amt))
     for (i = 0; i < amt; i++){
-        if (!global.is_console)
-        {
+        if (!global.is_console) {
             global.hp[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
             global.maxhp[i] = ossafe_file_text_read_real(myfileid);
@@ -804,6 +798,17 @@ function scr_load()
             ossafe_file_text_readln(myfileid);
             global.weaponstyle[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
+			show_debug_message(global.charname[i])
+			show_debug_message(global.hp[i])
+			show_debug_message(global.maxhp[i])
+			show_debug_message(global.at[i])
+			show_debug_message(global.df[i])
+			show_debug_message(global.mag[i])
+			show_debug_message(global.guts[i])
+			show_debug_message(global.charweapon[i])
+			show_debug_message(global.chararmor1[i])
+			show_debug_message(global.chararmor2[i])
+			show_debug_message(global.weaponstyle[i])
         }
         
         for (q = 0; q < 4; q += 1)
@@ -976,10 +981,13 @@ function scr_load()
     }
     
     global.plot = ossafe_file_text_read_real(myfileid);
+	show_debug_message("PLOT?: " + string((global.plot)))
     ossafe_file_text_readln(myfileid);
     global.currentroom = ossafe_file_text_read_real(myfileid);
+	show_debug_message("ROOM: " + string((global.currentroom)))
     ossafe_file_text_readln(myfileid);
     global.time = ossafe_file_text_read_real(myfileid);
+	show_debug_message("TIME?: " + string((global.time)))
     ossafe_file_text_readln(myfileid);
 	// place right before ossafe_file_text_close(myfileid); in the scr_load function
 	var lastCategory = "NULL";
@@ -1045,21 +1053,16 @@ function scr_load()
         global.tempflag[95] = 1;
     
     if (scr_debug())
-    {
         if (room_exists(__loadedroom))
-        {
             room_goto(__loadedroom);
-        }
-        else
-        {
+        else {
             snd_play(snd_error);
             print_message("LOAD FAILED: ROOM [" + string(__loadedroom) + "] DOESN'T EXIST");
         }
-    }
-    else
-    {
-        room_goto(__loadedroom);
-    }
+    else if room_exists(__loadedroom)
+			room_goto(__loadedroom);
+		else
+			room_goto(PLACE)
 }
 
 function scr_tempsave()

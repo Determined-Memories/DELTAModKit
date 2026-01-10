@@ -13,4 +13,3 @@ function scr_asobject(obj, _method, argsarray = []){
     }
 
 }
-

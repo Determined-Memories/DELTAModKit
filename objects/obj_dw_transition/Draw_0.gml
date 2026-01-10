@@ -129,7 +129,7 @@ if (con == 9)
     if (timer == 68)
     {
         sus_f = 0.15;
-        sus_v = -4;
+        sus_v = noone;
         sus_y -= 2;
         sus_x -= 2;
         sus_sprite = spr_susie_lw_fall_u;
@@ -655,7 +655,7 @@ if (con == 34)
         
         persistent = 0;
         global.interact = 0;
-        global.facing = 0;
+        global.facing = direction_DOWN;
         obj_mainchara.x = (kris_x * 2) + 8;
         obj_mainchara.y = (kris_y * 2) + 4;
         

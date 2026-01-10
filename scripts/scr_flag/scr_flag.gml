@@ -1,11 +1,7 @@
-function global_flagname_init()
-{
+function global_flagname_init() {
 	global.flagname = [];
 
-	repeat (9999)
-	{
-	    array_push(global.flagname, undefined)
-	}
+	repeat (9999) array_push(global.flagname, undefined)
 
 	global.flagname[6] = "Can't Skip text"
 	global.flagname[8] = "Simplify VFX"
@@ -84,25 +80,20 @@ function global_flagname_init()
 	
 }
 
-function global_flagname_menu_init(arg0, arg1, arg2, arg3)
-{
+function global_flagname_menu_init(arg0, arg1, arg2, arg3) {
     return show_message("FlagName Menu No longer exists as most Debugging features are now being commented out before release [or getting replaced with return].")
 }
 
-function debug_message(val)
-{
-	if scr_debug()
-		show_debug_message(val)
+function debug_message(val) {
+	if scr_debug() show_debug_message(val)
 }
 
-function scr_flag_get(flag)
-{
+function scr_flag_get(flag) {
     var flag_value = global.flag[flag];
     return flag_value;
 }
 
-function scr_flag_name_get(flag)
-{
+function scr_flag_name_get(flag) {
     if (!global.is_console)
     {
         var v = global.flagname[flag];
@@ -114,22 +105,17 @@ function scr_flag_name_get(flag)
     }
 }
 
-function scr_getflag(flag)
-{
+function scr_getflag(flag) {
     return scr_flag_get(flag);
 }
 
-function scr_flag_set(flag, value)
-{
+function scr_flag_set(flag, value) {
     global.flag[flag] = value;
     
     if (scr_debug())
-    {
-        show_debug_message("*** flag [" + string(flag) + "] updated: " + string(value) + " | " + scr_flag_name_get(flag));
-    }
+	show_debug_message("*** flag [" + string(flag) + "] updated: " + string(value) + " | " + scr_flag_name_get(flag));
 }
 
-function scr_setflag(flag, value)
-{
+function scr_setflag(flag, value) {
     scr_flag_set(flag, value);
 }

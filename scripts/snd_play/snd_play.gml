@@ -1,18 +1,16 @@
-function scr_load_audio()
-{
-    var audio_groups = [1, 0];
+function scr_load_audio(){
+    var audio_groups = [audio_sfx, audiogroup_default];
     
     for (var i = 0; i < array_length(audio_groups); i++)
     {
-        if (audio_group_is_loaded(audio_groups[i]))
-            continue;
-        
-        audio_group_load(audio_groups[i]);
+        if !audio_group_is_loaded(audio_groups[i])        
+			audio_group_load(audio_groups[i]);
+		else 
+			show_debug_message("audio group '" + audio_group_name(audio_groups[i]) + "' Was already loaded.")
     }
 }
 
-function snd_volume(arg0, arg1, arg2)
-{
+function snd_volume(arg0, arg1, arg2){
     audio_sound_gain(arg0, arg1, (arg2 * 1000) / fps);
 }
 
@@ -133,10 +131,8 @@ function mus_initloop(arg0)
 function snd_pitch_time(arg0, arg1, arg2)
 {
     with (obj_lerppitch)
-    {
         if (sndtarget == arg0)
             instance_destroy();
-    }
     
     var pitchthing = instance_create(0, 0, obj_lerppitch);
     pitchthing.sndtarget = arg0;

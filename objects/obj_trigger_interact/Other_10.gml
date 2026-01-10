@@ -1,21 +1,21 @@
 var faceallowed = true;
 
-if (!face0allowed && obj_mainchara.facing == 0)
+if (!face0allowed && obj_mainchara.facing == direction_DOWN)
 {
     faceallowed = false;
 }
 
-if (!face1allowed && obj_mainchara.facing == 1)
+if (!face1allowed && obj_mainchara.facing == direction_RIGHT)
 {
     faceallowed = false;
 }
 
-if (!face2allowed && obj_mainchara.facing == 2)
+if (!face2allowed && obj_mainchara.facing == direction_UP)
 {
     faceallowed = false;
 }
 
-if (!face3allowed && obj_mainchara.facing == 3)
+if (!face3allowed && obj_mainchara.facing == direction_LEFT)
 {
     faceallowed = false;
 }

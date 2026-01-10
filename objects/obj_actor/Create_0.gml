@@ -2,7 +2,7 @@ scr_depth();
 image_speed = 0;
 walk = 1;
 auto_walk = 1;
-auto_facing = 1;
+auto_facing = direction_RIGHT;
 auto_depth = 1;
 stopped = 0;
 depthbonus = 0;

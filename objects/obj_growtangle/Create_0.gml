@@ -6,6 +6,7 @@ maxtimer = 15;
 growcon = 1;
 image_speed = 0;
 image_blend = merge_color(c_green, c_lime, 0.5);
+backingcol = c_black
 target_angle = 0;
 fullgrow = 0;
 keep = 0;

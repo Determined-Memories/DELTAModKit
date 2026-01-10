@@ -452,10 +452,7 @@ function scr_texttype()
         {
             hspace = ((hspace * 26) / 16) + 1;
             
-            if (vspace == 32)
-            {
-                vspace = 36;
-            }
+            if (vspace == 32) vspace = 36; // Update Default Spacing 
         }
         else if (fntname == "fnt_ja_mainbig")
         {
@@ -484,8 +481,9 @@ function scr_texttype()
     }
 }
 
-function scr_textsound()
-{
+
+
+function scr_textsound() {
     playtextsound = true;
     
     if (button2_h() == true) // true is already true, isn't it toby????
@@ -539,18 +537,18 @@ function scr_textsound()
         }
 
         // Lower the Amount of If Statements (Also allows for Easily adding more letters to the blacklist, rather than having to do a lot of CtrlC+CtrlV)
-	var soundblacklist = [" ", "^", "!", ".", "?", ",", ":", "/", "\\", "|", "*"];
+		var soundblacklist = [" ", "^", "!", ".", "?", ",", ":", "/", "\\", "|", "*"];
 		
-        var i = 0
-	while i < array_length(soundblacklist)
-	{
-		if getchar == soundblacklist[i]
+	    var i = 0
+		while i < array_length(soundblacklist)
 		{
-			play = false;
-			break;
+			if getchar == soundblacklist[i]
+			{
+				play = false;
+				break;
+			}
+			i++
 		}
-		i++
-	}
         
         if (play == true)
         {

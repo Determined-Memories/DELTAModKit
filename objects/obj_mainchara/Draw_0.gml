@@ -8,31 +8,31 @@ if (button1_p() && scr_debug())
     
     if (global.darkzone == 0)
     {
-        if (global.facing == 1)
+        if (global.facing == direction_RIGHT)
             draw_rectangle(x + (sprite_width / 2), y + 6 + (sprite_height / 2), x + sprite_width + 13, y + sprite_height, true);
         
-        if (global.facing == 3)
+        if (global.facing == direction_LEFT)
             draw_rectangle(x + (sprite_width / 2), y + 6 + (sprite_height / 2), x - 13, y + sprite_height, true);
         
-        if (global.facing == 0)
+        if (global.facing == direction_DOWN)
             draw_rectangle(x + 4, y + 28, (x + sprite_width) - 4, y + sprite_height + 15, true);
         
-        if (global.facing == 2)
+        if (global.facing == direction_UP)
             draw_rectangle(x + 3, (y + sprite_height) - 5, (x + sprite_width) - 5, y + 5, true);
     }
     
     if (global.darkzone == 1)
     {
-        if (global.facing == 1)
+        if (global.facing == direction_RIGHT)
             draw_rectangle(x + (sprite_width / 2), y + 12 + (sprite_height / 2), x + sprite_width + 26, y + sprite_height, true);
         
-        if (global.facing == 3)
+        if (global.facing == direction_LEFT)
             draw_rectangle(x + (sprite_width / 2), y + 12 + (sprite_height / 2), x - 26, y + sprite_height, true);
         
-        if (global.facing == 0)
+        if (global.facing == direction_DOWN)
             draw_rectangle(x + 4, y + 56, (x + sprite_width) - 8, y + sprite_height + 30, true);
         
-        if (global.facing == 2)
+        if (global.facing == direction_UP)
             draw_rectangle(x + 3, (y + sprite_height) - 10, (x + sprite_width) - 10, y + 10, true);
     }
     
@@ -60,16 +60,16 @@ if (swordmode == 0)
 {
     if (fun == 0)
     {
-        if (global.facing == 0)
+        if (global.facing == direction_DOWN)
             draw_sprite_ext(spr_krisd_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
         
-        if (global.facing == 1)
+        if (global.facing == direction_RIGHT)
             draw_sprite_ext(spr_krisr_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
         
-        if (global.facing == 2)
+        if (global.facing == direction_UP)
             draw_sprite_ext(spr_krisu_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
         
-        if (global.facing == 3)
+        if (global.facing == direction_LEFT)
             draw_sprite_ext(spr_krisl_heart, image_index, x, y, image_xscale, image_yscale, 0, image_blend, battlealpha);
     }
     //else if (sprite_index == spr_krisd_slide)
@@ -101,7 +101,7 @@ if (battlemode == 4)
 
 if (swordmode == 1)
 {
-    if (swordfacing == 1)
+    if (swordfacing == direction_RIGHT)
         draw_sprite_ext(swordsprite, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
     
     if (swordfacing == -1)

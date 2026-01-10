@@ -1,14 +1,11 @@
 if (delaytimer < delay)
-{
     with (obj_dmgwriter)
         killtimer = 0;
-}
 
 delaytimer += 1;
 mercytimer++;
 
-if (delaytimer == delay)
-{
+if (delaytimer == delay) {
     vspeed = -5 - random(2);
     hspeed = 10;
     vstart = vspeed;

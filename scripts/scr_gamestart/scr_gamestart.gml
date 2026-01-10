@@ -341,7 +341,7 @@ function scr_gamestart()
     global.ldf = 10;
     global.lwstrength = 1;
     global.ladef = 0;
-    global.facing = 0;
+    global.facing = direction_DOWN;
     global.flag[15] = 1;
     global.flag[16] = 0.85;
     global.flag[17] = 0.6;

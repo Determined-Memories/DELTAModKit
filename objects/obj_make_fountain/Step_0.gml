@@ -99,7 +99,7 @@ if (active == 1)
     {
         ballcheck = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_fountainball, false, true);
         
-        if (ballcheck != -4)
+        if (ballcheck != noone)
         {
             with (ballcheck)
             {

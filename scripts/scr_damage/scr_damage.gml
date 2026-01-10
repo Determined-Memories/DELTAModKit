@@ -212,20 +212,17 @@ function scr_damage_check()
     
     var took_damage = false;
     
-    for (var i = 0; i < array_length(global.damage_cache); i++)
-    {
+    for (var i = 0; i < array_length(global.damage_cache); i++) {
         var hp_cache = global.damage_cache[i];
         
-        if (global.hp[global.char[i]] < hp_cache)
-        {
+        if (global.hp[global.char[i]] < hp_cache) {
             took_damage = true;
             break;
         }
     }
 }
 
-function scr_party_hpaverage()
-{
+function scr_party_hpaverage(){
     var _totalhp = 0;
     var _totalmaxhp = 0;
     var _members = 0;
@@ -246,63 +243,46 @@ function scr_party_hpaverage()
         return 0;
 }
 
-function scr_damage_calculation(arg0, arg1)
-{
-    var _tdamage = arg0;
-    var _tdef = global.battledf[arg1];
-    var _tmaxhp = global.maxhp[global.char[arg1]];
+function scr_damage_calculation(tdamage, hero){
+    var _tdamage = tdamage;
+    var _tdef = global.battledf[hero];
+    var _tmaxhp = global.maxhp[global.char[hero]];
     var _finaldamage = 1;
     var _hpthresholda = _tmaxhp / 5;
     var _hpthresholdb = _tmaxhp / 8;
     
     for (var _di = 0; _di < _tdef; _di++)
-    {
         if (_tdamage > _hpthresholda)
             _tdamage -= 3;
         else if (_tdamage > _hpthresholdb)
             _tdamage -= 2;
         else
             _tdamage -= 1;
-    }
     
     return max(_tdamage, _finaldamage);
 }
 
-function scr_element_damage_reduction(arg0, arg1)
-{
-    var ___element = arg0;
-    var ___char = arg1;
+
+function scr_element_damage_reduction(elementid, hero){
+	
+    var ___element = elementid;
+    var ___char = hero;
     var ___reduction = 1;
     
-    if (___element != 0)
-    {
+    if (___element != false) // No Element
         for (var ___itemi = 0; ___itemi < 2; ___itemi++)
-        {
-            if (global.itemelement[___char][___itemi + 1] != 0)
-            {
-                if (global.itemelement[___char][___itemi + 1] == ___element)
-                    ___reduction -= global.itemelementamount[___char][___itemi + 1];
-                
-                if (global.itemelement[___char][___itemi + 1] == 9)
-                {
-                    if (___element == 2 || ___element == 8)
-                        ___reduction -= global.itemelementamount[___char][___itemi + 1];
-                }
-                
-                if (global.itemelement[___char][___itemi + 1] == 10)
-                    ___reduction -= global.itemelementamount[___char][___itemi + 1];
+            if (global.itemelement[___char][___itemi + 1] != false) {
+                if (global.itemelement[___char][___itemi + 1] == ___element)  ___reduction -= global.itemelementamount[___char][___itemi + 1];
+                if (global.itemelement[___char][___itemi + 1] == 9) if (___element == 2 || ___element == 8) ___reduction -= global.itemelementamount[___char][___itemi + 1];
+                if (global.itemelement[___char][___itemi + 1] == 10) ___reduction -= global.itemelementamount[___char][___itemi + 1];
             }
-        }
-    }
     
-    if (___reduction < 0.25)
-        ___reduction = 0.25;
+    if (___reduction < 0.25) ___reduction = 0.25;
     
     return ___reduction;
 }
 
-function scr_damage_all(arg0 = 1)
-{
+function scr_damage_all(arg0 = 1){
     if (global.inv < 0)
     {
         remdamage = damage;

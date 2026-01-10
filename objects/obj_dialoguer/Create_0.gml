@@ -16,7 +16,7 @@ remwriterx = 0;
 remwritery = 0;
 runcheck = 0;
 preventcskip = false;
-myface = -4;
+myface = noone;
 jpspecial = 0;
 
 if (instance_exists(obj_mainchara))

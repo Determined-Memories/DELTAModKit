@@ -19,7 +19,7 @@ if (!shadinit)
 	    with (instance_create(0, 0, obj_floorshadow))
 	    {
 	        target = other.id;
-	        yoff = -4;
+	        yoff = noone;
 	        stretch = 3;
 	    }
 	}
@@ -106,7 +106,7 @@ if (con == 0)
     con = 1;
     alarm[0] = 1;
     global.interact = 1;
-    global.facing = 0;
+    global.facing = direction_DOWN;
     
     with (obj_floorshadow)
     {
@@ -272,7 +272,7 @@ if con == 4
 if (con == 3 && !i_ex(obj_cutscene_master))
 {
     global.interact = 0;
-    global.facing = 0;
+    global.facing = direction_DOWN;
     global.plot = 230;
     con = 99;
     

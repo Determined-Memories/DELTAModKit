@@ -25,4 +25,16 @@ if (button2_h())
 
 remove_slow_z_buffer = 40;
 
-scr_heartcolor(0)
+
+mydata = getsoulmodedata(color)
+
+_updatedata = function(flashsoulcolorlight = false) {
+	mydata = getsoulmodedata(color)
+	if flashsoulcolorlight {
+		snd_play(snd_great_shine)
+		var flash = instance_create(camerax(), cameray(), obj_fadein)
+		flash.image_blend = mydata.color // Flash Color
+	}
+}
+
+scr_heartcolor(0, true)

@@ -214,7 +214,7 @@ if (global.menuno == 5)
             
             if (i < 7)
             {
-                /*if (is_dualshock)
+                if (is_dualshock)
                 {
                     var _sprite = scr_getbuttonsprite(global.input_g[i], false);
                     var _sprite_height = 29;
@@ -243,16 +243,16 @@ if (global.menuno == 5)
                 {
                     if (obj_gamecontroller.gamepad_active)
                     {
-                        var _sprite = (scr_getbuttonsprite(global.input_g[i], false) != noone) ? scr_getbuttonsprite(global.input_g[i], false) : button_switch_left_0;
+                        var _sprite = (scr_getbuttonsprite(global.input_g[i], false) != noone) ? scr_getbuttonsprite(global.input_g[i], false) : 0 //button_switch_left_0;
                         var _xPos = (global.lang == "en") ? (xx + 475) : (xx + 465);
                         
-                        if (_sprite == button_switch_lStickClick_0 || _sprite == button_switch_rStickClick_0)
-                            _xPos -= 3;
+                       /* if (_sprite == button_switch_lStickClick_0 || _sprite == button_switch_rStickClick_0)
+                            _xPos -= 3;*/
                         
                         draw_sprite_ext(_sprite, 0, _xPos, yy + 144 + (i * (28 + line_padding)) + _yOffset, 2, 2, 0, c_white, 1);
                     }
                 }
-                else*/
+                else
                 {
                     draw_text(xx + 325, yy + voff + 140 + (i * vspacing), safe_string_hash_to_newline(global.asc_def[global.input_k[i]]));
                     

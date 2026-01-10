@@ -60,7 +60,7 @@ function scr_marker_fromasset(arg0, arg1 = depth, arg2 = false)
     if (is_undefined(arg0))
     {
         debug_message("Warning: scr_marker_fromasset() sprite_instance didn't exist");
-        return -4;
+        return noone;
     }
     
     var sprite = layer_sprite_get_sprite(arg0);

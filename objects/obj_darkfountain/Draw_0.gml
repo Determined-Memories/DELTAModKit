@@ -64,7 +64,7 @@ draw_sprite_ext(sprite_index, 0, ((room_width / 2) - (sprite_width / 2)) + (sin(
 draw_sprite_ext(sprite_index, 0, (room_width / 2) - (sprite_width / 2) - (sin(siner / 16) * 12), 0 - ((bgsiner * 280) / 7), 2, 2, 0, colcol, 0.5);
 draw_sprite_ext(sprite_index, 0, (room_width / 2) - (sprite_width / 2) - (sin(siner / 16) * 12), 280 - ((bgsiner * 280) / 7), 2, 2, 0, colcol, 0.5);
 draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), -8 + (sin(siner / 16) * 8), 2, 2, 0, colcol, 0.3);
-draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), -4 + (sin(siner / 16) * 4), 2, 2, 0, colcol, 0.5);
+draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), noone + (sin(siner / 16) * 4), 2, 2, 0, colcol, 0.5);
 draw_sprite_ext(spr_fountainbottom, 0, (room_width / 2) - (sprite_width / 2), 0, 2, 2, 0, colcol, 1);
 draw_set_color(nowcolor);
 ossafe_fill_rectangle(0, 280, 640, 480, 0);

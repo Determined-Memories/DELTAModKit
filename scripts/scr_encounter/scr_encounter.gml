@@ -1,10 +1,8 @@
-function scr_encountersetup(encounterid)
-{
+function scr_encountersetup(encounterid) {
     xx = camerax();
     yy = cameray();
     
-    for (i = 0; i < 3; i += 1)
-    {
+    for (i = 0; i < 3; i += 1) {
         global.heromakex[i] = xx + 80;
         global.heromakey[i] = yy + 50 + (80 * i);
         global.monsterinstancetype[i] = obj_baseenemy;
@@ -72,153 +70,101 @@ function scr_encountersetup(encounterid)
     }*/
 }
 
-function scr_isphase(arg0)
-{
-    __isphase = 0;
-    
-    if ((arg0 == "menu" || arg0 == DREncounterPhase.Menu) && global.myfight == 0)
-        __isphase = 1;
-    
-    if ((arg0 == "acting" || arg0 == DREncounterPhase.Acting) && global.myfight == 3)
-        __isphase = 1;
-    
-    if ((arg0 == "victory" || arg0 == DREncounterPhase.Victory) && global.myfight == 7)
-        __isphase = 1;
-    
-    if (arg0 == "attack" || arg0 == "fight" || arg0 == DREncounterPhase.HeroesAttack)
-    {
-        if (global.myfight == 1)
-            __isphase = 1;
-    }
-    
-    if (arg0 == "spell" || arg0 == "item" || arg0 == DREncounterPhase.SpellsItems)
-    {
-        if (global.myfight == 4)
-            __isphase = 1;
-    }
-    
-    if (arg0 == "enemytalk" || arg0 == "balloon" || arg0 == DREncounterPhase.EnemyTalk)
-    {
-        if (global.mnfight == 1)
-            __isphase = 1;
-    }
-    
-    if (arg0 == "enemyattack" || arg0 == "bullets" || arg0 == DREncounterPhase.EnemyAttack)
-    {
-        if (global.mnfight == 2)
-            __isphase = 1;
-    }
+function scr_isphase(phase){
+    __isphase = false;
+	// HEROS   
+    if ((phase == "menu" || phase == DREncounterPhase.Menu) && global.myfight == 0) __isphase = true;
+    if ((phase == "acting" || phase == DREncounterPhase.Acting) && global.myfight == 3) __isphase = true;
+    if ((phase == "victory" || phase == DREncounterPhase.Victory) && global.myfight == 7) __isphase = true;
+    if (phase == "attack" || phase == "fight" || phase == DREncounterPhase.HeroesAttack) if (global.myfight == 1) __isphase = true;
+    if (phase == "spell" || phase == "item" || phase == DREncounterPhase.SpellsItems) if (global.myfight == 4) __isphase = true;
+	
+	// ENEMIES
+    if (phase == "enemytalk" || phase == "balloon" || phase == DREncounterPhase.EnemyTalk) if (global.mnfight == 1) __isphase = true;
+    if (phase == "enemyattack" || phase == "bullets" || phase == DREncounterPhase.EnemyAttack) if (global.mnfight == 2) __isphase = true;
     
     return __isphase;
 }
 
-function scr_randomtarget()
-{
-    abletotarget = 1;
+function scr_randomtarget(){
+    abletotarget = true;
     
-    if (global.charcantarget[0] == 0 && global.charcantarget[1] == 0 && global.charcantarget[2] == 0)
-        abletotarget = 0;
+    if (global.charcantarget[0] == false && global.charcantarget[1] == false && global.charcantarget[2] == false) 
+        abletotarget = false; // No Heros.
     
     mytarget = choose(0, 1, 2);
     
-    if (abletotarget == 1)
-    {
-        while (global.charcantarget[mytarget] == 0)
+    if (abletotarget == true)
+        while (global.charcantarget[mytarget] == false)
             mytarget = choose(0, 1, 2);
-    }
     else
-    {
         mytarget = 3;
-    }
     
-    global.targeted[mytarget] = 1;
+    global.targeted[mytarget] = true;
     
-    if (global.chapter >= 2 && mytarget != 3)
-    {
-        if (global.charcantarget[0])
-            global.targeted[0] = 1;
-        
-        if (global.charcantarget[1])
-            global.targeted[1] = 1;
-        
-        if (global.charcantarget[2])
-            global.targeted[2] = 1;
+    if (global.chapter >= 2 && mytarget != 3) {
+        if (global.charcantarget[0]) global.targeted[0] = true;
+        if (global.charcantarget[1]) global.targeted[1] = true;
+        if (global.charcantarget[2]) global.targeted[2] = true;
         
         mytarget = 4;
     }
 }
 
-function scr_messagepriority(arg0)
-{
+function scr_messagepriority(priority) {
     if (i_ex(obj_battlecontroller))
-    {
-        if (obj_battlecontroller.messagepriority < arg0)
-        {
-            obj_battlecontroller.messagepriority = arg0;
+        if (obj_battlecontroller.messagepriority < priority) {
+            obj_battlecontroller.messagepriority = priority;
             return true;
         }
         else
-        {
             return false;
-        }
-    }
     else
-    {
         return false;
-    }
 }
 
-function scr_attackpriority(arg0)
-{
+function scr_attackpriority(priority){
     if (i_ex(obj_battlecontroller))
-    {
-        if (obj_battlecontroller.attackpriority < arg0)
-        {
-            obj_battlecontroller.attackpriority = arg0;
+        if (obj_battlecontroller.attackpriority < priority) {
+            obj_battlecontroller.attackpriority = priority;
             return true;
         }
         else
-        {
             return false;
-        }
-    }
     else
-    {
         return false;
-    }
 }
 
-function scr_enemyblcon(arg0, arg1, arg2)
-{
+function scr_enemyblcon(x, y, arg2) {
     if (arg2 == 0)
     {
-        mywriter = instance_create(arg0, arg1, obj_writer);
+        mywriter = instance_create(x, y, obj_writer);
         return mywriter;
     }
     
     if (arg2 == 1)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         return myblcon;
     }
     
     if (arg2 == 2)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v;
         return myblcon;
     }
     
     if (arg2 == 3)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         return myblcon;
     }
     
     if (arg2 == 4)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         myblcon.image_index = 0;
         myblcon.image_speed = 0;
@@ -227,7 +173,7 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 5)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         myblcon.image_index = 1;
         myblcon.image_speed = 0;
@@ -236,7 +182,7 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 6)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_clubs;
         myblcon.image_index = 2;
         myblcon.image_speed = 0;
@@ -245,7 +191,7 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 7)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long_r;
         myblcon.image_index = 2;
         myblcon.image_speed = 0;
@@ -254,14 +200,14 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 8)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long_tall;
         return myblcon;
     }
     
     if (arg2 == 10)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         myblcon.auto_length = 1;
         return myblcon;
@@ -269,49 +215,49 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 11)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_left;
         return myblcon;
     }
     
     if (arg2 == 12)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_right;
         return myblcon;
     }
     
     if (arg2 == 12.1)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_right2;
         return myblcon;
     }
     
     if (arg2 == 12.2)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_right3;
         return myblcon;
     }
     
     if (arg2 == 12.3)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_right4;
         return myblcon;
     }
     
     if (arg2 == 12.4)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_v2_right5;
         return myblcon;
     }
     
     if (arg2 == 13)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         myblcon.auto_length = 1;
         myblcon.side = 2;
@@ -320,7 +266,7 @@ function scr_enemyblcon(arg0, arg1, arg2)
     
     if (arg2 == 14)
     {
-        myblcon = instance_create(arg0, arg1, obj_battleblcon);
+        myblcon = instance_create(x, y, obj_battleblcon);
         myblcon.sprite_index = spr_battleblcon_long;
         myblcon.auto_length = 1;
         myblcon.side = -1;
@@ -357,62 +303,44 @@ function scr_blconskip(arg0)
         if (talktimer > 15)
             talktimer = talkmax;
         
-        if (talktimer >= talkmax)
-        {
-            with (obj_writer)
-                instance_destroy();
+        if (talktimer >= talkmax) {
+            with (obj_writer) instance_destroy();
             
             global.mnfight = 1.5;
         }
     }
 }
 
-function scr_bullet_inherit(arg0)
-{
-    if (i_ex(arg0))
-    {
-        if (damage != -1)
-            arg0.damage = damage;
+function scr_bullet_inherit(bullet) {
+    if (i_ex(bullet)) {
+        if (damage != -1) bullet.damage = damage;
         
-        if (grazepoints != -1)
-            arg0.grazepoints = grazepoints;
-        
-        if (timepoints != -1)
-            arg0.timepoints = timepoints;
-        
-        if (inv != -1)
-            arg0.inv = inv;
-        
-        if (target != -1)
-            arg0.target = target;
-        
-        if (grazed != -1)
-            arg0.grazed = 0;
-        
-        if (grazetimer != -1)
-            arg0.grazetimer = 0;
-        
-        if (object_index == obj_dbulletcontroller)
-        {
-            arg0.creatorid = creatorid;
-            arg0.creator = creator;
+        if (grazepoints != -1) bullet.grazepoints = grazepoints;
+        if (timepoints != -1) bullet.timepoints = timepoints;
+        if (inv != -1) bullet.inv = inv;
+        if (target != -1) bullet.target = target;
+        if (grazed != -1) bullet.grazed = 0;
+        if (grazetimer != -1) bullet.grazetimer = 0;
+        if (object_index == obj_dbulletcontroller) {
+            bullet.creatorid = creatorid;
+            bullet.creator = creator;
         }
         
-        arg0.element = element;
+        bullet.element = element;
     }
 }
 
-function scr_bullet_init()
-{
-    grazed = 0;
+function scr_bullet_init(){
+    grazed = false;
     grazetimer = 0;
-    destroyonhit = 1;
-    target = 0;
+    destroyonhit = true;
+    target = false;
     inv = 60;
     damage = 10;
-    element = 0;
+    element = false;
     grazepoints = 1;
     timepoints = 1;
-    active = 1;
-    updateimageangle = 0;
+    active = true;
+    updateimageangle = false;
+	swoon = false;
 }

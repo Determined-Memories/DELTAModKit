@@ -22,8 +22,8 @@ function scr_bullet_pattern(bulletPatternId) {
 			
 			// bullet maker, check out obj_dbullet_maker which you can use as a base
 			bm = instance_create(obj_heart.x + 8 + xx, obj_heart.y + 8 + yy, obj_dbullet_maker);
-			bm.grazepoints = grazepoints;
-			bm.damage = damage;
+			if grazepoints != -1 bm.grazepoints = grazepoints; // By Default the grazepoints for this creator is -1, which causes you to LOSE TP
+			if damage != -1 bm.damage = damage;
 			bm.target = target;
 			
 			if bm.y < cameray() + 40
@@ -42,13 +42,13 @@ function scr_bullet_pattern(bulletPatternId) {
 			if choose(0, 1, 2, 3) == 3 xx = -10 + random(20);
 			
 			d = instance_create(obj_heart.x + 8 + xx, obj_heart.y + 8 + yy, obj_dbullet_vert);
-			d.damage = damage;
+			if damage != -1 bm.damage = damage;
 			d.target = target;
 			break;
 		}
 		
 		case DRBulletPattern.SwordThrow: {
-			if !made break;
+			if !made break; // ????
 			made = true;
 			
 			if !i_ex(creatorid) break;

@@ -85,20 +85,20 @@ scr_character_set_caterpillar_sprites(global.char[0])
 
 init_clothes = false;
 
-swordfacing = 1;
+swordfacing = direction_RIGHT;
 swordsprite = rsprite;
 fun = false;
 
-if (global.facing == 0)
+if (global.facing == direction_DOWN)
     sprite_index = dsprite;
 
-if (global.facing == 1)
+if (global.facing == direction_RIGHT)
     sprite_index = rsprite;
 
-if (global.facing == 2)
+if (global.facing == direction_UP)
     sprite_index = usprite;
 
-if (global.facing == 3)
+if (global.facing == direction_LEFT)
     sprite_index = lsprite;
 
 onebuffer = 0;
@@ -267,7 +267,7 @@ function check_heightfloor(arg0, arg1, arg2)
     var __onfloor = 0;
     var __inst = instance_position(bbox_right + arg0, bbox_top + arg1, arg2);
     
-    if (__inst != -4)
+    if (__inst != noone)
     {
         if (__inst.floorheight == floorheight)
             __onfloor++;
@@ -275,7 +275,7 @@ function check_heightfloor(arg0, arg1, arg2)
     
     __inst = instance_position(bbox_right + arg0, bbox_bottom + arg1, arg2);
     
-    if (__inst != -4)
+    if (__inst != noone)
     {
         if (__inst.floorheight == floorheight)
             __onfloor++;
@@ -283,7 +283,7 @@ function check_heightfloor(arg0, arg1, arg2)
     
     __inst = instance_position(bbox_left + arg0, bbox_top + arg1, arg2);
     
-    if (__inst != -4)
+    if (__inst != noone)
     {
         if (__inst.floorheight == floorheight)
             __onfloor++;
@@ -291,7 +291,7 @@ function check_heightfloor(arg0, arg1, arg2)
     
     __inst = instance_position(bbox_left + arg0, bbox_bottom + arg1, arg2);
     
-    if (__inst != -4)
+    if (__inst != noone)
     {
         if (__inst.floorheight == floorheight)
             __onfloor++;

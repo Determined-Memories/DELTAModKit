@@ -1,5 +1,4 @@
-function scr_wincombat()
-{
+function scr_wincombat(){
     if (global.flag[60] == 0 || global.flag[36] == 1)
     {
         global.myfight = 7;
@@ -51,8 +50,7 @@ function scr_wincombat()
     }
 }
 
-function scr_endcombat()
-{
+function scr_endcombat(){
     global.fighting = 0;
     
     if (global.specialbattle == 0 || global.specialbattle == 2 || global.specialbattle == 3)

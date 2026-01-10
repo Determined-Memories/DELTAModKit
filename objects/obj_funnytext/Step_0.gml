@@ -1,4 +1,4 @@
-if (init == 0)
+if (init == false)
 {
     var playsound = false;
     
@@ -6,7 +6,7 @@ if (init == 0)
     {
         //var text_sound = scr_funnytext_get_sound(sprite_index);
         
-        //if (text_sound != -4)
+        //if (text_sound != noone)
         {
             //playsound = true;
             //typingnoise = text_sound;
@@ -14,9 +14,9 @@ if (init == 0)
     }
     else if (settingb == 1)
     {
-        //if (sprite_index == scr_84_get_sprite("spr_funnytext_fun_o_meter"))
+        if false && sprite_index == scr_84_get_sprite("spr_funnytext_fun_o_meter")
         {
-            //if (i_ex(obj_ch3_GSA01G))
+            if i_ex(obj_ch3_GSA01G)
             {
                 playsound = true;
                 //typingnoise = 84;
@@ -24,25 +24,19 @@ if (init == 0)
         }
     }
     
-    if (settinga == 0)
-        typingstyle = 0;
+    if (settinga == 0) typingstyle = 0;
     
-    if (settinga == 1)
-        typingstyle = 1;
+    if (settinga == 1) typingstyle = 1;
     
     y += 5;
     
-    if (typingstyle == 0)
-    {
+    if (typingstyle == 0) {
         var spritename = sprite_get_name(sprite_index);
         loopsprite = asset_get_index(spritename + "_loop");
         
         if (loopsprite > 0)
-        {
             typingstyle = 2;
-        }
-        else
-        {
+        else {
             x += (sprite_width / 2);
             y += (sprite_height / 2);
             image_xscale = 0;
@@ -52,49 +46,38 @@ if (init == 0)
         }
     }
     
-    init = 1;
+    init = true;
     
     //if (playsound)
     //    snd_play(typingnoise);
 }
 
 if (i_ex(obj_writer))
-{
     if (obj_writer.halt > 0)
         writerfinished = 1;
-}
 
-if (typingstyle == 0)
-{
-    if (writerfinished)
-    {
+if (typingstyle == 0) {
+    if (writerfinished) {
         image_xscale = idealxscale;
         image_yscale = idealyscale;
         
-        with (lerpa)
-            instance_destroy();
-        
-        with (lerpb)
-            instance_destroy();
+        with (lerpa) instance_destroy();
+        with (lerpb) instance_destroy();
     }
     
     image_index += 1;
 }
 
-if (typingstyle == 1)
-{
+if typingstyle == 1 {
     chartimer++;
     
-    if (writerfinished)
-    {
+    if writerfinished {
         charmax = image_number;
         typingfinished = 1;
     }
     
-    if (!typingfinished)
-    {
-        if (chartimer >= typingspeed)
-        {
+    if !typingfinished {
+        if (chartimer >= typingspeed){
             chartimer = 0;
             charmax++;
             
@@ -108,11 +91,9 @@ if (typingstyle == 1)
 
 if (typingstyle == 2)
 {
-    if (con == 1)
-        image_index += 1;
+    if (con == 1) image_index += 1;
     
-    if (con == 0)
-    {
+    if (con == 0) {
         image_index += 1;
         
         if (image_index >= image_number)
@@ -124,5 +105,4 @@ if (typingstyle == 2)
     }
 }
 
-if (!i_ex(obj_writer))
-    instance_destroy();
+if (!i_ex(obj_writer)) instance_destroy();
