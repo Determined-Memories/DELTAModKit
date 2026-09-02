@@ -84,6 +84,11 @@ function c_customfunc(func, arg1 = -1) { with (obj_cutscene_master) { array_push
 /// @arg {any} Argument A Literal Argument, Inputted into the function
 function c_delay_customfunc(t, func, arg = -1) { c_cmd_x("delaycmd", t, "customfunc", arg, func, 0, 0); }
 
+/// @desc Pauses the Cutscene
+function c_waitcustom() { c_cmd("waitcustom", 0, 0, 0, 0) }
+/// @desc Forcibly Unpauses the cutscene, used with c_waitcustom, though it can forcibly unpause any wait
+function c_waitcustom_end() { with (obj_cutscene_master) { cs_wait_custom = 0 waiting = 0 } }
+
 function c_script_instance(){
 	if (argument_count == 3) c_cmd_x("script", argument[0], argument[1], argument[2], -pi, -pi, -pi)	
 	if (argument_count == 4) c_cmd_x("script", argument[0], argument[1], argument[2], argument[3], -pi, -pi)	

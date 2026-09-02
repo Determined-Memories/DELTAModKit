@@ -34,6 +34,29 @@ if con == 0 && place_meeting(x, y, obj_mainchara) {
 	c_wait(59)
 	c_soundplay(snd_wing)
 	
+	// TEST - WALK
+	c_wait(5)
+	c_setxy(marker_landat.x, marker_landat.y)
+	c_shakeobj()
+	c_facing("u")
+	c_wait(5)
+	c_actortokris()
+	c_customfunc(function() { kr_actor.visible = false global.interact = 0 })
+	
+	c_wait(60)
+	c_customfunc(function() {
+		var tempactcount = actor_count
+		actor_count = -1
+		obj_mainchara.visible = false
+		kr_actor.sprite_index = obj_mainchara.sprite_index
+		kr_actor.x = obj_mainchara.x
+		kr_actor.y = obj_mainchara.y
+		kr_actor.visible = true
+		kr_actor.facing = global.facing
+		global.interact = 1
+	})
+	c_wait(10)
+	
 	// Whatever stuff
 	c_sel(star)
 	c_autowalk(false)
