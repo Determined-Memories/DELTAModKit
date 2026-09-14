@@ -1,7 +1,6 @@
 if (init == 0 && con == 1) {
 	logopieces = 0
 	init = 1
-		
 	drawlogopart = array_create(9, 0)
 		
 	con = 2
@@ -33,6 +32,7 @@ if (con == 2) {
 	}
 		
 	if (logotimer >= 120) {
+		if logotimer == 120 snd_play(snd_cardrive)
 		draw_set_font(fnt_mainbig)
 		draw_set_color(c_white)
 		draw_text_ext(105, 120, "CHAPTER " + string(CHAPTERINDEX), 10, 900)

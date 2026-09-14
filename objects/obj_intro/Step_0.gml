@@ -1,12 +1,5 @@
 if (con == 0) {
-	if (!files_exist)
-	{
-		timer++
+	timer++
 		
-		if (timer == 75)
-			con = 1
-	}
-	else { 
-		// REMOVED QUEEN STUFF	
-	}
+	if (timer == 75) con = 1
 }
