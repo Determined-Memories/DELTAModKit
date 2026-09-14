@@ -260,7 +260,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1400.0.911",
+    "IDEVersion":"2026.100.0.1149",
   },
   "name":"DELTAModKit",
   "resources":[
@@ -412,6 +412,7 @@
     {"id":{"name":"obj_initializer2","path":"objects/obj_initializer2/obj_initializer2.yy",},},
     {"id":{"name":"obj_interactable","path":"objects/obj_interactable/obj_interactable.yy",},},
     {"id":{"name":"obj_interactablesolid","path":"objects/obj_interactablesolid/obj_interactablesolid.yy",},},
+    {"id":{"name":"obj_intro","path":"objects/obj_intro/obj_intro.yy",},},
     {"id":{"name":"obj_jump_to_point","path":"objects/obj_jump_to_point/obj_jump_to_point.yy",},},
     {"id":{"name":"obj_legend","path":"objects/obj_legend/obj_legend.yy",},},
     {"id":{"name":"obj_lerppitch","path":"objects/obj_lerppitch/obj_lerppitch.yy",},},

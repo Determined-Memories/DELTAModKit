@@ -332,6 +332,11 @@ function scr_enemy_drawstatus_battle(enemyId){
 // Defeat Run System Core Data Config init
 variable_global_set("@@DefeatAnimationData@@", [])
 
+/// @desc Creates a New Defeat Animation, Create Animations are Stored in @@DefeatAnimationData@@, but it is safer to get the list from scr_getdefeatanimationdataarray
+/// @arg {Asset.Object} Object The Object that would spawn if this is Activated
+/// @arg {Asset.ConditionFunc} Condition if false this will not be considered, if True it'll be considered, Arguments: []
+/// @arg {real} Priority the Priority, if this defeat animation is considered, it'll then check the priority and compare it with other considered ones, the one with the highest priority wins
+/// @arg {Asset.PostCreateFunc} PostCreate Runs if this Defeat animation is Activated, Arguments: [Spawned instance]
 function scr_createdefeatanimation(object, condition = function() { return false }, priority = 0, postcreate = function(instance) {}) {
 		var defeatanimdata = {}
 		defeatanimdata.object = object
@@ -341,6 +346,7 @@ function scr_createdefeatanimation(object, condition = function() { return false
 		array_push(scr_getdefeatanimationdataarray(), defeatanimdata)
 }
 
+/// @returns {array.DefeatAnimationData}
 function scr_getdefeatanimationdataarray() {
 	if !variable_global_exists("@@DefeatAnimationData@@") variable_global_set("@@DefeatAnimationData@@", [])
 	return 	variable_global_get("@@DefeatAnimationData@@")
